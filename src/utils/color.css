@@ -2,6 +2,8 @@
   outline: lightgreen 1px solid;
 }
 
+/*document.body.contentEditable = true*/
+
 .BLACK {
   color: black;
 }

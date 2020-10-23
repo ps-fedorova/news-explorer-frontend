@@ -26,10 +26,3 @@ code {
     margin: 0 16px;
   }
 }
-
-@media screen and (max-width: 840px) {
-  .page {
-    margin: 0 16px;
-
-  }
-}

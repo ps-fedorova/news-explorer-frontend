@@ -1,40 +1,35 @@
 .menu-mobile {
   display: flex;
   font-size: 18px;
-  min-height: 286px;
+  min-height: 568px;
   position: relative;
   top: -55px;
-  margin: 0 -16px;
-  border-radius: 0 0 16px 16px;
+  margin:   0 -16px;;
 }
 
 .menu-mobile__position {
-  padding-top: 42px;
   display: none;
-  background-color: #1A1B22;
 }
 
 .menu-mobile__button {
   min-height: 56px;
   color: white;
-  background-color: transparent;
-  margin-top: 40px;
+  background-color: #1A1B22;
   display: block;
 }
 
 .menu-mobile__link {
   color: white;
-  margin-top: 40px;
+  margin-top: 55px;
 }
 
 .menu-mobile_type_close {
   visibility: hidden;
-  margin-top: -286px;
+  margin-top: -568px;
   height: 0;
   opacity: 0;
   transition: all .4s, .4s ease;
 }
-
 .menu-mobile_type_open {
   height: 90px;
   opacity: 1;
@@ -46,14 +41,13 @@
     background-color: #1A1B22;
   }
 
-.menu-mobile__position {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 358px;
-  margin: auto;
-  padding: 42px 16px 22px;
-}
-
+  .menu-mobile__position {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 358px;
+    margin: auto;
+    padding: 55px 16px 0;
+  }
 
 }

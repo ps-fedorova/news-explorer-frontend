@@ -8,6 +8,7 @@ import MenuMobile from '../MenuMobile/MenuMobile';
 
 import logout from '../../images/logout.svg';
 import logoutDark from '../../images/logout-dark.svg';
+import Link from "../Link";
 
 function Header() {
 
@@ -30,9 +31,23 @@ function Header() {
   return (
     <header className="header">
       <div className="header__position">
-        <NavLink to="/" className="header__logo">NewsExplorer</NavLink>
+
+        <Link
+          className="header__logo"
+          to="/"
+          value="NewsExplorer"
+        />
         <div className="header__menu">
-          <NavLink className="header__text" to="/">Главная</NavLink>
+          <Link
+            className="header__text"
+            to="/"
+            value="Главная"
+          />
+          <Link
+            className="header__text"
+            to="/saved-news"
+            value="Сохраненные статьи"
+          />
           <Button
             // value="Грета"
             value="1234567890123456789012345678901234567890"

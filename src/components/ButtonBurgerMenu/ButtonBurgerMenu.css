@@ -17,7 +17,7 @@
 .button-burger-menu:after,
 .button-burger-menu:before,
 .span {
-  background-color: black;
+  background-color: white;
   content: "";
   display: block;
   height: 2px;
