@@ -33,13 +33,12 @@
   margin: auto 34px auto auto;
 }
 
-
 .header__button-logout {
   margin: auto;
 }
 
 @media screen and (max-width: 840px) {
-   .header {
+  .header {
     align-items: flex-start;
     flex-direction: column;
     justify-content: flex-start;
@@ -52,6 +51,17 @@
 
   .header__border {
     height: 55px;
+  }
+
+  .header__overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: -16px;
+    right: -16px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
   }
 
   .header__position {

@@ -14,12 +14,15 @@ function Header() {
 
   const [classBurgerMenu, setClassBurgerMenu] = React.useState('button-burger-menu_type_closed');
   const [isShowMenu, setIsShowMenu] = React.useState('menu-mobile_type_close');
+  const [isShowOverlay, setIsShowOverlay] = React.useState('');
 
   function showMenu() {
     if (classBurgerMenu === 'button-burger-menu_type_opened') {
       setClassBurgerMenu('button-burger-menu_type_closed');
+      setIsShowOverlay("");
     } else {
       setClassBurgerMenu('button-burger-menu_type_opened');
+      setIsShowOverlay('header__overlay');
     }
     if (isShowMenu === 'menu-mobile_type_close') {
       setIsShowMenu('menu-mobile_type_open');
@@ -43,7 +46,7 @@ function Header() {
         <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
       </div>
       <MenuMobile isShowMenu={isShowMenu}/>
-
+      <div className={isShowOverlay}/>
     </header>
   );
 }
