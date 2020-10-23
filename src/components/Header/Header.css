@@ -1,0 +1,50 @@
+.header {
+
+}
+.header__position {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 0 14px;
+  border-bottom: 1px solid hsla(0,0%,100%,.2);
+  color: #fff;
+}
+
+.header__menu {
+  display: flex;
+  margin: auto 0;
+}
+
+.header__logo {
+  margin: auto 0;
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.header__text {
+  font-weight: 500;
+  font-size: 18px;
+  margin: auto 34px auto auto;
+}
+
+
+.header__button-logout {
+  margin: auto;
+}
+
+
+@media screen and (max-width: 840px) {
+  .header__position {
+    padding: 18px 4px 18px 0;
+  }
+  .header__button {
+    display: none;
+  }
+  .header__text {
+    display: none;
+  }
+  .header__logo {
+    font-size: 16px;
+  }
+}
+

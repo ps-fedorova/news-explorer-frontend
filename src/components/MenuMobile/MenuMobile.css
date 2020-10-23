@@ -1,0 +1,40 @@
+.menu-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 840px) {
+  .menu-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60px;
+    margin: auto;
+    padding: 0;
+  }
+
+  .menu-mobile__position {
+    display: none;
+    font-size: 18px;
+
+  }
+
+  .menu-mobile__position {
+    max-width: 619px;
+    margin: 0 -20px;
+    display: flex;
+  }
+  .menu-mobile_type_close {
+
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .4s, .4s ease;
+  }
+  .menu-mobile_type_open {
+    display: flex;
+    height: 90px;
+    padding: 24px;
+    opacity: 1;
+    transition: all 0s, .4s ease;
+  }
+}

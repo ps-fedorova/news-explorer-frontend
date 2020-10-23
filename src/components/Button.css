@@ -1,0 +1,29 @@
+.button {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 100px;
+  max-width: 358px;
+  min-width: 112px;
+  min-height: 48px;
+}
+
+.button_outline {
+  border: 1px solid;
+}
+
+.button__position {
+  display: grid;
+  grid-template-columns: repeat(2, min-content);
+  justify-content: center;
+  column-gap: 10px;
+  margin: 0 auto;
+}
+
+.button__text {
+  max-width: calc(358px - 20px - 10px - 24px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  font-size: 18px;
+}
+/*document.body.contentEditable = true*/
