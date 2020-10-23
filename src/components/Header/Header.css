@@ -1,11 +1,14 @@
 .header {
 
 }
+
 .header__position {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   padding: 18px 0 14px;
-  border-bottom: 1px solid hsla(0,0%,100%,.2);
+  border-bottom: 1px solid hsla(0, 0%, 100%, .2);
   color: #fff;
 }
 
@@ -37,12 +40,15 @@
   .header__position {
     padding: 18px 4px 18px 0;
   }
+
   .header__button {
     display: none;
   }
+
   .header__text {
     display: none;
   }
+
   .header__logo {
     font-size: 16px;
   }

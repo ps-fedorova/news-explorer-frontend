@@ -1,6 +1,5 @@
 import React from 'react';
 import './ButtonBurgerMenu.css';
-import '../../utils/color.css';
 
 function ButtonBurgerMenu(props) {
   return (
