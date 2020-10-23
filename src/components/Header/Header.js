@@ -30,7 +30,7 @@ function Header() {
 
   return (
     <header className="header">
-
+      <span className="header__border"/>
       <div className="header__position">
         <Link className="header__logo" to="/" value="NewsExplorer"/>
         <div className="header__menu">

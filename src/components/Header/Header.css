@@ -1,11 +1,17 @@
+.header__border {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 80px;
+  border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+}
+
 .header__position {
   position: relative;
   z-index: 2;
   display: flex;
   justify-content: space-between;
   padding: 18px 0 14px;
-  border-bottom: 1px solid hsla(0, 0%, 100%, .2);
-  color: deeppink;
 }
 
 .header__menu {
@@ -31,9 +37,8 @@
   margin: auto;
 }
 
-
 @media screen and (max-width: 840px) {
-  .header {
+   .header {
     align-items: flex-start;
     flex-direction: column;
     justify-content: flex-start;
@@ -42,6 +47,10 @@
     left: 16px;
     right: 16px;
     height: 100%;
+  }
+
+  .header__border {
+    height: 55px;
   }
 
   .header__position {
