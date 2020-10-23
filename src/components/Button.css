@@ -6,6 +6,8 @@
   max-width: 358px;
   min-width: 112px;
   min-height: 48px;
+  background-color: transparent;
+  color: white;
 }
 
 .button_outline {
@@ -25,7 +27,7 @@
 }
 
 .button__text {
-  max-width: calc(358px - 20px - 10px - 24px);
+  max-width: calc(358px - 90px);
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 500;

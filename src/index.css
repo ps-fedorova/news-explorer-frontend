@@ -18,7 +18,8 @@ code {
   max-width: 1232px;
   min-width: 200px;
   margin: 0 auto;
-  color: #1A1B22
+  color: #1A1B22;
+  background-color: #347EFF;
 }
 
 @media screen and (max-width: calc(1232px + 32px)) {

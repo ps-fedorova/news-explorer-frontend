@@ -7,7 +7,7 @@ import ButtonBurgerMenu from '../ButtonBurgerMenu/ButtonBurgerMenu';
 import MenuMobile from '../MenuMobile/MenuMobile';
 
 import logout from '../../images/logout.svg';
-import logoutDark from '../../images/logout-dark.svg';
+// import logoutDark from '../../images/logout-dark.svg';
 import Link from "../Link";
 
 function Header() {
@@ -30,42 +30,20 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="header__position">
 
-        <Link
-          className="header__logo"
-          to="/"
-          value="NewsExplorer"
-        />
+      <div className="header__position">
+        <Link className="header__logo" to="/" value="NewsExplorer"/>
         <div className="header__menu">
-          <Link
-            className="header__text"
-            to="/"
-            value="Главная"
-          />
-          <Link
-            className="header__text"
-            to="/saved-news"
-            value="Сохраненные статьи"
-          />
-          <Button
-            // value="Грета"
-            value="1234567890123456789012345678901234567890"
-            header={true}
-            classNameImg="header__button header__button-logout DARK-GRAY"
-            src={logoutDark}
-            alt="Выход"
-          >
+          <Link className="header__text" to="/" value="Главная"/>
+          <Link className="header__text" to="/saved-news" value="Сохраненные статьи"/>
+          <Button value="1234567890123456789012345678901234567890" header={true}
+                  classNameImg="header__button header__button-logout DARK-GRAY" src={logout} alt="Выход">
           </Button>
-          <ButtonBurgerMenu
-            showMenu={showMenu}
-            classBurgerMenu={classBurgerMenu}
-          />
         </div>
+        <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
       </div>
-      <MenuMobile
-        isShowMenu={isShowMenu}
-      />
+      <MenuMobile isShowMenu={isShowMenu}/>
+
     </header>
   );
 }

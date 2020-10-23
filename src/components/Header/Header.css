@@ -1,15 +1,11 @@
-.header {
-
-}
-
 .header__position {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   padding: 18px 0 14px;
   border-bottom: 1px solid hsla(0, 0%, 100%, .2);
-  color: #fff;
+  color: deeppink;
 }
 
 .header__menu {
@@ -37,6 +33,17 @@
 
 
 @media screen and (max-width: 840px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 100%;
+  }
+
   .header__position {
     padding: 18px 4px 18px 0;
   }
