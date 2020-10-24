@@ -1,7 +1,7 @@
 import React from 'react';
 import './MenuMobile.css';
-import Link from '../Link';
-import Button from '../Button';
+import Link from '../Link/Link';
+import Button from '../Button/Button';
 
 function MenuMobile(props) {
   return (

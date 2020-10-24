@@ -2,13 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 import '../../utils/color.css';
-import Button from '../Button';
+import Button from '../Button/Button';
 import ButtonBurgerMenu from '../ButtonBurgerMenu/ButtonBurgerMenu';
 import MenuMobile from '../MenuMobile/MenuMobile';
 
 import logout from '../../images/logout.svg';
 // import logoutDark from '../../images/logout-dark.svg';
-import Link from "../Link";
+import Link from "../Link/Link";
 
 function Header() {
 

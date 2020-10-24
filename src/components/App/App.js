@@ -3,14 +3,14 @@ import {
   Route, Switch, useLocation, Redirect, useHistory,
 } from 'react-router-dom';
 
-import '../vendor/normalize.css';
-import '../vendor/fonts.css';
+import '../../vendor/normalize.css';
+import '../../vendor/fonts.css';
 import './App.css';
 
-import Header from './Header/Header';
-import Main from './Main';
-import SavedNews from './SavedNews';
-import Footer from './Footer';
+import Header from '../Header/Header';
+import Main from '../Main';
+import SavedNews from '../SavedNews';
+import Footer from '../Footer/Footer';
 
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
       <Switch>
 
         <Route exact path="/">{/*Главная*/}
-
           <Header/>
           {/*<Main/>*/}
         </Route>
@@ -30,6 +29,7 @@ function App() {
         </Route>
 
       </Switch>
+
       {/*<Footer/>*/}
     </>
   );
