@@ -8,7 +8,7 @@ import '../../vendor/fonts.css';
 import './App.css';
 
 import Header from '../Header/Header';
-import Main from '../Main';
+import Main from '../Main/Main';
 import SavedNews from '../SavedNews';
 import Footer from '../Footer/Footer';
 
@@ -20,7 +20,7 @@ function App() {
 
         <Route exact path="/">{/*Главная*/}
           <Header/>
-          {/*<Main/>*/}
+          <Main/>
         </Route>
 
         <Route path="/saved-news"> {/*Сохраненные новости*/}

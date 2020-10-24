@@ -12,22 +12,22 @@ import Link from "../Link/Link";
 
 function Header() {
 
-  const [classBurgerMenu, setClassBurgerMenu] = React.useState('button-burger-menu_type_closed');
-  const [isShowMenu, setIsShowMenu] = React.useState('menu-mobile_type_close');
+  const [classBurgerMenu, setClassBurgerMenu] = React.useState('');
+  const [isShowMenu, setIsShowMenu] = React.useState('');
   const [isShowOverlay, setIsShowOverlay] = React.useState('');
 
   function showMenu() {
-    if (classBurgerMenu === 'button-burger-menu_type_opened') {
-      setClassBurgerMenu('button-burger-menu_type_closed');
-      setIsShowOverlay("");
+    if (classBurgerMenu === 'button-burger-menu_open') {
+      setClassBurgerMenu('');
+      setIsShowOverlay('');
     } else {
-      setClassBurgerMenu('button-burger-menu_type_opened');
-      setIsShowOverlay('header__overlay');
+      setClassBurgerMenu('button-burger-menu_open');
+      setIsShowOverlay('header__overlay_open');
     }
-    if (isShowMenu === 'menu-mobile_type_close') {
-      setIsShowMenu('menu-mobile_type_open');
+    if (isShowMenu === '') {
+      setIsShowMenu('menu-mobile_open');
     } else {
-      setIsShowMenu('menu-mobile_type_close');
+      setIsShowMenu('');
     }
   }
 
@@ -40,13 +40,13 @@ function Header() {
           <Link className="header__text" to="/" value="Главная"/>
           <Link className="header__text" to="/saved-news" value="Сохраненные статьи"/>
           <Button value="1234567890123456789012345678901234567890" header={true}
-                  classNameImg="header__button header__button-logout DARK-GRAY" src={logout} alt="Выход">
+                  classNameImg="header__button header__button-logout" src={logout} alt="Выход">
           </Button>
         </div>
         <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
       </div>
       <MenuMobile isShowMenu={isShowMenu}/>
-      <div className={isShowOverlay}/>
+      <div className={`header__overlay ${ isShowOverlay }`}/>
     </header>
   );
 }

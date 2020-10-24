@@ -1,6 +1,6 @@
-/** {*/
-/*  outline: lightgreen 1px solid;*/
-/*}*/
+* {
+  outline: lightgreen 1px solid;
+}
 
 /*document.body.contentEditable = true*/
 

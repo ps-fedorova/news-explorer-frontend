@@ -6,9 +6,7 @@ function ButtonBurgerMenu(props) {
     <button
       className={`button-burger-menu  ${props.classBurgerMenu}`}
       onClick={props.showMenu}
-    >
-      <span/>
-    </button>
+    />
   );
 }
 

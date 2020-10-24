@@ -1,0 +1,10 @@
+.search-form {
+  background-image: url("../../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  width: auto;
+  /*object-fit: cover;*/
+  height: 576px;
+  margin: 0 -16px;
+}
+

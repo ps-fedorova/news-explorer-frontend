@@ -1,30 +1,3 @@
-.button-burger-menu {
-  display: none;
-}
-
-@media screen and (max-width: 840px) {
-  .button-burger-menu {
-    width: 16px;
-    height: 16px;
-    display: block;
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    cursor: pointer;
-  }
-}
-
-.button-burger-menu:after,
-.button-burger-menu:before,
-.span {
-  background-color: white;
-  content: "";
-  display: block;
-  height: 2px;
-  margin: -2px 0;
-  transition: all 0.3s ease-in-out;
-}
-
 @keyframes close-one {
   from {
     transform: rotate(135deg);
@@ -41,16 +14,6 @@
   to {
     transform: rotate(0);
   }
-}
-
-.button-burger-menu_type_closed:before {
-  animation: close-one ease 0.4s forwards;
-  margin: 4px 0;
-}
-
-.button-burger-menu_type_closed:after {
-  animation: close-two ease 0.4s forwards;
-  margin: 4px 0;
 }
 
 @keyframes open-one {
@@ -71,14 +34,51 @@
   }
 }
 
-.button-burger-menu_type_opened:before {
-  animation: open-one ease 0.4s forwards;
+.button-burger-menu {
+  display: none;
+}
+
+@media screen and (max-width: 840px) {
+  .button-burger-menu {
+    width: 16px;
+    height: 16px;
+    display: block;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
+.button-burger-menu:after,
+.button-burger-menu:before {
+  background-color: white;
+  content: "";
+  display: block;
+  height: 2px;
+  margin: 4px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-burger-menu:before {
+  animation: close-one ease 0.4s forwards;
+}
+
+.button-burger-menu:after {
+  animation: close-two ease 0.4s forwards;
+}
+
+.button-burger-menu_open:before,
+.button-burger-menu_open:after {
   position: relative;
+  margin: -2px 0;
   top: 1px;
 }
 
-.button-burger-menu_type_opened:after {
+.button-burger-menu_open:before {
+  animation: open-one ease 0.4s forwards;
+}
+
+.button-burger-menu_open:after {
   animation: open-two ease 0.4s forwards;
-  position: relative;
-  top: 1px;
 }

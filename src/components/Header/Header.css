@@ -1,3 +1,13 @@
+.header {
+  position: fixed;
+  max-width: 1440px;
+  min-width: 200px;
+  margin: 0 auto;
+  left: 16px;
+  right: 16px;
+  height: 100%;
+}
+
 .header__border {
   position: fixed;
   left: 0;
@@ -38,16 +48,6 @@
 }
 
 @media screen and (max-width: 840px) {
-  .header {
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: fixed;
-    top: 0;
-    left: 16px;
-    right: 16px;
-    height: 100%;
-  }
 
   .header__border {
     height: 55px;
@@ -55,13 +55,19 @@
 
   .header__overlay {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
     left: -16px;
     right: -16px;
     height: 100%;
     top: 0;
     bottom: 0;
     z-index: -1;
+    transition: all .7s, .7s ease;
+  }
+
+  .header__overlay_open {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0s, .7s ease;
   }
 
   .header__position {
