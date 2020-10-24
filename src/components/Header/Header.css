@@ -1,5 +1,4 @@
 .header {
-  position: fixed;
   max-width: 1440px;
   min-width: 200px;
   margin: 0 auto;
@@ -9,7 +8,6 @@
 }
 
 .header__border {
-  position: fixed;
   left: 0;
   right: 0;
   height: 80px;
@@ -48,8 +46,18 @@
 }
 
 @media screen and (max-width: 840px) {
+  .header {
+    position: fixed;
+    max-width: 1440px;
+    min-width: 200px;
+    margin: 0 auto;
+    left: 16px;
+    right: 16px;
+    height: 100%;
+  }
 
   .header__border {
+    position: fixed;
     height: 55px;
   }
 

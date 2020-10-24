@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import './Header.css';
 import '../../utils/color.css';
 import Button from '../Button/Button';
@@ -8,10 +9,9 @@ import MenuMobile from '../MenuMobile/MenuMobile';
 
 import logout from '../../images/logout.svg';
 // import logoutDark from '../../images/logout-dark.svg';
-import Link from "../Link/Link";
+import Link from '../Link/Link';
 
 function Header() {
-
   const [classBurgerMenu, setClassBurgerMenu] = React.useState('');
   const [isShowMenu, setIsShowMenu] = React.useState('');
   const [isShowOverlay, setIsShowOverlay] = React.useState('');
@@ -26,8 +26,10 @@ function Header() {
     }
     if (isShowMenu === '') {
       setIsShowMenu('menu-mobile_open');
+      disablePageScroll();
     } else {
       setIsShowMenu('');
+      enablePageScroll();
     }
   }
 
@@ -46,7 +48,7 @@ function Header() {
         <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
       </div>
       <MenuMobile isShowMenu={isShowMenu}/>
-      <div className={`header__overlay ${ isShowOverlay }`}/>
+      <div className={`header__overlay ${isShowOverlay}`}/>
     </header>
   );
 }
