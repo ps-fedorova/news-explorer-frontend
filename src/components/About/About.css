@@ -1,0 +1,9 @@
+.about {
+  min-height: 624px;
+}
+
+.about__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 28px;
+}
