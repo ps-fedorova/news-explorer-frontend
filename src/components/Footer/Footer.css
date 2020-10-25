@@ -46,6 +46,11 @@
 }
 
 @media screen and (max-width: 840px) {
+  .footer {
+    padding-top: 20px;
+  }
+
+
   .footer__container {
     flex-direction: column-reverse;
     min-width: 288px;
@@ -60,7 +65,7 @@
   }
 
   .footer__link {
-    margin-top: 28px;
+    margin: 0 0 20px;
   }
 
   .footer__list_social-icon:last-child {
