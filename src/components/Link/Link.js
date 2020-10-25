@@ -26,7 +26,7 @@ function Link(props) {
           <img
             src={props.src}
             alt={props.alt}
-            className={props.classNameLink}
+            className={props.classNameImage}
           />
         </a>);
     } // и просто ссылка
