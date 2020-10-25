@@ -9,25 +9,20 @@ function Button(props) {
 
     `}>
 
-
       {props.header
 
-        ?
-        <div className="button__position button__position_header ">
+        ? <div className="button__position button__position_header ">
           <div className="button__text" title={props.value}>
             {props.value}
           </div>
           <img className={props.classNameImg} src={props.src} alt={props.alt}/>
         </div>
-        :
-        <div className="button__position">
+        : <div className="button__position">
           <div className="button__text" title={props.value}>
             {props.value}
           </div>
         </div>
       }
-
-
     </button>
   );
 }

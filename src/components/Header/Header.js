@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import './Header.css';
 import '../../utils/color.css';
@@ -37,10 +36,10 @@ function Header() {
     <header className="header">
       <span className="header__border"/>
       <div className="header__position">
-        <Link className="header__logo" to="/" value="NewsExplorer"/>
+        <Link navLink={true} className="header__logo" to="/" value="NewsExplorer"/>
         <div className="header__menu">
-          <Link className="header__text" to="/" value="Главная"/>
-          <Link className="header__text" to="/saved-news" value="Сохраненные статьи"/>
+          <Link navLink={true} className="header__text" to="/" value="Главная"/>
+          <Link navLink={true} className="header__text" to="/saved-news" value="Сохраненные статьи"/>
           <Button value="1234567890123456789012345678901234567890" header={true}
                   classNameImg="header__button header__button-logout" src={logout} alt="Выход">
           </Button>
@@ -48,7 +47,8 @@ function Header() {
         <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
       </div>
       <MenuMobile isShowMenu={isShowMenu}/>
-      <div className={`header__overlay ${isShowOverlay}`}/>
+     {/*включить*/}
+      {/*<div className={`header__overlay ${isShowOverlay}`}/>*/}
     </header>
   );
 }
