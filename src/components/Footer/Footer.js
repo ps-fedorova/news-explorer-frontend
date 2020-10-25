@@ -8,7 +8,7 @@ import Link from '../Link/Link';
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer__position">
+      <div className="footer__container">
         <p className="footer__copyright">&copy; 2020 Supersite, Powered by News API</p>
         <div className="footer__menu">
 

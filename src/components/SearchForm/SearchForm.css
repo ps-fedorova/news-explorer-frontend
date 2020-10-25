@@ -4,7 +4,21 @@
   background-position: center;
   width: auto;
   height: 576px;
-  margin: -80px -16px 0;
+  margin: -80px -104px 0;
+}
+
+@media screen and (max-width: calc(1100px + 56px)) {
+  .search-form {
+    margin-left: -56px;
+    margin-right: -56px;
+  }
+}
+
+@media screen and (max-width: calc(1000px + 32px)) {
+  .search-form {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
 }
 
 @media screen and (max-width: 840px) {
@@ -12,3 +26,4 @@
     margin-top: 0;
   }
 }
+

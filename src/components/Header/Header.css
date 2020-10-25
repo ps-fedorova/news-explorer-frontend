@@ -10,12 +10,12 @@
 .header__border {
   left: 0;
   right: 0;
-  height: 80px;
+  /*height: 80px;*/
   z-index: 2;
   border-bottom: 1px solid hsla(0, 0%, 100%, .2);
 }
 
-.header__position {
+.header__container {
   position: relative;
   z-index: 2;
   display: flex;
@@ -73,7 +73,7 @@
     transition: all 0s, .7s ease;
   }
 
-  .header__position {
+  .header__container {
     padding: 18px 4px 18px 0;
   }
 

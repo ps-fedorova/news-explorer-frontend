@@ -35,7 +35,7 @@ function Header() {
   return (
     <header className="header">
       <span className="header__border"/>
-      <div className="header__position">
+      <div className="header__container">
         <Link navLink={true} className="header__logo" to="/" value="NewsExplorer"/>
         <div className="header__menu">
           <Link navLink={true} className="header__text" to="/" value="Главная"/>

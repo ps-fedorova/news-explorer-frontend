@@ -15,7 +15,7 @@
   transition: all 0s, .4s ease;
 }
 
-.menu-mobile__position {
+.menu-mobile__container {
   padding-top: 42px;
   display: none;
 }
@@ -36,7 +36,7 @@
     display: flex;
   }
 
-  .menu-mobile__position {
+  .menu-mobile__container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

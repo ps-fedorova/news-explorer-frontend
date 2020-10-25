@@ -7,7 +7,7 @@
   margin:   0 -16px;;
 }
 
-.menu-mobile__position {
+.menu-mobile__container {
   display: none;
 }
 
@@ -41,7 +41,7 @@
     background-color: #1A1B22;
   }
 
-  .menu-mobile__position {
+  .menu-mobile__container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

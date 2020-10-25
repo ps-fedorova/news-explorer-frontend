@@ -14,14 +14,14 @@
   border: 1px solid;
 }
 
-.button__position {
+.button__container {
   display: flex;
   justify-content: center;
   column-gap: 10px;
   margin: 0 auto;
 }
 
-.button__position_header {
+.button__container_header {
   display: grid;
   grid-template-columns: repeat(2, min-content);
 }

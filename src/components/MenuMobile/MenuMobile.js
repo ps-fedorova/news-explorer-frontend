@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 function MenuMobile(props) {
   return (
     <div className={`menu-mobile ${props.isShowMenu}`}>
-      <nav className='menu-mobile__position'>
+      <nav className='menu-mobile__container'>
         <Link navLink={true} className="menu-mobile__link" to="/" value="Главная"/>
         <Link navLink={true} className="menu-mobile__link" to="/saved-news" value="Сохраненные статьи"/>
         <Button className='menu-mobile__button' value='Авторизоваться' menuMobile={true}/>
