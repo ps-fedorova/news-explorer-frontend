@@ -4,14 +4,14 @@ import notFoundImg from '../../images/not-found.svg';
 
 function SearchStatus() {
   const [preloader, setPreloader] = React.useState('');
-  const [notFound, setNotFound] = React.useState('search-status__container_type_not-found');
+  const [notFound, setNotFound] = React.useState('not-found');
 
   function show() {
-    if (preloader === 'search-status__container_type_preloader') {
+    if (preloader === 'preloader') {
       setPreloader('');
-      setNotFound('search-status__container_type_not-found');
+      setNotFound('not-found');
     } else {
-      setPreloader('search-status__container_type_preloader');
+      setPreloader('preloader');
       setNotFound('');
     }
   }
