@@ -32,12 +32,12 @@ function Footer() {
             </li>
           </ul>
           <ul className="footer__list footer__list_social-icon">
-            <li className="footer__item">
+            <li className="footer__item footer__item_social-icon">
               <Link
                 linkImage={true}
                 title="Открыть Github в новом окне"
                 href="#"
-                classNameLink="footer__link"
+                classNameLink="footer__link footer__link_social-icon"
                 src={iconGithub}
                 alt="Github"
                 classNameImage="footer__social-icon"
@@ -49,14 +49,13 @@ function Footer() {
                 linkImage={true}
                 title="Открыть Facebook в новом окне"
                 href="#"
-                classNameLink="footer__link"
+                classNameLink="footer__link footer__link_social-icon"
                 src={iconFacebookSquare}
                 alt="Facebook"
                 classNameImage="footer__social-icon"
               />
             </li>
           </ul>
-
         </div>
       </div>
     </footer>
