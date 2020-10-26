@@ -35,20 +35,22 @@ function Header() {
   return (
     <header className="header">
       <span className="header__border"/>
-      <div className="header__container">
-        <Link navLink={true} className="header__logo" to="/" value="NewsExplorer"/>
-        <div className="header__menu">
-          <Link navLink={true} className="header__text" to="/" value="Главная"/>
-          <Link navLink={true} className="header__text" to="/saved-news" value="Сохраненные статьи"/>
-          <Button value="1234567890123456789012345678901234567890" header={true}
-                  classNameImg="header__button header__button-logout" src={logout} alt="Выход">
-          </Button>
+      <div className="header__container-image">
+        <div className="header__container">
+          <Link navLink={true} className="header__logo" to="/" value="NewsExplorer"/>
+          <div className="header__menu">
+            <Link navLink={true} className="header__text" to="/" value="Главная"/>
+            <Link navLink={true} className="header__text" to="/saved-news" value="Сохраненные статьи"/>
+            <Button value="1234567890123456789012345678901234567890" header={true}
+                    classNameImg="header__button header__button-logout" src={logout} alt="Выход">
+            </Button>
+          </div>
+          <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
         </div>
-        <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
       </div>
       <MenuMobile isShowMenu={isShowMenu}/>
-     {/*включить*/}
-      {/*<div className={`header__overlay ${isShowOverlay}`}/>*/}
+      {/* включить */}
+      {/* <div className={`header__overlay ${isShowOverlay}`}/> */}
     </header>
   );
 }

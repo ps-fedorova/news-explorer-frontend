@@ -10,18 +10,53 @@
 .header__border {
   left: 0;
   right: 0;
-  /*height: 80px;*/
-  z-index: 2;
   border-bottom: 1px solid hsla(0, 0%, 100%, .2);
 }
 
+.header__container-image {
+  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("../../images/background.jpg") top;
+  background-size: cover;
+  z-index: 3;
+  margin: 0 calc(-104px + 32px);
+}
+
+@media screen and (max-width: calc(1100px + 56px)) {
+  .header__container-image {
+    margin-left: -56px;
+    margin-right: -56px;
+  }
+}
+
+@media screen and (max-width: calc(1000px + 32px)) {
+  .header__container-image {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .header__container-image {
+    margin: 0 calc(-104px);
+  }
+}
+
+
+
+
+
+
+
 .header__container {
   position: relative;
+  /*object-fit: contain;*/
   z-index: 2;
   display: flex;
   justify-content: space-between;
   padding: 18px 0 14px;
+  margin-left: calc(104px - 32px);
+  margin-right: calc(104px - 32px);
 }
+
 
 .header__menu {
   display: flex;
@@ -48,7 +83,7 @@
 @media screen and (max-width: 840px) {
   .header {
     /*включить*/
-    /*position: fixed;*/
+    position: fixed;
   }
 
   .header__border {
@@ -75,6 +110,7 @@
 
   .header__container {
     padding: 18px 4px 18px 0;
+    margin: 0 calc(104px);
   }
 
   .header__button {
