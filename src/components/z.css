@@ -36,7 +36,7 @@
   transition: all 0s, .4s ease;
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 760px) {
   .menu-mobile {
     background-color: #1A1B22;
   }

@@ -29,7 +29,7 @@
   margin: 26px 0 0;
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 760px) {
 
   .about__container {
     align-items: center;

@@ -58,7 +58,7 @@
   margin: auto;
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 760px) {
   .header {
     /*включить*/
     position: fixed;
