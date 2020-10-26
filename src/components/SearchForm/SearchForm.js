@@ -5,7 +5,7 @@ function SearchForm() {
   return (
     <section className="search-form">
       <div className="search-form__container">
-        <h1 className="search-form__title" >Что творится в мире?</h1>
+        {/* <h1 className="search-form__title" >Что творится в мире?</h1> */}
       </div>
     </section>
   );

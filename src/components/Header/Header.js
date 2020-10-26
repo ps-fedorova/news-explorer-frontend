@@ -33,10 +33,15 @@ function Header() {
   }
 
   return (
-    <header className="header">
-      <span className="header__border"/>
-      <div className="header__container-image">
+    <>
+      <header className="header">
+
+        <div className="background">
+          <div className="background__picture"/>
+        </div>
         <div className="header__container">
+
+          <span className="header__border"/>
           <Link navLink={true} className="header__logo" to="/" value="NewsExplorer"/>
           <div className="header__menu">
             <Link navLink={true} className="header__text" to="/" value="Главная"/>
@@ -47,11 +52,13 @@ function Header() {
           </div>
           <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
         </div>
-      </div>
-      <MenuMobile isShowMenu={isShowMenu}/>
-      {/* включить */}
-      {/* <div className={`header__overlay ${isShowOverlay}`}/> */}
-    </header>
+
+        <MenuMobile isShowMenu={isShowMenu}/>
+        {/* включить */}
+        {/* <div className={`header__overlay ${isShowOverlay}`}/> */}
+      </header>
+
+    </>
   );
 }
 
