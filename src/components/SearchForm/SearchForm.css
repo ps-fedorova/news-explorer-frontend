@@ -8,10 +8,10 @@
 .search-form__container {
   padding: 80px 0 0;
   height: 576px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*margin: auto;*/
 }
 
 .search-form__title {
