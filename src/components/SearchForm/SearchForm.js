@@ -17,7 +17,7 @@ function SearchForm() {
             title="Введите запрос"
             type="text"
             className="search-form__input"
-            placeholder="Введите тему овости"
+            placeholder="Введите тему новости"
           />
           <Button
             searchForm={true}
