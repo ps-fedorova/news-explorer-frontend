@@ -3,11 +3,12 @@
   font-size: 18px;
   min-height: 286px;
   position: relative;
-  top: -100px;
+  top: -55px;
+  color: white;
   margin: -286px -40px 0;
   background-color: #1A1B22;
-  border-radius: 0 0 16px 16px;
   transition: all .4s, .4s ease;
+  border-radius: 0 0 16px 16px;
 }
 
 .menu-mobile_open {
@@ -16,7 +17,6 @@
 }
 
 .menu-mobile__container {
-  padding-top: 42px;
   display: none;
 }
 
@@ -29,6 +29,7 @@
 
 .menu-mobile__link {
   margin-top: 35px;
+  color: white;
 }
 
 @media screen and (max-width: 710px) {
@@ -42,6 +43,13 @@
     justify-content: space-between;
     width: 358px;
     margin: auto;
-    padding: 55px 16px 22px;
+    padding: 70px 16px 22px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .menu-mobile__container {
+    width: 288px;
   }
 }
