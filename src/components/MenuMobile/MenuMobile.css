@@ -3,8 +3,8 @@
   font-size: 18px;
   min-height: 286px;
   position: relative;
-  top: -55px;
-  margin: -286px -16px 0;
+  top: -100px;
+  margin: -286px -40px 0;
   background-color: #1A1B22;
   border-radius: 0 0 16px 16px;
   transition: all .4s, .4s ease;
@@ -31,7 +31,7 @@
   margin-top: 35px;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 710px) {
   .menu-mobile {
     display: flex;
   }

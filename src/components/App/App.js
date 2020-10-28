@@ -12,25 +12,24 @@ import Main from '../Main/Main';
 import SavedNews from '../SavedNews';
 import Footer from '../Footer/Footer';
 
-
 function App() {
   return (
     <>
       <Switch>
 
-        <Route exact path="/">{/*Главная*/}
-          <Header/>
-          <Main/>
+        <Route exact path="/">{/* Главная */}
+           <Header/>
+           <Main/>
         </Route>
 
-        <Route path="/saved-news"> {/*Сохраненные новости*/}
+        <Route path="/saved-news"> {/* Сохраненные новости */}
           <Header/>
-          {/*<SavedNews/>*/}
+          {/* <SavedNews/> */}
         </Route>
 
       </Switch>
 
-      <Footer/>
+       <Footer/>
     </>
   );
 }

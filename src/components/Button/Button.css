@@ -1,10 +1,9 @@
 .button {
   cursor: pointer;
-  padding: 10px;
+  padding-left: 18px;
+  padding-right: 18px;
   border-radius: 100px;
-  max-width: 358px;
-  min-width: 112px;
-  min-height: 48px;
+  height: 48px;
   background-color: transparent;
   color: white;
   box-shadow: 0 5px 15px rgba(14, 26, 57, 0.2);
@@ -12,28 +11,27 @@
   box-sizing: border-box;
 }
 
-
 .button_outline {
   border: 1px solid;
 }
 
+/*Для обычной кнопки*/
 .button__container {
   display: flex;
   justify-content: center;
-  column-gap: 10px;
   margin: 0 auto;
 }
 
-.button__container_header {
+/*Для кнопки с картинкой*/
+.button__container_position {
   display: grid;
   grid-template-columns: repeat(2, min-content);
+  column-gap: 10px;
 }
 
 .button__text {
-  max-width: calc(358px - 90px);
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 500;
   font-size: 18px;
 }
-

@@ -1,14 +1,17 @@
 import React from 'react';
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
-import './Header.css';
-import '../../utils/color.css';
+
 import Button from '../Button/Button';
 import ButtonBurgerMenu from '../ButtonBurgerMenu/ButtonBurgerMenu';
 import MenuMobile from '../MenuMobile/MenuMobile';
+import Link from '../Link/Link';
+
+import './Header.css';
+import '../../utils/color.css';
 
 import logout from '../../images/logout.svg';
+
 // import logoutDark from '../../images/logout-dark.svg';
-import Link from '../Link/Link';
 
 function Header() {
   const [classBurgerMenu, setClassBurgerMenu] = React.useState('');
@@ -36,21 +39,40 @@ function Header() {
     <>
       <header className="header">
 
-        <div className="background">
-          <div className="background__picture"/>
+        <div className="header__background-position">
+          <div className="header__background-img"/>
         </div>
         <div className="header__container">
 
           <span className="header__border"/>
           <Link navLink={true} className="header__logo" to="/" value="NewsExplorer"/>
           <div className="header__menu">
-            <Link navLink={true} className="header__text" to="/" value="Главная"/>
-            <Link navLink={true} className="header__text" to="/saved-news" value="Сохраненные статьи"/>
-            <Button value="1234567890123456789012345678901234567890" header={true}
-                    classNameImg="header__button header__button-logout" src={logout} alt="Выход">
-            </Button>
+            <nav className="header__nav">
+              <ul className="header__list">
+                <il className="header__item">
+                  <Link navLink={true} className="header__text header__text_selected" to="/" value="Главная"/>
+                </il>
+                <il className="header__item">
+                  <Link navLink={true} className="header__text" to="/saved-news" value="Сохранённые статьи"/>
+                </il>
+              </ul>
+            </nav>
+            <div className="header__button-container">
+              <Button
+                image={true}
+                header={true}
+                classNameImg="header__button-img"
+                classNameText="header__text header__text_button"
+                // value="Грета"
+                value="Грета1234567890123456789012345678901234567890"
+                src={logout}
+                alt="Выход"
+              />
+            </div>
           </div>
-          <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
+          <div className="header__button-burger-menu-container">
+            <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
+          </div>
         </div>
 
         <MenuMobile isShowMenu={isShowMenu}/>

@@ -38,7 +38,7 @@
   display: none;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 710px) {
   .button-burger-menu {
     width: 16px;
     height: 16px;
@@ -47,6 +47,7 @@
     background-color: transparent;
     padding: 0;
     cursor: pointer;
+    margin: auto;
   }
 }
 

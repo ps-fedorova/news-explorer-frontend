@@ -3,10 +3,10 @@ import './ButtonBurgerMenu.css';
 
 function ButtonBurgerMenu(props) {
   return (
-    <button
-      className={`button-burger-menu  ${props.classBurgerMenu}`}
-      onClick={props.showMenu}
-    />
+      <button
+        className={`button-burger-menu  ${props.classBurgerMenu}`}
+        onClick={props.showMenu}
+      />
   );
 }
 

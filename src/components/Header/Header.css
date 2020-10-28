@@ -1,10 +1,19 @@
-.header {
-  /*max-width: 1440px;*/
-  /*min-width: 200px;*/
-  /*margin: 0 auto;*/
-  left: 16px;
-  right: 16px;
-  /*height: 100%;*/
+.header__item {
+  padding: 0;
+  margin: 0;
+}
+
+.header__list {
+  padding: 0;
+  margin: 0;
+}
+
+.header__container {
+  position: relative;
+  /*height: 80px;*/
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header__border {
@@ -14,77 +23,171 @@
   right: 0;
   margin: 0 -104px;
   border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+  color: white;
 }
 
-@media screen and (max-width: calc(1100px + 56px)) {
-  .header__border {
-    margin: 0 -56px;
-  }
-}
-
-@media screen and (max-width: calc(1000px + 32px)) {
-  .header__border {
-    margin: 0 -16px;
-  }
-}
-
-.header__container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  padding: 18px 0 14px;
+.header__logo {
+  /*margin: auto 0 27px;*/
+  font-family: Roboto Slab, monospace;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: white;
+  text-align: right;
+  font-style: normal;
+  padding-top: 30px;
 }
 
 .header__menu {
   display: flex;
-  margin: auto 0;
+  /*height: 80px;*/
 }
 
-.header__logo {
-  margin: auto 0;
-  font-family: Roboto Slab, monospace;
-  font-weight: 700;
-  font-size: 20px;
+.header__nav {
+  padding-top: 33px;
 }
 
 .header__text {
+  font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  margin: auto 34px auto auto;
+  margin-right: 34px;
+  color: white;
+  /*padding-bottom: 24px; для выбранного элемента*/
+  padding-bottom: 24px;
 }
 
-.header__button-logout {
+.header__text_selected {
+  border-bottom: white 3px solid;
+}
+
+.header__button-container {
+  padding-top: 20px;
+}
+
+.header__button {
+  max-width: 250px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.header__text_button {
+  max-width: calc(250px - 90px);
+  margin: auto 0 auto auto;
+  border: none;
+  padding: 0;
+}
+
+.header__button-img {
   margin: auto;
 }
+/*/////////////////////////////////////////////*/
+@media screen and (max-width: 960px) {
+  .header {
+    height: 66px;
+  }
 
-@media screen and (max-width: 760px) {
+  .header__nav {
+    padding-top: 17px;
+  }
+
+  .header__logo {
+    padding-top: 24px;
+  }
+
+  .header__menu {
+    padding-top: 5px;
+  }
+
+  .header__button {
+    margin-top: 8px;
+  }
+
+  .header__text {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    margin-right: 18px;
+    color: white;
+  }
+
+  .header__text_selected {
+    border-bottom: white 3px solid;
+    padding: 20px 0;
+  }
+
+  .header__button-container {
+    padding-top: 0;
+  }
+
+  .header__button {
+    height: 40px;
+  }
+
+  .header__text_button {
+    margin-right: 0;
+    color: white;
+
+  }
+
+  .header__border {
+    top: 66px;
+    margin: 0 -40px;
+  }
+
+}
+
+/*@media screen and (max-width: calc(1000px + 32px)) {*/
+/*  .header__border {*/
+/*    margin: 0 -16px;*/
+/*  }*/
+/*}*/
+
+@media screen and (max-width: 710px) {
+  .header {
+    margin: 0 auto;
+    height: 100%;
+    left: 40px;
+    right: 40px;
+  }
+
   .header {
     /*включить*/
     position: fixed;
+    height: 55px;
   }
+
   .header__border {
     top: 0;
   }
 
-  .background {
+  .header__background-position {
     position: absolute;
-    left: -16px;
-    right: -16px;
+    left: -40px;
+    right: -40px;
     top: 0;
     height: 56px;
     z-index: -3;
+    /*включить*/
     overflow: hidden;
   }
 
-  .background__picture {
+  .header__background-img {
     background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("../../images/background.jpg") top;
+    /*background-color: #2A65CC;*/
     background-size: cover;
+
     height: calc(576px);
+    margin: 0;
   }
 
+  /*.header__container {*/
+  /*  !*padding: 55px 4px 18px 0;*!*/
+  /*  padding: 88px 4px 0px 0;*/
+  /*  margin: 0;*/
+  /*}*/
   .header__container {
-    padding: 18px 4px 18px 0;
+    padding: 0px 4px 0px 0;
     /*width: 100%;*/
   }
 
@@ -96,8 +199,8 @@
   .header__overlay {
     position: absolute;
     background-color: rgba(0, 0, 0, 0);
-    left: -16px;
-    right: -16px;
+    left: -40px;
+    right: -40px;
     height: 100%;
     top: 0;
     bottom: 0;
@@ -110,16 +213,25 @@
     transition: all 0s, .7s ease;
   }
 
-  .header__button {
-    display: none;
-  }
-
-  .header__text {
+  .header__menu {
     display: none;
   }
 
   .header__logo {
     font-size: 16px;
+    padding-top: 15px;
+  }
+
+  .header__button-burger-menu-container {
+    margin-top: 20px;
   }
 }
 
+@media screen and (max-width: 500px) {
+  .header {
+    margin: 0 auto;
+    height: 100%;
+    left: 16px;
+    right: 16px;
+  }
+}
