@@ -1,6 +1,6 @@
-* {
-  outline: black 1px solid;
-}
+/** {*/
+/*  outline: black 1px solid;*/
+/*}*/
 
 /** {*/
 /*  outline: green 3px solid;*/
@@ -31,7 +31,7 @@ code {
   /*background-color: #347EFF;*/
 }
 /*Одновременно менять SearchForm.css и .header__border*/
-@media screen and (max-width: calc(1440px)) {
+@media screen and (max-width: calc(1440px + 208px)) {
   .page {
     margin: 0 104px;
   }
