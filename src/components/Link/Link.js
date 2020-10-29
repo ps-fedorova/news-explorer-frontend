@@ -21,7 +21,8 @@ function Link(props) {
           title={props.title}
           className={`link ${props.classNameLink}`}
           href={props.href}
-          target="_blank"
+          // target="_blank"
+          target={props.target}
         >
           <img
             src={props.src}
@@ -35,7 +36,7 @@ function Link(props) {
         title={props.title}
         className={`link ${props.className}`}
         href={props.href}
-        target="_blank"
+        target={props.target}
       >
         {props.value}
       </a>);

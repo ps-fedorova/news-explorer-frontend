@@ -21,14 +21,14 @@ function Footer() {
             </li>
             <li className="footer__item">
               <Link title="Открыть сайт Яндекс.Практикума в новом окне" href="https://praktikum.yandex.ru"
-                    className="footer__link" value="Яндекс.Практикум"/>
+                    className="footer__link" value="Яндекс.Практикум" target="_blank"/>
             </li>
           </ul>
           <ul className="footer__list footer__list_social-icon">
             <li className="footer__item footer__item_social-icon">
               <Link linkImage={true} title="Открыть Github в новом окне" href="#"
                     classNameLink="footer__link footer__link_social-icon" src={iconGithub} alt="Github"
-                    classNameImage="footer__social-icon"/>
+                    classNameImage="footer__social-icon" target="_blank"/>
             </li>
 
             <li className="footer__item footer__item_social-icon">
@@ -36,19 +36,19 @@ function Footer() {
                 <MediaQuery minWidth={961}>
                   <Link linkImage={true} title="Открыть Facebook в новом окне" href="#"
                         classNameLink="footer__link footer__link_social-icon" src={iconFacebookSquare} alt="Facebook"
-                        classNameImage="footer__social-icon"/>
+                        classNameImage="footer__social-icon" target="_blank"/>
                 </MediaQuery>
 
                 <MediaQuery minWidth={711} maxWidth={960}>
                   <Link linkImage={true} title="Открыть Facebook в новом окне" href="#"
                         classNameLink="footer__link footer__link_social-icon" src={iconFacebookCircle} alt="Facebook"
-                        classNameImage="footer__social-icon"/>
+                        classNameImage="footer__social-icon" target="_blank"/>
                 </MediaQuery>
 
                 <MediaQuery maxWidth={710}>
                   <Link linkImage={true} title="Открыть Facebook в новом окне" href="#"
                         classNameLink="footer__link footer__link_social-icon" src={iconFacebookSquare} alt="Facebook"
-                        classNameImage="footer__social-icon"/>
+                        classNameImage="footer__social-icon" target="_blank"/>
                 </MediaQuery>
               </>
             </li>
