@@ -15,21 +15,19 @@ import Footer from '../Footer/Footer';
 function App() {
   return (
     <>
+      <Header/>
       <Switch>
 
         <Route exact path="/">{/* Главная */}
-           <Header/>
-           <Main/>
+          <Main/>
         </Route>
 
         <Route path="/saved-news"> {/* Сохраненные новости */}
-          <Header/>
           {/* <SavedNews/> */}
         </Route>
 
       </Switch>
-
-       <Footer/>
+      <Footer/>
     </>
   );
 }
