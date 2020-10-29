@@ -49,12 +49,12 @@ function Header() {
           <div className="header__menu">
             <nav className="header__nav">
               <ul className="header__list">
-                <il className="header__item">
+                <li className="header__item">
                   <Link navLink={true} className="header__text header__text_selected" to="/" value="Главная"/>
-                </il>
-                <il className="header__item">
+                </li>
+                <li className="header__item">
                   <Link navLink={true} className="header__text" to="/saved-news" value="Сохранённые статьи"/>
-                </il>
+                </li>
               </ul>
             </nav>
             <div className="header__button-container">
