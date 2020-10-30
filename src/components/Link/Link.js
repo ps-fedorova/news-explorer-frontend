@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './Link.css';
 
 function Link(props) {
-  function linkFunktion() {
+  function linkFunction() {
     if (props.navLink) { // если навигация
       return (
         <NavLink
@@ -44,7 +44,7 @@ function Link(props) {
 
   return (
     <>
-      {linkFunktion()}
+      {linkFunction()}
     </>
   );
 }

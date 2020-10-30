@@ -45,12 +45,9 @@ function Header(props) {
   const Main = (props.pathname === '/' || isMenuMobile);
 
   const classNameLogo = `header__logo ${Main ? '' : 'header__logo_saved-news'}`;
-
   const classNameTextMain = `header__text ${Main ? 'header__text_selected' : 'header__text_saved-news'}`;
   const classNameTextSavedNews = `header__text ${Main ? '' : 'header__text_saved-news header__text_selected-saved-news'}`;
-
   const classNameTextBtn = `header__text header__text_button ${Main ? '' : 'header__text_saved-news'}`;
-
   const logout = Main ? logoutMain : logoutSavedNews;
   const classBackground = `"header__background-img" ${Main ? '' : 'header__background-img_saved-news'}`;
 
