@@ -13,9 +13,13 @@ import SavedNews from '../SavedNews';
 import Footer from '../Footer/Footer';
 
 function App() {
+  const { pathname } = useLocation();
+
   return (
     <>
-      <Header/>
+      <Header
+        pathname={pathname}
+      />
       <Switch>
 
         <Route exact path="/">{/* Главная */}

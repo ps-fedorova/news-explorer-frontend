@@ -4,6 +4,7 @@
 
 .header__list {
   margin: 0;
+  padding: 0;
 }
 
 .header__container {
@@ -20,7 +21,7 @@
   left: 0;
   right: 0;
   margin: 0 -104px;
-  border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+  border-bottom: 1px solid #D1D2D6;
   color: white;
 }
 
@@ -34,6 +35,10 @@
   text-align: right;
   font-style: normal;
   padding-top: 30px;
+}
+
+.header__logo_saved-news {
+  color: #1A1B22;
 }
 
 .header__menu {
@@ -59,6 +64,14 @@
   border-bottom: white 3px solid;
 }
 
+.header__text_saved-news {
+  color: #1A1B22;
+}
+
+.header__text_selected-saved-news {
+  border-bottom: #1A1B22 3px solid;
+}
+
 .header__button-container {
   padding-top: 20px;
 }
@@ -80,7 +93,6 @@
   margin: auto;
 }
 
-/*/////////////////////////////////////////////*/
 @media screen and (max-width: 960px) {
   .header {
     height: 66px;
@@ -107,12 +119,11 @@
     font-size: 16px;
     line-height: 24px;
     margin-right: 18px;
-    color: white;
+    padding-bottom: 20px;
   }
 
   .header__text_selected {
     border-bottom: white 3px solid;
-    padding: 20px 0;
   }
 
   .header__button-container {
@@ -125,8 +136,7 @@
 
   .header__text_button {
     margin-right: 0;
-    color: white;
-
+    padding-bottom: 0;
   }
 
   .header__border {
@@ -140,12 +150,6 @@
   display: none;
 }
 
-/*@media screen and (max-width: calc(1000px + 32px)) {*/
-/*  .header__border {*/
-/*    margin: 0 -16px;*/
-/*  }*/
-/*}*/
-
 @media screen and (max-width: 710px) {
   .header {
     margin: 0 auto;
@@ -157,7 +161,8 @@
   .header {
     /*включить*/
     position: fixed;
-    height: 55px;
+    margin: 0 auto;
+    height: 100%;
   }
 
   .header__border {
@@ -177,18 +182,15 @@
 
   .header__background-img {
     background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("../../images/background.jpg") top;
-    /*background-color: #2A65CC;*/
     background-size: cover;
-
     height: 536px;
     margin: 0;
   }
 
-  /*.header__container {*/
-  /*  !*padding: 55px 4px 18px 0;*!*/
-  /*  padding: 88px 4px 0px 0;*/
-  /*  margin: 0;*/
-  /*}*/
+  .header__background-img_saved-news {
+    background-color: white;
+  }
+
   .header__container {
     padding: 0px 4px 0px 0;
     /*width: 100%;*/
@@ -235,8 +237,7 @@
 @media screen and (max-width: 500px) {
 
   .header {
-    margin: 0 auto;
-    height: 100%;
+
   }
 
   .header__logo {

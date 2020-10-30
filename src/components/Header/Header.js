@@ -6,25 +6,33 @@ import ButtonBurgerMenu from '../ButtonBurgerMenu/ButtonBurgerMenu';
 import MenuMobile from '../MenuMobile/MenuMobile';
 import Link from '../Link/Link';
 
-import './Header.css';
 import '../../utils/color.css';
+import './Header.css';
 
-import logout from '../../images/logout.svg';
+import logoutMain from '../../images/logoutMain.svg';
 
-// import logoutDark from '../../images/logout-dark.svg';
+import logoutSavedNews from '../../images/logoutSavedNews.svg';
 
-function Header() {
+function Header(props) {
+  const [isMenuMobile, setMenuMobile] = React.useState(false);
+
   const [classBurgerMenu, setClassBurgerMenu] = React.useState('');
   const [isShowMenu, setIsShowMenu] = React.useState('');
   const [isShowOverlay, setIsShowOverlay] = React.useState('');
+
+  function handleMenuMobile() {
+    setMenuMobile(!isMenuMobile);
+  }
 
   function showMenu() {
     if (classBurgerMenu === 'button-burger-menu_open') {
       setClassBurgerMenu('');
       setIsShowOverlay('');
+      // handleMenuMobile();
     } else {
       setClassBurgerMenu('button-burger-menu_open');
       setIsShowOverlay('header__overlay_open');
+      // handleMenuMobile();
     }
     if (isShowMenu === '') {
       setIsShowMenu('menu-mobile_open');
@@ -35,49 +43,66 @@ function Header() {
     }
   }
 
+  const Main = (props.pathname === '/' || isMenuMobile);
+
+  const classNameLogo = `header__logo ${Main ? '' : 'header__logo_saved-news'}`;
+
+  const classNameTextMain = `header__text ${Main ? 'header__text_selected' : 'header__text_saved-news'}`;
+  const classNameTextSavedNews = `header__text ${Main ? '' : 'header__text_saved-news header__text_selected-saved-news'}`;
+
+  const classNameTextBtn = `header__text header__text_button ${Main ? '' : 'header__text_saved-news'}`;
+
+  const logout = Main ? logoutMain : logoutSavedNews;
+  const classBackground = `"header__background-img" ${Main ? '' : 'header__background-img_saved-news'}`;
+
   return (
     <>
       <header className="header">
 
         <div className="header__background-position">
-          <div className="header__background-img"/>
+          <div className={classBackground}/>
         </div>
         <div className="header__container">
 
           <span className="header__border"/>
-          <Link navLink={true} className="header__logo" to="/" value="NewsExplorer"/>
+          <Link navLink={true} title="Перейти на страницу с поиском" className={classNameLogo} to='/'
+                value="NewsExplorer"/>
           <div className="header__menu">
             <nav className="header__nav">
               <ul className="header__list">
                 <li className="header__item">
-                  <Link navLink={true} className="header__text header__text_selected" to="/" value="Главная"/>
+                  <Link navLink={true} title="Перейти на страницу с поиском"
+                        className={classNameTextMain} to="/" value="Главная"/>
                 </li>
                 <li className="header__item">
-                  <Link navLink={true} className="header__text" to="/saved-news" value="Сохранённые статьи"/>
+                  <Link navLink={true} title="Перейти на страницу с сохранёнными статьями"
+                        className={classNameTextSavedNews}
+                        to="/saved-news" value="Сохранённые статьи"/>
                 </li>
               </ul>
             </nav>
             <div className="header__button-container">
               <Button
+                pathname={props.pathname}
                 image={true}
                 header={true}
-                classNameImg="header__button-img"
-                classNameText="header__text header__text_button"
-                // value="Грета"
-                value="Грета1234567890123456789012345678901234567890"
+                classNameImgBtn="header__button-img"
+                classNameTextBtn={classNameTextBtn}
+                value="Авторизоваться и Грета"
                 src={logout}
                 alt="Выход"
               />
             </div>
           </div>
           <div className="header__button-burger-menu-container">
-            <ButtonBurgerMenu showMenu={showMenu} classBurgerMenu={classBurgerMenu}/>
+            <ButtonBurgerMenu handleMenuMobile={handleMenuMobile} pathname={props.pathname} showMenu={showMenu}
+                              classBurgerMenu={classBurgerMenu} isMenuMobile={isMenuMobile}/>
           </div>
         </div>
 
         <MenuMobile isShowMenu={isShowMenu}/>
         {/* включить */}
-        {/* <div className={`header__overlay ${isShowOverlay}`}/> */}
+        <div className={`header__overlay ${isShowOverlay}`}/>
       </header>
 
     </>

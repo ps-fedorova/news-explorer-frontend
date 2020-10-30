@@ -61,6 +61,12 @@
   transition: all 0.3s ease-in-out;
 }
 
+.button-burger-menu_saved-news:after,
+.button-burger-menu_saved-news:before {
+  background-color: #1A1B22;
+}
+
+
 .button-burger-menu:before {
   animation: close-one ease 0.4s forwards;
 }
