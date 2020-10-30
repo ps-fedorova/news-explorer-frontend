@@ -1,15 +1,24 @@
 import React from 'react';
 
+import articles from '../../utils/articles';
+
+import NewsCard from '../NewsCard/NewsCard';
+
 import './NewsCardList.css';
 
-function NewsCardList(props) {
+function NewsCardList() {
+  // const [cards, setCards] = React.useState([]);
+
   return (
-
-      <img className="news-list"
-           alt={props.card.title}
-           src={props.card.urlToImage}
-      />
-
+    <div className="news-card-list">
+      {articles.map((card) => (
+        <div className="news-card-list__container" key={card.source.id}>
+          <NewsCard
+            card={card}
+          />
+        </div>
+      ))}
+    </div>
   );
 }
 

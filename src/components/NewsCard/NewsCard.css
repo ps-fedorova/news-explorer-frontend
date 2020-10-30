@@ -1,0 +1,6 @@
+.news-card {
+  max-width: 400px;
+  height: 272px;
+  background-position: center;
+  object-fit: cover;
+}
