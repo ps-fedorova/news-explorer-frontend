@@ -27,7 +27,7 @@ function App() {
         </Route>
 
         <Route path="/saved-news"> {/* Сохраненные новости */}
-          {/* <SavedNews/> */}
+           <SavedNews/>
         </Route>
 
       </Switch>

@@ -15,7 +15,6 @@ import logoutSavedNews from '../../images/logoutSavedNews.svg';
 
 function Header(props) {
   const [isMenuMobile, setMenuMobile] = React.useState(false);
-
   const [classBurgerMenu, setClassBurgerMenu] = React.useState('');
   const [isShowMenu, setIsShowMenu] = React.useState('');
   const [isShowOverlay, setIsShowOverlay] = React.useState('');
@@ -28,11 +27,11 @@ function Header(props) {
     if (classBurgerMenu === 'button-burger-menu_open') {
       setClassBurgerMenu('');
       setIsShowOverlay('');
-      // handleMenuMobile();
+      handleMenuMobile();
     } else {
       setClassBurgerMenu('button-burger-menu_open');
       setIsShowOverlay('header__overlay_open');
-      // handleMenuMobile();
+      handleMenuMobile();
     }
     if (isShowMenu === '') {
       setIsShowMenu('menu-mobile_open');
