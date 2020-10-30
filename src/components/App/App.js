@@ -9,7 +9,7 @@ import './App.css';
 
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import SavedNews from '../SavedNews';
+import SavedNews from '../SavedNews/SavedNews';
 import Footer from '../Footer/Footer';
 
 function App() {
