@@ -17,7 +17,7 @@ function Footer() {
 
           <ul className="footer__list">
             <li className="footer__item">
-              <Link navLink={true} title="Главная" className="footer__link" to="/" value="Главная"/>
+              <Link navLink={true} title="Перейти на Главную" className="footer__link" to="/" value="Главная"/>
             </li>
             <li className="footer__item">
               <Link title="Открыть сайт Яндекс.Практикума в новом окне" href="https://praktikum.yandex.ru"
