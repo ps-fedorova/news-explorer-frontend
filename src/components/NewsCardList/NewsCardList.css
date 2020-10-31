@@ -82,13 +82,23 @@
 
 @media screen and (max-width: 710px) {
   .news-card-list__list {
-    grid-template-columns: 288px;
+    grid-template-columns: 400px;
   }
 
   .news-card-list__title {
-    width: 288px;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 432px) {
+  .news-card-list__list {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card-list__title {
+    width: auto;
   }
 }
 
