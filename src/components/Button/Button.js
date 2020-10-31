@@ -12,6 +12,7 @@ function Button(props) {
     ${props.header ? `${page} header__button` : ''}
     ${props.menuMobile ? 'menu-mobile__button' : ''}
     ${props.searchForm ? 'search-form__button' : ''}
+    ${props.cardList ? 'news-card-list__button' : ''}
     `}>
 
       {props.image

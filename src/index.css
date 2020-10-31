@@ -30,6 +30,7 @@ code {
   color: #1A1B22;
   /*background-color: #347EFF;*/
 }
+
 /*Одновременно менять SearchForm.css и .header__border*/
 @media screen and (max-width: calc(1440px + 208px)) {
   .page {
@@ -38,7 +39,7 @@ code {
 }
 
 /*Одновременно менять SearchForm.css и .header__border*/
-@media screen and (max-width: calc(960px)) {
+@media screen and (max-width: 960px) {
   .page {
     margin: 0 40px;
   }

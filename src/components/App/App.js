@@ -23,11 +23,15 @@ function App() {
       <Switch>
 
         <Route exact path="/">{/* Главная */}
-          <Main/>
+          <Main
+            pathname={pathname}
+          />
         </Route>
 
         <Route path="/saved-news"> {/* Сохраненные новости */}
-           <SavedNews/>
+           <SavedNews
+             pathname={pathname}
+           />
         </Route>
 
       </Switch>

@@ -1,5 +1,5 @@
 .footer {
-  padding: 108px 0 28px;
+  padding: 28px 0;
 }
 
 .footer__container {
@@ -46,10 +46,6 @@
 }
 
 @media screen and (max-width: 960px) {
-  .footer {
-    padding-top: 72px;
-  }
-
   .footer__item {
     margin-right: 16px;
   }
@@ -60,9 +56,6 @@
 }
 
 @media screen and (max-width: 740px) {
-  .footer {
-    padding-top: 76px;
-  }
 
   .footer__container {
     flex-direction: column-reverse;

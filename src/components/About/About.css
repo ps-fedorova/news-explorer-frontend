@@ -1,5 +1,5 @@
 .about {
-  padding: 80px 0 0;
+  padding: 80px 0;
 }
 
 .about__author-img {
@@ -37,8 +37,10 @@
   }
 }
 
-
 @media screen and (max-width: 960px) {
+  .about {
+    padding: 64px 0 44px;
+  }
 
   .about__container {
     grid-template-columns: 232px  auto;

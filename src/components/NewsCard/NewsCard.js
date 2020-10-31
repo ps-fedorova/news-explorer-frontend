@@ -3,14 +3,6 @@ import React from 'react';
 import './NewsCard.css';
 import Link from '../Link/Link';
 
-import close from '../../images/close.svg';
-import mark from '../../images/mark.svg';
-// import logoutMain from '../../images/mark_hover.svg';
-import markSaved from '../../images/mark_saved.svg';
-import trashcan from '../../images/trashcan.svg';
-
-import trashcanHover from '../../images/trashcan_hover.svg';
-
 function NewsCard(props) {
   const keyword = 'Ключевое слово123456789';
 

@@ -3,11 +3,13 @@ import React from 'react';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 
-function SavedNews() {
+function SavedNews(props) {
   return (
     <main className="saved-news">
       <SavedNewsHeader/>
-      <NewsCardList/>
+      <NewsCardList
+        pathname={props.pathname}
+      />
     </main>
   );
 }
