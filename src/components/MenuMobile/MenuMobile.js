@@ -8,7 +8,7 @@ function MenuMobile(props) {
     <div className={`menu-mobile ${props.isShowMenu}`}>
       <nav className='menu-mobile__container'>
         <Link navLink={true} className="menu-mobile__link" to="/" value="Главная"/>
-        <Link navLink={true} className="menu-mobile__link" to="/saved-news" value="Сохраненные статьи"/>
+        <Link navLink={true} className="menu-mobile__link" to="/saved-news" value="Сохранённые статьи"/>
         <Button className='menu-mobile__button' value='Авторизоваться' menuMobile={true}/>
       </nav>
     </div>
