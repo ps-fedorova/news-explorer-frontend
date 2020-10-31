@@ -21,10 +21,7 @@ function SearchStatus() {
       <div className={`search-status__container ${preloader}`}>
         <i className="preloader__circle" onClick={show}/>
         <p className="preloader__title">Идет поиск новостей...</p>
-        <p className="preloader__helper">Нажмите на спиннер, чтобы увидеть блок "Ничего не найдено"
-          В этом блоке временно не работает бургер-меню.
-          Когда я удалю надпись и вместе с ней "position: relative", работать будет корректно
-        </p>
+        <p className="preloader__helper">Нажмите на спиннер, чтобы увидеть блок "Ничего не найдено"</p>
       </div>
 
       <div className={`search-status__container ${notFound}`}>
@@ -35,13 +32,8 @@ function SearchStatus() {
           onClick={show}
         />
         <h2 className="not-found__title">Ничего не найдено</h2>
-        <p className="not-found__text">
-          К сожалению по вашему запросу ничего не найдено.
-        </p>
-        <p className="preloader__helper">Нажмите на лупу, чтобы увидеть блок со спиннером
-          В этом блоке временно не работает бургер-меню.
-          Когда я удалю надпись и вместе с ней "position: relative", работать будет корректно
-        </p>
+        <p className="not-found__text"> К сожалению по вашему запросу ничего не найдено. </p>
+        <p className="preloader__helper">Нажмите на лупу, чтобы увидеть блок со спиннером</p>
       </div>
 
     </section>

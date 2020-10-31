@@ -1,6 +1,127 @@
 .news-card {
-  max-width: 400px;
-  height: 272px;
+  background-color: white;
+  border-radius: 0 0 15px 15px;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.news-card__link-img {
+  width: 100%;
+  padding-bottom: 68%;
+  position: relative;
+}
+
+.news-card__image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
   background-position: center;
   object-fit: cover;
+  cursor: pointer;
+  border-radius: 15px 15px 0 0;
+  top: 0;
+  left: 0;
 }
+
+.news-card__items-in-img {
+  padding: 0 12px;
+  font-style: normal;
+  font-weight: 500;
+  height: 40px;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: none;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.news-card__keyword-container {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  max-width: 140px;
+  cursor: initial;
+}
+
+.news-card__keyword {
+  display: block;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.news-card__image-container {
+  position: absolute;
+  height: 40px;
+  right: 24px;
+  top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2;
+  margin: auto;
+}
+
+.news-card__mark {
+  position: absolute;
+  padding: 0;
+  width: 40px;
+  justify-content: center;
+  background-image: url("../../images/trashcan.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.news-card__mark:hover {
+  padding: 0;
+  width: 40px;
+  justify-content: center;
+  background-image: url("../../images/trashcan_hover.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.news-card__notice {
+  position: absolute;
+  margin: 0 5px;
+  white-space: nowrap;
+  font-size: 12px;
+  display: none;
+  right: 40px;
+}
+
+.news-card__mark:hover + .news-card__notice {
+  display: flex;
+}
+
+.news-card__text-container {
+
+}
+
+.news-card__date {
+
+}
+.news-card__link {
+
+}
+
+.news-card__title {
+
+}
+
+.news-card__content {
+
+}
+
+news-card__source {
+  
+}
+
+

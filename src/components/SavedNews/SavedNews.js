@@ -5,10 +5,10 @@ import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 
 function SavedNews() {
   return (
-    <div className="saved-news">
-       <SavedNewsHeader/>
+    <main className="saved-news">
+      <SavedNewsHeader/>
       <NewsCardList/>
-    </div>
+    </main>
   );
 }
 

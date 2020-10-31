@@ -9,9 +9,9 @@ import Link from '../Link/Link';
 import '../../utils/color.css';
 import './Header.css';
 
-import logoutMain from '../../images/logoutMain.svg';
+import logoutMain from '../../images/logout_main.svg';
 
-import logoutSavedNews from '../../images/logoutSavedNews.svg';
+import logoutSavedNews from '../../images/logout_saved_news.svg';
 
 function Header(props) {
   const [isMenuMobile, setMenuMobile] = React.useState(false);
@@ -49,7 +49,7 @@ function Header(props) {
   const classNameTextSavedNews = `header__text ${Main ? '' : 'header__text_saved-news header__text_selected-saved-news'}`;
   const classNameTextBtn = `header__text header__text_button ${Main ? '' : 'header__text_saved-news'}`;
   const logout = Main ? logoutMain : logoutSavedNews;
-  const classBackground = `"header__background-img" ${Main ? '' : 'header__background-img_saved-news'}`;
+  const classBackground = `header__background-img ${Main ? '' : 'header__background-img_saved-news'}`;
 
   return (
     <>
@@ -98,7 +98,7 @@ function Header(props) {
 
         <MenuMobile isShowMenu={isShowMenu}/>
         {/* включить */}
-        <div className={`header__overlay ${isShowOverlay}`}/>
+        {/* <div className={`header__overlay ${isShowOverlay}`}/> */}
       </header>
 
     </>

@@ -10,15 +10,21 @@ function NewsCardList() {
   // const [cards, setCards] = React.useState([]);
 
   return (
-    <div className="news-card-list">
-      {articles.map((card) => (
-        <div className="news-card-list__container" key={card.source.id}>
+    <section className="news-card-list">
+      <ul className="news-card-list__container">
+        {articles.map((card) => (
           <NewsCard
-            card={card}
+            key={card.source.id}
+            url={card.url}
+            urlToImage={card.urlToImage}
+            publishedAt={card.publishedAt}
+            title={card.title}
+            content={card.content}
+            source={card.source.name}
           />
-        </div>
-      ))}
-    </div>
+        ))}
+      </ul>
+    </section>
   );
 }
 
