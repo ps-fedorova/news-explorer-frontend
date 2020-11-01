@@ -31,3 +31,5 @@ function SearchForm() {
 }
 
 export default SearchForm;
+
+// Задан пустой поисковый запрос

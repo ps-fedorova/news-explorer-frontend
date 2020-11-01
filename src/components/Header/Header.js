@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 import ButtonBurgerMenu from '../ButtonBurgerMenu/ButtonBurgerMenu';
 import MenuMobile from '../MenuMobile/MenuMobile';
 import Link from '../Link/Link';
-
+import Navigation from '../Navigation/Navigation';
 import '../../utils/color.css';
 import './Header.css';
 
@@ -45,8 +45,6 @@ function Header(props) {
   const main = (props.pathname === '/' || isMenuMobile);
 
   const classNameLogo = `header__logo ${main ? '' : 'header__logo_saved-news'}`;
-  const classNameTextMain = `header__text ${main ? 'header__text_selected' : 'header__text_saved-news'}`;
-  const classNameTextSavedNews = `header__text ${main ? '' : 'header__text_saved-news header__text_selected-saved-news'}`;
   const classNameTextBtn = `header__text header__text_button ${main ? '' : 'header__text_saved-news'}`;
   const logout = main ? logoutMain : logoutSavedNews;
   const classBackground = `header__background-img ${main ? '' : 'header__background-img_saved-news'}`;
@@ -64,19 +62,11 @@ function Header(props) {
           <Link navLink={true} title="Перейти на страницу с поиском" className={classNameLogo} to='/'
                 value="NewsExplorer"/>
           <div className="header__menu">
-            <nav className="header__nav">
-              <ul className="header__list">
-                <li className="header__item">
-                  <Link navLink={true} title="Перейти на страницу с поиском"
-                        className={classNameTextMain} to="/" value="Главная"/>
-                </li>
-                <li className="header__item">
-                  <Link navLink={true} title="Перейти на страницу с сохранёнными статьями"
-                        className={classNameTextSavedNews}
-                        to="/saved-news" value="Сохранённые статьи"/>
-                </li>
-              </ul>
-            </nav>
+
+           <Navigation
+             pathname={props.pathname}
+             isMenuMobile={props.isMenuMobile}
+           />
             <div className="header__button-container">
               <Button
                 pathname={props.pathname}

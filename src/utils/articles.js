@@ -38,6 +38,32 @@ const articles = [
     publishedAt: '2020-10-29T22:20:47Z',
     content: "There's a \"rogue planet\" flying through the Milky Way galaxy -- a free-floating world without a host star. Is it actually a Death Star? The worldships of Marvel villains Annihilus or Galactus? The pl… [+2339 chars]",
   },
+  {
+    source: {
+      id: null,
+      name: 'HuffPost',
+    },
+    author: 'Cole Delbyck',
+    title: "Scarlett Johansson And Colin Jost Are 'Jost Married' After Intimate Wedding - HuffPost",
+    description: 'The couple, who got engaged in May 2019, tied the knot after three years of dating.',
+    url: 'https://www.huffpost.com/entry/scarlett-johansson-colin-jost-married_n_5f9b15dcc5b689d246f87e77',
+    urlToImage: 'https://img.huffingtonpost.com/asset/5f9b17442400006515b03446.jpeg?cache=xFOC0xjdh0&ops=1200_630',
+    publishedAt: '2020-10-29T21:18:00Z',
+    content: 'Scarlett Johansson and Colin Jost are “Jost married.” \r\nThe couple, who announced their engagement in May 2019, tied the knot in an intimate ceremony over the weekend after three years of dating.\r\nTh… [+3288 chars]',
+  },
+  {
+    source: {
+      id: 'iwgn',
+      name: 'IGN',
+    },
+    author: 'Jim Vejvoda',
+    title: 'Rogue Planet Discovered Flying Through Milky Way Without a Star - IGN - IGN',
+    description: "There's a \"rogue planet\" flying through the Milky Way galaxy, a free-floating world without a host star. Its mass is reportedly between that of Earth and Mars.",
+    url: 'https://www.ign.com/articles/rogue-planet-discovered-flying-through-milky-way-without-a-star',
+    urlToImage: 'https://assets1.ignimgs.com/2020/10/29/unicron-tlk-1604009419573.jpg?width=1280',
+    publishedAt: '2020-10-29T22:20:47Z',
+    content: "There's a \"rogue planet\" flying through the Milky Way galaxy -- a free-floating world without a host star. Is it actually a Death Star? The worldships of Marvel villains Annihilus or Galactus? The pl… [+2339 chars]",
+  },
 ];
 
 export default articles;

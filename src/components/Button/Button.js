@@ -13,7 +13,9 @@ function Button(props) {
     ${props.menuMobile ? 'menu-mobile__button' : ''}
     ${props.searchForm ? 'search-form__button' : ''}
     ${props.cardList ? 'news-card-list__button' : ''}
-    `}>
+    `}
+    onClick={props.onClick}
+    >
 
       {props.image
 

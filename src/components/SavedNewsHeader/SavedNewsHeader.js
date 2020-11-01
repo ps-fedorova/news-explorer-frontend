@@ -5,7 +5,7 @@ import './SavedNewsHeader.css';
 function SavedNewsHeader() {
   return (
     <section className="saved-news-header">
-      <h1 className="saved-news-header__title">Сохраненные статьи</h1>
+      <h1 className="saved-news-header__title">Сохранённые статьи</h1>
       <h2 className="saved-news-header__subtitle">
         <span className="saved-news-header__subtitle-text"> Грета, у вас <span className="saved-news-header__subtitle-count">5</span></span>
         <span className="saved-news-header__subtitle-text-br">сохранённых статей</span>

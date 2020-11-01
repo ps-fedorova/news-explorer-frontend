@@ -23,14 +23,10 @@
 .menu-mobile__button {
   min-height: 56px;
   background-color: transparent;
-  margin-top: 40px;
+  margin-top: 22px;
   display: block;
 }
 
-.menu-mobile__link {
-  margin-top: 35px;
-  color: white;
-}
 
 @media screen and (max-width: 710px) {
   .menu-mobile {
@@ -40,7 +36,6 @@
   .menu-mobile__container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 358px;
     margin: auto;
     padding: 70px 16px 22px;
