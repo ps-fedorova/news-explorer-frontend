@@ -36,6 +36,7 @@ function App() {
           <Main
             articles={articles}
             pathname={pathname}
+            loggedIn={loggedIn}
             isLoading={isLoading}
             handleShowMoreArticles={handleShowMoreArticles} // иначе стейт при смене страницы обнулится
             rowArticles={rowArticles} // иначе стейт при смене страницы обнулится
@@ -46,6 +47,7 @@ function App() {
           <SavedNews
             articles={articles} // чтобы считать количество новостей
             pathname={pathname}
+            loggedIn={loggedIn}
           />
         </Route>
 

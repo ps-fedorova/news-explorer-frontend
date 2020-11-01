@@ -1,5 +1,5 @@
 import React from 'react';
-import { disablePageScroll, enablePageScroll } from 'scroll-lock';
+// import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 
 import Button from '../Button/Button';
 import ButtonBurgerMenu from '../ButtonBurgerMenu/ButtonBurgerMenu';
@@ -10,7 +10,6 @@ import '../../utils/color.css';
 import './Header.css';
 
 import logoutMain from '../../images/logout_main.svg';
-
 import logoutSavedNews from '../../images/logout_saved_news.svg';
 
 function Header(props) {
@@ -35,10 +34,10 @@ function Header(props) {
     }
     if (isShowMenu === '') {
       setIsShowMenu('menu-mobile_open');
-      disablePageScroll();
+      // disablePageScroll();
     } else {
       setIsShowMenu('');
-      enablePageScroll();
+      // enablePageScroll();
     }
   }
 
@@ -63,30 +62,47 @@ function Header(props) {
                 value="NewsExplorer"/>
           <div className="header__menu">
 
-           <Navigation
-             pathname={props.pathname}
-             isMenuMobile={props.isMenuMobile}
-           />
+            <Navigation
+              pathname={props.pathname}
+              isMenuMobile={props.isMenuMobile}
+              loggedIn={props.loggedIn}
+            />
             <div className="header__button-container">
-              <Button
-                pathname={props.pathname}
-                image={true}
-                header={true}
-                classNameImgBtn="header__button-img"
-                classNameTextBtn={classNameTextBtn}
-                value="Авторизоваться и Грета"
-                src={logout}
-                alt="Выход"
-              />
+
+              {props.loggedIn
+                ? <Button
+                  pathname={props.pathname}
+                  image={true}
+                  header={true}
+                  classNameImgBtn="header__button-img"
+                  classNameTextBtn={classNameTextBtn}
+                  value="Грета"
+                  src={logout}
+                  alt="Выход"
+                />
+
+                : < Button
+                  pathname={props.pathname}
+                  header={true}
+                  classNameImgBtn="header__button-img"
+                  classNameTextBtn={classNameTextBtn}
+                  value="Авторизоваться"
+                  src={logout}
+                  alt="Выход"
+                />
+              }
+
             </div>
           </div>
           <div className="header__button-burger-menu-container">
-            <ButtonBurgerMenu handleMenuMobile={handleMenuMobile} pathname={props.pathname} showMenu={showMenu}
-                              classBurgerMenu={classBurgerMenu} isMenuMobile={isMenuMobile}/>
+            <ButtonBurgerMenu
+              handleMenuMobile={handleMenuMobile} pathname={props.pathname}
+              showMenu={showMenu} classBurgerMenu={classBurgerMenu} isMenuMobile={isMenuMobile}
+            />
           </div>
         </div>
 
-        <MenuMobile isShowMenu={isShowMenu}/>
+        <MenuMobile isShowMenu={isShowMenu} loggedIn={props.loggedIn} logout={logout}/>
         {/* включить */}
         {/* <div className={`header__overlay ${isShowOverlay}`}/> */}
       </header>

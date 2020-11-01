@@ -14,11 +14,12 @@ function Navigation(props) {
           <Link navLink={true} title="Перейти на страницу с поиском"
                 className={classNameTextMain} to="/" value="Главная"/>
         </li>
-        <li className="nav__item">
+        {props.loggedIn && <li className="nav__item">
           <Link navLink={true} title="Перейти на страницу с сохранёнными статьями"
                 className={classNameTextSavedNews}
                 to="/saved-news" value="Сохранённые статьи"/>
         </li>
+        }
       </ul>
     </nav>
   );

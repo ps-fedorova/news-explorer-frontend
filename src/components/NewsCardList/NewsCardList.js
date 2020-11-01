@@ -8,23 +8,6 @@ import './NewsCardList.css';
 function NewsCardList(props) {
   const main = (props.pathname === '/');
 
-  // function showMore() {
-  //   if (props.articles.length !== 0) {
-  //     return (
-  //       <>
-  //       <Button
-  //         cardList={true}
-  //         value="Показать еще"
-  //         classNameTextBtn='news-card-list__button-text'
-  //         onClick={props.handleShowMoreArticles}
-  //       />
-  //         {console.log(props.articles)}
-  //       </>
-  //     );
-  //   }
-  //   return <></>;
-  // }
-
   return (
     <section className="news-card-list">
       <div className="news-card-list__container">
@@ -42,6 +25,8 @@ function NewsCardList(props) {
                   title={card.title}
                   content={card.content}
                   source={card.source.name}
+                  pathname={props.pathname}
+                  loggedIn={props.loggedIn}
                 />
               ))}
             </ul>
@@ -65,6 +50,8 @@ function NewsCardList(props) {
                 title={card.title}
                 content={card.content}
                 source={card.source.name}
+                pathname={props.pathname}
+                loggedIn={props.loggedIn}
               />
             ))}
           </ul>}
