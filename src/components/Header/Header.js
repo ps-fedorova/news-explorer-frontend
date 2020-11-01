@@ -41,8 +41,20 @@ function Header(props) {
     }
   }
 
-  const main = (props.pathname === '/' || isMenuMobile);
+  function handleEsc(evt) {
+    if (evt.key === 'Escape' && isMenuMobile) {
+      showMenu();
+    }
+  }
+  React.useEffect(() => {
+    window.addEventListener('keydown', handleEsc);
 
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  });
+
+  const main = (props.pathname === '/' || isMenuMobile);
   const classNameLogo = `header__logo ${main ? '' : 'header__logo_saved-news'}`;
   const classNameTextBtn = `header__text header__text_button ${main ? '' : 'header__text_saved-news'}`;
   const logout = main ? logoutMain : logoutSavedNews;
@@ -104,7 +116,7 @@ function Header(props) {
 
         <MenuMobile isShowMenu={isShowMenu} loggedIn={props.loggedIn} logout={logout}/>
         {/* включить */}
-        {/* <div className={`header__overlay ${isShowOverlay}`}/> */}
+        <div onClick={showMenu} className={`header__overlay ${isShowOverlay}`}/>
       </header>
 
     </>

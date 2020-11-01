@@ -61,8 +61,8 @@
 
 .header__button {
   max-width: 250px;
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 17px;
+  padding-right: 17px;
 }
 
 .header__text_button {
@@ -176,7 +176,7 @@
   }
 
   .header__overlay {
-    position: absolute;
+    position: fixed;
     background-color: rgba(0, 0, 0, 0);
     left: -40px;
     right: -40px;

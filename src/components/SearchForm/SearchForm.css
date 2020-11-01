@@ -3,7 +3,7 @@
   background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("../../images/background.jpg") center;
   background-size: cover;
   margin: -80px -104px 0;
-  height: 588px;
+  height: 576px;
   display: flex;
 }
 
@@ -11,7 +11,7 @@
   padding: 0 16px;
   max-width: calc(608px);
   color: white;
-  margin: 170px auto auto auto;
+  margin: 158px auto auto auto;
 }
 
 .search-form__title {
@@ -37,7 +37,7 @@
   border-radius: 100px;
   background-color: white;
   /*border: 1px solid #d1d2d6;*/
-  margin-top: 64px;
+  margin-top: 68px;
 }
 
 .search-form__input {
