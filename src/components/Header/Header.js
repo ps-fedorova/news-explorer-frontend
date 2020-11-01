@@ -54,6 +54,12 @@ function Header(props) {
     };
   });
 
+  function handleOverlayClose() {
+    if (isMenuMobile) {
+      showMenu();
+    }
+  }
+
   const main = (props.pathname === '/' || isMenuMobile);
   const classNameLogo = `header__logo ${main ? '' : 'header__logo_saved-news'}`;
   const classNameTextBtn = `header__text header__text_button ${main ? '' : 'header__text_saved-news'}`;
@@ -65,13 +71,13 @@ function Header(props) {
       <header className="header">
 
         <div className="header__background-position">
-          <div className={classBackground}/>
+          <div className={classBackground} />
         </div>
         <div className="header__container">
 
-          <span className="header__border"/>
+          <span className="header__border" />
           <Link navLink={true} title="Перейти на страницу с поиском" className={classNameLogo} to='/'
-                value="NewsExplorer"/>
+            value="NewsExplorer" />
           <div className="header__menu">
 
             <Navigation
@@ -114,9 +120,9 @@ function Header(props) {
           </div>
         </div>
 
-        <MenuMobile isShowMenu={isShowMenu} loggedIn={props.loggedIn} logout={logout}/>
+        <MenuMobile isShowMenu={isShowMenu} loggedIn={props.loggedIn} logout={logout} />
         {/* включить */}
-        <div onClick={showMenu} className={`header__overlay ${isShowOverlay}`}/>
+        <div onClick={handleOverlayClose} className={`header__overlay ${isShowOverlay}`} />
       </header>
 
     </>
