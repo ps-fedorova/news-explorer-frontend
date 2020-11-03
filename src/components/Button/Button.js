@@ -11,6 +11,7 @@ function Button(props) {
     <button
       onClick={props.onClick}
       type={props.type}
+      disabled={props.disabled}
       className={`button
     ${props.header ? `${page} header__button` : ''}
     ${props.menuMobile ? 'menu-mobile__button' : ''}

@@ -24,7 +24,6 @@ function FormPopup(props) {
         </fieldset>
         {props.register && <span className='popup__warning'>Такой пользователь уже есть</span>}
         {!props.infoTooltip && <Button
-          buttonClassName='popup__submit'
           onClick={handleSubmit}
           popup={true}
           disabled={!props.isFormValid}
