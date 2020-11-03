@@ -1,12 +1,20 @@
 import React from 'react';
 import PopupInput from '../PopupInput/PopupInput';
 import PopupForm from '../PopupForm/PopupForm';
-import { useFormWithValidation } from '../../../utils/validation';
+import useFormWithValidation from '../../../utils/validation';
 
 export default function Register(props) {
-  const emailField = useFormWithValidation();
-  const nameField = useFormWithValidation();
-  const passwordField = useFormWithValidation();
+  const {
+    values, handleChange, errors, isValid, resetForm,
+  } = useFormWithValidation();
+
+  React.useEffect(() => {
+    resetForm();
+  }, [props.isOpen, resetForm]);
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+  }
 
   return (
     <PopupForm
@@ -16,39 +24,48 @@ export default function Register(props) {
       isOpen={props.isOpen}
       onClose={props.onClose}
       onChangeForm={props.onChangeForm}
-      isFormValid={emailField.isValid && passwordField.isValid && nameField.isValid}
+      onSubmit={handleSubmit}
       submitButtonText='Зарегистрироваться'
+      isDisabled={!isValid}
     >
       <PopupInput
         label='Email'
-        minLength='8'
-        maxLength='30'
         type='email'
-        {...emailField}
+        name='email'
         inputLabelClassName='popup__input-label'
         inputFieldClassName='popup__input'
-        placeholder='Введите почту' />
+        placeholder='Введите почту'
+        onChange={handleChange}
+        errors={errors.email}
+        value={values.email || ''}
+      />
       <PopupInput
         label='Пароль'
+        type='password'
+        name='password'
         minLength='8'
         maxLength='30'
-        type='password'
-        {...passwordField}
         inputLabelClassName='popup__input-label'
         inputFieldClassName='popup__input'
-        placeholder='Введите пароль' />
+        placeholder='Введите пароль'
+        onChange={handleChange}
+        errors={errors.password}
+        value={values.password || ''}
+      />
       <PopupInput
         label='Имя'
+        type='text'
         name='name'
         formName='reg'
         minLength='2'
         maxLength='30'
-        type='text'
-        required={true}
-        {...nameField}
         inputLabelClassName='popup__input-label'
         inputFieldClassName='popup__input'
-        placeholder='Введите имя' />
+        placeholder='Введите имя'
+        onChange={handleChange}
+        errors={errors.name}
+        value={values.name || ''}
+      />
     </PopupForm>
   );
 }

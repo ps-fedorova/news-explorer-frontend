@@ -1,26 +1,31 @@
 import React from 'react';
 
-export const useFormWithValidation = () => {
-  const [value, setValue] = React.useState('');
-  const [errorMessage, setErrorMessage] = React.useState('');
+function useFormWithValidation() {
+  const [values, setValues] = React.useState({});
+  const [errors, setErrors] = React.useState({});
   const [isValid, setIsValid] = React.useState(false);
 
-  const onChange = React.useCallback((evt) => {
-    setValue(evt.target.value);
-    setErrorMessage(evt.target.validationMessage);
-    setIsValid(evt.target.validity.valid);
-  }, [setValue, setErrorMessage, setIsValid]);
+  const handleChange = (evt) => {
+    const { target } = evt;
+    const { value } = target;
+    const { name } = target;
+    setValues({ ...values, [name]: value });
+    setErrors({ ...errors, [name]: target.validationMessage });
+    setIsValid(target.closest('form').checkValidity());
+  };
 
   const resetForm = React.useCallback(
-    (newValues = '', newErrors = '', newIsValid = false) => {
-      setValue(newValues);
-      setErrorMessage(newErrors);
+    (newValues = {}, newErrors = {}, newIsValid = false) => {
+      setValues(newValues);
+      setErrors(newErrors);
       setIsValid(newIsValid);
     },
-    [setValue, setErrorMessage, setIsValid],
+    [setValues, setErrors, setIsValid],
   );
 
   return {
-    value, errorMessage, isValid, onChange, resetForm,
+    values, handleChange, errors, isValid, setIsValid, resetForm,
   };
-};
+}
+
+export default useFormWithValidation;

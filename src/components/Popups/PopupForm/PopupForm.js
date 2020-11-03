@@ -24,17 +24,19 @@ function FormPopup(props) {
           {props.children}
         </fieldset>
         {props.register && <span className='popup__warning'>Такой пользователь уже есть</span>}
-        {!props.infoTooltip && <Button
+        {!props.infoTooltip
+
+        && <Button
           onClick={handleSubmit}
           popup={true}
-          disabled={!props.isFormValid}
+          disabled={props.isDisabled}
           value={props.submitButtonText}
         >
         </Button>
         }
         <div
-          className={`popup__subtitle ${props.infoTooltip && 'popup__subtitle_infoTooltip'}`}>{!props.infoTooltip && 'или'}
-          <span className={`popup__link ${props.infoTooltip && 'popup__link_infoTooltip'}`}
+          className={`popup__subtitle ${props.infoTooltip ? 'popup__subtitle_infoTooltip' : ''}`}>{!props.infoTooltip && 'или'}
+          <span className={`popup__link ${props.infoTooltip ? 'popup__link_infoTooltip' : ''}`}
                 onClick={props.onChangeForm}>
             {!props.login ? ' Войти' : ' Зарегистрироваться'}</span>
         </div>

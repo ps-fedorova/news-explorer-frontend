@@ -1,17 +1,20 @@
 import React from 'react';
 import PopupInput from '../PopupInput/PopupInput';
 import PopupForm from '../PopupForm/PopupForm';
-import { useFormWithValidation } from '../../../utils/validation';
+import useFormWithValidation from '../../../utils/validation';
 
 export default function Login(props) {
-  const emailField = useFormWithValidation();
-  const passwordField = useFormWithValidation();
+  const {
+    values, handleChange, errors, isValid, resetForm,
+  } = useFormWithValidation();
 
   React.useEffect(() => {
-    emailField.resetForm();
-    passwordField.resetForm();
-  }, [emailField, passwordField, props.isOpen]);
+    resetForm();
+  }, [props.isOpen, resetForm]);
 
+  function handleSubmit(evt) {
+    evt.preventDefault();
+  }
   return (
     <PopupForm
       login={true}
@@ -19,28 +22,34 @@ export default function Login(props) {
       isOpen={props.isOpen}
       onClose={props.onClose}
       onChangeForm={props.onChangeForm}
-      isFormValid={emailField.isValid && passwordField.isValid}
+      onSubmit={handleSubmit}
       submitButtonText='Войти'
+      isDisabled={!isValid}
     >
       <PopupInput
         label='Email'
         type='email'
-        minLength='8'
-        maxLength='30'
-        {...emailField}
+        name='email'
         inputLabelClassName='popup__input-label'
         inputFieldClassName='popup__input'
-        placeholder='Введите почту'/>
+        placeholder='Введите почту'
+        onChange={handleChange}
+        errors={errors.email}
+        value={values.email || ''}
+      />
       <PopupInput
         label='Пароль'
         type='password'
+        name='password'
         minLength='8'
         maxLength='30'
-        required={true}
-        {...passwordField}
         inputLabelClassName='popup__input-label'
         inputFieldClassName='popup__input'
-        placeholder='Введите пароль'/>
+        placeholder='Введите пароль'
+        onChange={handleChange}
+        errors={errors.password}
+        value={values.password || ''}
+      />
     </PopupForm>
   );
 }

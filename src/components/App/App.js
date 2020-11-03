@@ -100,17 +100,17 @@ function App() {
         onClose={closeAllPopups}
         onChangeForm={handleRegisterOpen}
       />
-      <Register
+       <Register
         isOpen={isRegisterOpen}
         onClose={closeAllPopups}
         onChangeForm={handleLoginOpen}
         onInfoTooltipOpen={handleInfoTooltipOpen}
-      />
-      <InfoTooltip
+       />
+       <InfoTooltip
         isOpen={isInfoTooltipOpen}
         onClose={closeAllPopups}
         onChangeForm={handleLoginOpen}
-      />
+       />
     </>
   );
 }
