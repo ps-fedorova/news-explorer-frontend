@@ -25,7 +25,7 @@ function App() {
   const [isLoginOpen, setLoginOpen] = React.useState(false);
   const [isRegisterOpen, setRegisterOpen] = React.useState(false);
   const [isInfoTooltipOpen, setInfoTooltipOpen] = React.useState(false);
-  const [disabled, setDisabled] = React.useState(true);
+
   function handleShowMoreArticles() {
     setRowArticles(rowArticles + 1);
   }
@@ -33,6 +33,7 @@ function App() {
   function handleLoginOpen() {
     setLoginOpen(true);
     setRegisterOpen(false);
+    setInfoTooltipOpen(false);
   }
 
   function handleRegisterOpen() {
@@ -98,14 +99,12 @@ function App() {
         isOpen={isLoginOpen}
         onClose={closeAllPopups}
         onChangeForm={handleRegisterOpen}
-        disabled={disabled}
       />
       <Register
         isOpen={isRegisterOpen}
         onClose={closeAllPopups}
         onChangeForm={handleLoginOpen}
         onInfoTooltipOpen={handleInfoTooltipOpen}
-        disabled={disabled}
       />
       <InfoTooltip
         isOpen={isInfoTooltipOpen}

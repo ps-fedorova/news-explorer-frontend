@@ -10,7 +10,7 @@ export default function Login(props) {
   React.useEffect(() => {
     emailField.resetForm();
     passwordField.resetForm();
-  }, [props.isOpen]);
+  }, [emailField, passwordField, props.isOpen]);
 
   return (
     <PopupForm
@@ -24,21 +24,22 @@ export default function Login(props) {
     >
       <PopupInput
         label='Email'
-        // id='email_login'
         type='email'
-        minLength='6'
+        minLength='8'
         maxLength='30'
         {...emailField}
+        inputLabelClassName='popup__input-label'
+        inputFieldClassName='popup__input'
         placeholder='Введите почту'/>
       <PopupInput
         label='Пароль'
-        // name='password'
-        // formName='log'
         type='password'
         minLength='8'
         maxLength='30'
         required={true}
         {...passwordField}
+        inputLabelClassName='popup__input-label'
+        inputFieldClassName='popup__input'
         placeholder='Введите пароль'/>
     </PopupForm>
   );

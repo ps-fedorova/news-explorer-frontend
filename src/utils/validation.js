@@ -9,7 +9,7 @@ export const useFormWithValidation = () => {
     setValue(evt.target.value);
     setErrorMessage(evt.target.validationMessage);
     setIsValid(evt.target.validity.valid);
-  }, []);
+  }, [setValue, setErrorMessage, setIsValid]);
 
   const resetForm = React.useCallback(
     (newValues = '', newErrors = '', newIsValid = false) => {
@@ -17,7 +17,7 @@ export const useFormWithValidation = () => {
       setErrorMessage(newErrors);
       setIsValid(newIsValid);
     },
-    [setValue, setIsValid, setIsValid],
+    [setValue, setErrorMessage, setIsValid],
   );
 
   return {

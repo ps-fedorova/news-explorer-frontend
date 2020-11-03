@@ -9,6 +9,7 @@ function InfoTooltip(props) {
       linkText="Войти"
       isOpen={props.isOpen}
       onClose={props.onClose}
+      onChangeForm={props.onChangeForm}
     />
   );
 }

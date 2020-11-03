@@ -17,6 +17,7 @@ function FormPopup(props) {
         <button
           className='popup__close-button'
           onClick={props.onClose}
+          type='button'
         />
         <legend className='popup__title'>{props.title}</legend>
         <fieldset className='popup__input-container'>
@@ -31,10 +32,12 @@ function FormPopup(props) {
         >
         </Button>
         }
-        <span className='popup__subtitle'>{!props.infoTooltip && 'или '}
-          <span className='popup__link' onClick={props.onChangeForm}>
-            {!props.login ? 'Войти' : 'Зарегистрироваться'}</span>
-        </span>
+        <div
+          className={`popup__subtitle ${props.infoTooltip && 'popup__subtitle_infoTooltip'}`}>{!props.infoTooltip && 'или'}
+          <span className={`popup__link ${props.infoTooltip && 'popup__link_infoTooltip'}`}
+                onClick={props.onChangeForm}>
+            {!props.login ? ' Войти' : ' Зарегистрироваться'}</span>
+        </div>
       </form>
       <div
         className='popup__overlay'
