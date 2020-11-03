@@ -11,7 +11,7 @@ function MenuMobile(props) {
         {props.loggedIn
           ? <Button menuMobile={true} image={true} className='menu-mobile__button' value='Грета' src={props.logout}
                     alt="Выход"/>
-          : <Button className='menu-mobile__button' value='Авторизоваться' menuMobile={true}/>
+          : <Button className='menu-mobile__button' value='Авторизоваться' menuMobile={true} onClick={props.onClick}/>
         }
       </div>
     </div>

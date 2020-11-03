@@ -95,7 +95,6 @@
 
   .search-form__button {
     height: 55px;
-    width: 100%;
   }
 }
 
@@ -122,6 +121,7 @@
 
   .search-form__button {
     margin-top: 16px;
+    width: 100%;
   }
 
   .search-form__input-container {

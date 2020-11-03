@@ -8,15 +8,17 @@ function Button(props) {
 
   return (
     // здесь про размер кнопки и основные атрибуты
-    <button className={`button
+    <button
+      onClick={props.onClick}
+      type={props.type}
+      className={`button
     ${props.header ? `${page} header__button` : ''}
     ${props.menuMobile ? 'menu-mobile__button' : ''}
     ${props.searchForm ? 'search-form__button' : ''}
     ${props.cardList ? 'news-card-list__button' : ''}
+    ${props.popup ? 'popup__button' : ''}
     `}
-    onClick={props.onClick}
     >
-
       {props.image
 
         // если кнопка содержит картинку (как в хедере)

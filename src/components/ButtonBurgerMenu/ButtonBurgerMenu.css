@@ -59,6 +59,7 @@
   height: 2px;
   margin: 4px 0;
   transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
 }
 
 .button-burger-menu_saved-news:after,

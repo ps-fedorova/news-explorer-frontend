@@ -105,8 +105,7 @@ function Header(props) {
                   classNameImgBtn="header__button-img"
                   classNameTextBtn={classNameTextBtn}
                   value="Авторизоваться"
-                  src={logout}
-                  alt="Выход"
+                  onClick={props.onClick}
                 />
               }
 
@@ -120,7 +119,7 @@ function Header(props) {
           </div>
         </div>
 
-        <MenuMobile isShowMenu={isShowMenu} loggedIn={props.loggedIn} logout={logout} />
+        <MenuMobile isShowMenu={isShowMenu} loggedIn={props.loggedIn} logout={logout} onClick={props.onClick} />
         {/* включить */}
         <div onClick={handleOverlayClose} className={`header__overlay ${isShowOverlay}`} />
       </header>

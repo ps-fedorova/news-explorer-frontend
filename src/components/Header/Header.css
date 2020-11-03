@@ -135,7 +135,7 @@
     position: fixed;
     margin: 0 auto;
     height: 55px;
-    z-index: 100;
+    z-index: 10;
   }
 
   .header__border {
@@ -184,12 +184,14 @@
     top: 0;
     bottom: 0;
     z-index: -1;
-    transition: all .7s, .7s ease;
+    transition: all .4s, .4s ease;
+    -moz-transition: all .4s, .4s ease;
   }
 
   .header__overlay_open {
     background-color: rgba(0, 0, 0, 0.5);
-    transition: all 0s, .7s ease;
+    transition: all 0s, .4s ease;
+    -moz-transition: all 0s, .4s ease;
   }
 
   .header__menu {
