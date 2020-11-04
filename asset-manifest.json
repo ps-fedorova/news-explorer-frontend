@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/news-explorer-frontend/static/css/main.d7636fb1.chunk.css",
-    "main.js": "/news-explorer-frontend/static/js/main.12e0af4c.chunk.js",
-    "main.js.map": "/news-explorer-frontend/static/js/main.12e0af4c.chunk.js.map",
+    "main.js": "/news-explorer-frontend/static/js/main.c1495e8d.chunk.js",
+    "main.js.map": "/news-explorer-frontend/static/js/main.c1495e8d.chunk.js.map",
     "runtime-main.js": "/news-explorer-frontend/static/js/runtime-main.0fc9bfae.js",
     "runtime-main.js.map": "/news-explorer-frontend/static/js/runtime-main.0fc9bfae.js.map",
-    "static/js/2.4186f656.chunk.js": "/news-explorer-frontend/static/js/2.4186f656.chunk.js",
-    "static/js/2.4186f656.chunk.js.map": "/news-explorer-frontend/static/js/2.4186f656.chunk.js.map",
+    "static/js/2.6ced64a9.chunk.js": "/news-explorer-frontend/static/js/2.6ced64a9.chunk.js",
+    "static/js/2.6ced64a9.chunk.js.map": "/news-explorer-frontend/static/js/2.6ced64a9.chunk.js.map",
     "index.html": "/news-explorer-frontend/index.html",
-    "precache-manifest.7b8fb574c337ac685774bdd1cd9a477a.js": "/news-explorer-frontend/precache-manifest.7b8fb574c337ac685774bdd1cd9a477a.js",
+    "precache-manifest.3e25bc4e6f6ff7bac8724847aff9a74f.js": "/news-explorer-frontend/precache-manifest.3e25bc4e6f6ff7bac8724847aff9a74f.js",
     "service-worker.js": "/news-explorer-frontend/service-worker.js",
     "static/css/main.d7636fb1.chunk.css.map": "/news-explorer-frontend/static/css/main.d7636fb1.chunk.css.map",
-    "static/js/2.4186f656.chunk.js.LICENSE.txt": "/news-explorer-frontend/static/js/2.4186f656.chunk.js.LICENSE.txt",
+    "static/js/2.6ced64a9.chunk.js.LICENSE.txt": "/news-explorer-frontend/static/js/2.6ced64a9.chunk.js.LICENSE.txt",
     "static/media/author.jpg": "/news-explorer-frontend/static/media/author.ead9e275.jpg",
     "static/media/SearchForm.css": "/news-explorer-frontend/static/media/background.f5fbbb94.jpg",
     "static/media/PopupForm.css": "/news-explorer-frontend/static/media/close.cef766ff.svg",
@@ -26,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.0fc9bfae.js",
-    "static/js/2.4186f656.chunk.js",
+    "static/js/2.6ced64a9.chunk.js",
     "static/css/main.d7636fb1.chunk.css",
-    "static/js/main.12e0af4c.chunk.js"
+    "static/js/main.c1495e8d.chunk.js"
   ]
 }
