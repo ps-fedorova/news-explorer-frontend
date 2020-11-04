@@ -36,18 +36,21 @@ function App() {
     setLoginOpen(true);
     setRegisterOpen(false);
     setInfoTooltipOpen(false);
+    enablePageScroll();
     disablePageScroll();
   }
 
   function handleRegisterOpen() {
     setLoginOpen(false);
     setRegisterOpen(true);
+    enablePageScroll();
     disablePageScroll();
   }
 
   function handleInfoTooltipOpen() {
     setRegisterOpen(false);
     setLoginOpen(true);
+    enablePageScroll();
     disablePageScroll();
   }
 
@@ -106,6 +109,7 @@ function App() {
         isOpen={isLoginOpen}
         onClose={closeAllPopups}
         onChangeForm={handleRegisterOpen}
+
       />
        <Register
         isOpen={isRegisterOpen}
