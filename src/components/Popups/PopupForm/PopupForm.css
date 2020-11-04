@@ -179,4 +179,7 @@
     height: 56px;
     width: 288px;
   }
+  .popup__warning {
+    margin-top: calc(100% - 44px);
+  }
 }
