@@ -1,12 +1,10 @@
-.saved-news-header {
-
-}
-
 .saved-news-header__subtitle-text-br {
   display: block;
 }
 
 .saved-news-header__title {
+  font-family: 'Roboto', 'Inter', 'Arial', sans-serif;
+  font-weight: 400;
   padding-top: 40px;
   margin: 0;
   font-size: 18px;
@@ -15,7 +13,7 @@
 }
 
 .saved-news-header__subtitle {
-  font-family: Roboto Slab, monospace;
+  font-family: Roboto Slab, Georgia, 'Times New Roman', Times, monospace;
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
@@ -25,6 +23,7 @@
 }
 
 .saved-news-header__text {
+  font-family: 'Roboto', 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

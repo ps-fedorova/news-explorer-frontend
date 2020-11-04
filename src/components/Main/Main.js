@@ -7,6 +7,7 @@ import NotFound from '../NotFound/NotFound';
 
 function Main(props) {
   function showResult() {
+    // Нужно удалить все статьи, чтобы увидеть блок
     if (props.articles.length) {
       return (
         <NewsCardList

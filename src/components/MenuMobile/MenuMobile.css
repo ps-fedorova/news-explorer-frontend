@@ -1,6 +1,8 @@
 .menu-mobile {
+  font-family: 'Roboto', 'Inter', 'Arial', sans-serif;
   display: none;
   font-size: 18px;
+  font-weight: 400;
   min-height: 286px;
   position: relative;
   top: -55px;
@@ -29,7 +31,6 @@
   display: block;
 }
 
-
 @media screen and (max-width: 710px) {
   .menu-mobile {
     display: flex;
@@ -45,7 +46,6 @@
 }
 
 @media screen and (max-width: 500px) {
-
   .menu-mobile__container {
     width: 288px;
   }

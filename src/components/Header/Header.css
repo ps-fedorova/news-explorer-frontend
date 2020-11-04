@@ -1,9 +1,5 @@
-.header {
-}
-
 .header__container {
   position: relative;
-  /*height: 80px;*/
   z-index: 2;
   display: flex;
   justify-content: space-between;
@@ -21,7 +17,7 @@
 
 .header__logo {
   /*margin: auto 0 27px;*/
-  font-family: Roboto Slab, monospace;
+  font-family: Roboto Slab, Georgia, 'Times New Roman', Times, monospace;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
@@ -38,10 +34,10 @@
 
 .header__menu {
   display: flex;
-  /*height: 80px;*/
 }
 
 .header__text {
+  font-family: 'Roboto', 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -81,7 +77,6 @@
     height: 66px;
   }
 
-
   .header__logo {
     padding-top: 24px;
     padding-bottom: 0;
@@ -96,7 +91,6 @@
   }
 
   .header__text {
-    font-style: normal;
     font-size: 16px;
     line-height: 24px;
     margin-right: 18px;
@@ -120,16 +114,10 @@
     top: 66px;
     margin: 0 -40px;
   }
-
-}
-
-.header__button-burger-menu-container {
-  display: none;
 }
 
 @media screen and (max-width: 710px) {
   .header {
-    /*включить*/
     left: 40px;
     right: 40px;
     position: fixed;
@@ -167,7 +155,6 @@
 
   .header__container {
     padding: 0 4px 0 0;
-    /*width: 100%;*/
   }
 
   .header__border {
@@ -176,19 +163,19 @@
   }
 
   .header__overlay {
-    position: fixed;
     background-color: rgba(0, 0, 0, 0);
+    transition: all .4s, .4s ease;
+    -moz-transition: all .4s, .4s ease;
+  }
+
+  .header__overlay_open {
+    position: fixed;
     left: -40px;
     right: -40px;
     height: 100%;
     top: 0;
     bottom: 0;
     z-index: -1;
-    transition: all .4s, .4s ease;
-    -moz-transition: all .4s, .4s ease;
-  }
-
-  .header__overlay_open {
     background-color: rgba(0, 0, 0, 0.5);
     transition: all 0s, .4s ease;
     -moz-transition: all 0s, .4s ease;
@@ -201,26 +188,12 @@
   .header__logo {
     font-size: 16px;
     padding-top: 15px;
-  }
-
-
-  .header__button-burger-menu-container {
-    display: block;
-    margin-top: 20px;
+    z-index: 10;
   }
 }
 
 @media screen and (max-width: 500px) {
-
-  .header {
-
-  }
-
   .header__logo {
     margin-left: -24px;
-  }
-
-  .header__button-burger-menu-container {
-    margin-right: -24px;
   }
 }

@@ -3,6 +3,8 @@ import {
   Route, Switch, useLocation,
 } from 'react-router-dom';
 
+import { disablePageScroll, enablePageScroll } from 'scroll-lock';
+
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import SavedNews from '../SavedNews/SavedNews';
@@ -34,27 +36,32 @@ function App() {
     setLoginOpen(true);
     setRegisterOpen(false);
     setInfoTooltipOpen(false);
+    disablePageScroll();
   }
 
   function handleRegisterOpen() {
     setLoginOpen(false);
     setRegisterOpen(true);
+    disablePageScroll();
   }
 
   function handleInfoTooltipOpen() {
     setRegisterOpen(false);
     setLoginOpen(true);
+    disablePageScroll();
   }
 
   function closeAllPopups() {
     setLoginOpen(false);
     setRegisterOpen(false);
     setInfoTooltipOpen(false);
+    enablePageScroll();
   }
 
   function handleEsc(evt) {
     if (evt.key === 'Escape') {
       closeAllPopups();
+      enablePageScroll();
     }
   }
 

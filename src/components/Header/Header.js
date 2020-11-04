@@ -1,12 +1,10 @@
 import React from 'react';
-// import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 
 import Button from '../Button/Button';
 import ButtonBurgerMenu from '../ButtonBurgerMenu/ButtonBurgerMenu';
 import MenuMobile from '../MenuMobile/MenuMobile';
 import Link from '../Link/Link';
 import Navigation from '../Navigation/Navigation';
-import '../../utils/color.css';
 import './Header.css';
 
 import logoutMain from '../../images/logout_main.svg';
@@ -34,10 +32,8 @@ function Header(props) {
     }
     if (isShowMenu === '') {
       setIsShowMenu('menu-mobile_open');
-      // disablePageScroll();
     } else {
       setIsShowMenu('');
-      // enablePageScroll();
     }
   }
 
@@ -46,6 +42,7 @@ function Header(props) {
       showMenu();
     }
   }
+
   React.useEffect(() => {
     window.addEventListener('keydown', handleEsc);
 
@@ -71,13 +68,13 @@ function Header(props) {
       <header className="header">
 
         <div className="header__background-position">
-          <div className={classBackground} />
+          <div className={classBackground}/>
         </div>
         <div className="header__container">
 
-          <span className="header__border" />
+          <span className="header__border"/>
           <Link navLink={true} title="Перейти на страницу с поиском" className={classNameLogo} to='/'
-            value="NewsExplorer" />
+                value="NewsExplorer"/>
           <div className="header__menu">
 
             <Navigation
@@ -111,19 +108,15 @@ function Header(props) {
 
             </div>
           </div>
-          <div className="header__button-burger-menu-container">
-            <ButtonBurgerMenu
-              handleMenuMobile={handleMenuMobile} pathname={props.pathname}
-              showMenu={showMenu} classBurgerMenu={classBurgerMenu} isMenuMobile={isMenuMobile}
-            />
-          </div>
+          <ButtonBurgerMenu
+            handleMenuMobile={handleMenuMobile} pathname={props.pathname}
+            showMenu={showMenu} classBurgerMenu={classBurgerMenu} isMenuMobile={isMenuMobile}
+          />
         </div>
-
-        <MenuMobile isShowMenu={isShowMenu} loggedIn={props.loggedIn} logout={logout} onClick={props.onClick} />
+        <MenuMobile isShowMenu={isShowMenu} loggedIn={props.loggedIn} logout={logout} onClick={props.onClick}/>
         {/* включить */}
-        <div onClick={handleOverlayClose} className={`header__overlay ${isShowOverlay}`} />
+        <div onClick={handleOverlayClose} className={`header__overlay ${isShowOverlay}`}/>
       </header>
-
     </>
   );
 }
