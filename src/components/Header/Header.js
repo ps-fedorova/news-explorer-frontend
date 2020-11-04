@@ -113,7 +113,12 @@ function Header(props) {
             showMenu={showMenu} classBurgerMenu={classBurgerMenu} isMenuMobile={isMenuMobile}
           />
         </div>
-        <MenuMobile isShowMenu={isShowMenu} loggedIn={props.loggedIn} logout={logout} onClick={props.onClick}/>
+        <MenuMobile
+          isShowMenu={isShowMenu}
+          loggedIn={props.loggedIn}
+          logout={logout}
+          onClick={props.onClick}
+        />
         {/* включить */}
         <div onClick={handleOverlayClose} className={`header__overlay ${isShowOverlay}`}/>
       </header>
