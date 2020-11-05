@@ -13,8 +13,6 @@ function Main(props) {
         <NewsCardList
           pathname={props.pathname}
           loggedIn={props.loggedIn}
-          handleShowMoreArticles={props.handleShowMoreArticles}
-          rowArticles={props.rowArticles}
           articles={props.articles}
         />
       );

@@ -20,17 +20,13 @@ import './App.css';
 
 function App() {
   const { pathname } = useLocation();
-  const [rowArticles, setRowArticles] = React.useState(0);
+
   const isLoading = false;
   const loggedIn = false;
 
   const [isLoginOpen, setLoginOpen] = React.useState(false);
   const [isRegisterOpen, setRegisterOpen] = React.useState(false);
   const [isInfoTooltipOpen, setInfoTooltipOpen] = React.useState(false);
-
-  function handleShowMoreArticles() {
-    setRowArticles(rowArticles + 1);
-  }
 
   function handleLoginOpen() {
     setLoginOpen(true);
@@ -91,8 +87,6 @@ function App() {
             pathname={pathname}
             loggedIn={loggedIn}
             isLoading={isLoading}
-            handleShowMoreArticles={handleShowMoreArticles}
-            rowArticles={rowArticles}
           />
         </Route>
 
