@@ -1,0 +1,83 @@
+.nav__item {
+  display: inline;
+}
+
+.nav__list {
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  padding-top: 33px;
+}
+
+.nav__text {
+  font-family: 'Roboto', 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  margin-right: 34px;
+  color: white;
+  /*padding-bottom: 24px; для выбранного элемента*/
+  padding-bottom: 24px;
+}
+
+.nav__text_selected {
+  border-bottom: white 3px solid;
+}
+
+.nav__text_saved-news {
+  color: #1A1B22;
+}
+
+.nav__text_selected-saved-news {
+  border-bottom: #1A1B22 3px solid;
+}
+
+@media screen and (max-width: 960px) {
+  .nav {
+    padding-top: 17px;
+  }
+
+  .nav__text {
+    font-size: 16px;
+    line-height: 24px;
+    margin-right: 18px;
+    padding-bottom: 16px;
+  }
+
+  .nav__text_selected {
+    border-bottom: white 3px solid;
+  }
+}
+
+@media screen and (max-width: 710px) {
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .nav__item {
+    display: flex;
+  }
+
+  .nav__text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 56px;
+    margin-right: initial;
+    padding-bottom: initial;
+    margin-top: initial;
+    color: white;
+  }
+
+  .nav__text_selected {
+    border: none;
+  }
+
+  .nav__text_selected-saved-news {
+    border: none;
+  }
+}

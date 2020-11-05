@@ -1,0 +1,43 @@
+.button {
+  cursor: pointer;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 100px;
+  height: 48px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid #d1d2d6;
+  box-sizing: border-box;
+}
+
+.button_type_outline-main {
+  border: 1px solid white;
+}
+
+.button_type_outline-saved-news {
+  border: 1px solid #D1D2D6;
+}
+
+/*Для обычной кнопки*/
+.button__container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/*Для кнопки с картинкой*/
+.button__container_position {
+  display: grid;
+  grid-template-columns: repeat(2, min-content);
+  column-gap: 10px;
+}
+
+.button__text {
+  font-family: 'Roboto', 'Inter', 'Arial', sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 18px;
+}

@@ -1,0 +1,108 @@
+@keyframes close-one {
+  from {
+    transform: rotate(135deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes close-two {
+  from {
+    transform: rotate(-135deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes open-one {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes open-two {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-135deg);
+  }
+}
+
+.button-burger-menu {
+  display: none;
+}
+
+.button-burger-menu__button {
+  display: none;
+}
+
+@media screen and (max-width: 710px) {
+  .button-burger-menu {
+    display: block;
+    margin-top: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .button-burger-menu__button {
+    width: 16px;
+    height: 16px;
+    display: block;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    margin: auto;
+  }
+}
+
+.button-burger-menu__button:after,
+.button-burger-menu__button:before {
+  background-color: white;
+  content: "";
+  display: block;
+  height: 2px;
+  margin: 4px 0;
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+}
+
+.button-burger-menu_saved-news:after,
+.button-burger-menu_saved-news:before {
+  background-color: #1A1B22;
+}
+
+.button-burger-menu__button:before {
+  animation: close-one ease 0.4s forwards;
+}
+
+.button-burger-menu__button:after {
+  animation: close-two ease 0.4s forwards;
+}
+
+.button-burger-menu_open:before,
+.button-burger-menu_open:after {
+  position: relative;
+  margin: -2px 0;
+  top: 1px;
+}
+
+.button-burger-menu_open:before {
+  animation: open-one ease 0.4s forwards;
+}
+
+.button-burger-menu_open:after {
+  animation: open-two ease 0.4s forwards;
+}
+
+@media screen and (max-width: 500px) {
+  .button-burger-menu {
+    margin-right: -24px;
+  }
+}
