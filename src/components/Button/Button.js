@@ -23,19 +23,19 @@ function Button(props) {
       {props.image
 
         // если кнопка содержит картинку (как в хедере)
-        ? <div className="button__container button__container_position">
-          <div className={`button__text ${props.classNameTextBtn}`} title={props.value}>
+        ? <span className="button__container button__container_position">
+          <span className={`button__text ${props.classNameTextBtn}`} title={props.value}>
             {props.value}
-          </div>
+          </span>
           <img className={props.classNameImgBtn} src={props.src} alt={props.alt}/>
-        </div>
+        </span>
 
         // если в кнопке только текст
-        : <div className="button__container">
-          <div className={`button__text ${props.classNameTextBtn}`} title={props.value}>
+        : <span className="button__container">
+          <span className={`button__text ${props.classNameTextBtn}`} title={props.value}>
             {props.value}
-          </div>
-        </div>
+          </span>
+        </span>
       }
     </button>
   );

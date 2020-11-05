@@ -19,7 +19,7 @@ function FormPopup(props) {
           onClick={props.onClose}
           type='button'
         />
-        <legend className='popup__title'>{props.title}</legend>
+        <p className='popup__title'>{props.title}</p>
         <fieldset className='popup__input-container'>
           {props.children}
         </fieldset>
