@@ -22,7 +22,7 @@ function App() {
   const { pathname } = useLocation();
 
   const isLoading = false;
-  const loggedIn = false;
+  const loggedIn = true;
 
   const [isLoginOpen, setLoginOpen] = React.useState(false);
   const [isRegisterOpen, setRegisterOpen] = React.useState(false);
