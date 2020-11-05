@@ -11,8 +11,8 @@
   display: grid;
   margin-right: 0;
   max-width: calc(464px + 56px + 600px);
-  grid-template-columns: calc(464 / (464 + 56 + 600) * 100%)  auto;
-  column-gap: calc(56 / (464 + 56 + 600) * 100%);
+  grid-template-columns: 41%  auto;
+  column-gap: 5%;
 }
 
 .about__title-description {
