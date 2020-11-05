@@ -8,11 +8,6 @@ import articles from '../../utils/articles';
 
 function NewsCardList(props) {
   const main = (props.pathname === '/');
-  const [rowArticles, setRowArticles] = React.useState(3);
-
-  function handleShowMoreArticles() {
-    setRowArticles(rowArticles + 3);
-  }
 
   return (
     <section className="news-card-list">
@@ -22,7 +17,7 @@ function NewsCardList(props) {
           ? <>
             <h3 className="news-card-list__title">Результаты поиска</h3>
             <ul className="news-card-list__list">
-              {props.articles.slice(0, rowArticles).map((card) => (
+              {props.articles.slice(0, props.rowArticles).map((card) => (
                 <NewsCard
                   key={card.source.id}
                   url={card.url}
@@ -38,13 +33,13 @@ function NewsCardList(props) {
             </ul>
             <div className="news-card-list__button-position">
               {/* {(articles.length > 3) && ((articles.length - rowArticles) > 0) && ( */}
-              {(articles.length - rowArticles > 0)
-                && <Button
-                  cardList={true}
-                  value="Показать еще"
-                  classNameTextBtn='news-card-list__button-text'
-                  onClick={handleShowMoreArticles}
-                />
+              {(articles.length - props.rowArticles > 0)
+              && <Button
+                cardList={true}
+                value="Показать еще"
+                classNameTextBtn='news-card-list__button-text'
+                onClick={props.handleShowMoreArticles}
+              />
               }
             </div>
           </>
@@ -64,7 +59,6 @@ function NewsCardList(props) {
               />
             ))}
           </ul>}
-
       </div>
     </section>
   );

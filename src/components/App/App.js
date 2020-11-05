@@ -22,11 +22,16 @@ function App() {
   const { pathname } = useLocation();
 
   const isLoading = false;
-  const loggedIn = false;
+  const loggedIn = true;
 
   const [isLoginOpen, setLoginOpen] = React.useState(false);
   const [isRegisterOpen, setRegisterOpen] = React.useState(false);
   const [isInfoTooltipOpen, setInfoTooltipOpen] = React.useState(false);
+  const [rowArticles, setRowArticles] = React.useState(3);
+
+  function handleShowMoreArticles() {
+    setRowArticles(rowArticles + 3);
+  }
 
   function handleLoginOpen() {
     setLoginOpen(true);
@@ -87,6 +92,8 @@ function App() {
             pathname={pathname}
             loggedIn={loggedIn}
             isLoading={isLoading}
+            rowArticles={rowArticles}
+            handleShowMoreArticles={handleShowMoreArticles}
           />
         </Route>
 
