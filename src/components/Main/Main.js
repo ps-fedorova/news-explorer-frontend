@@ -14,8 +14,6 @@ function Main(props) {
           pathname={props.pathname}
           loggedIn={props.loggedIn}
           articles={props.articles}
-          rowArticles={props.rowArticles}
-          handleShowMoreArticles={props.handleShowMoreArticles}
         />
       );
     }

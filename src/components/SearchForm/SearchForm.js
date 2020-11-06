@@ -34,7 +34,7 @@ function SearchForm() {
   }
 
   function handleValueInputSearchChange(evt) {
-    setValue(evt.target.value);
+    setValue(evt.target.value.trimStart());
     setIsSubmitted(false);
   }
 
