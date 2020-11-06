@@ -71,6 +71,29 @@
   background-color: #2A65CC;
 }
 
+.search-form__error {
+  font-family: 'Roboto', 'Inter', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .4s ease-out, z-index 1s ease-out,
+  opacity .4s ease-out;
+  -moz-transition: visibility .4s ease-out, z-index 1s ease-out,
+  opacity .4s ease-out;
+}
+
+.search-form__error_open {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity .4s ease-out;
+  -moz-transition: visibility 0s, opacity .4s ease-out;
+}
+
 @media screen and (max-width: calc(960px)) {
   .search-form {
     margin-left: -40px;
