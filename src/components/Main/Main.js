@@ -22,6 +22,7 @@ function Main(props) {
         setValueSearchInput={setValueSearchInput}
         setValueSearchInputError={setValueSearchInputError}
         getArticles={props.getArticles}
+        setRowArticles={props.setRowArticles}
       />
       {loading && <Preloader/>}
       {notFound && <NotFound/>}

@@ -46,6 +46,7 @@ function SearchForm(props) {
   // кнопка
   function handleSubmit(evt) {
     evt.preventDefault();
+    props.setRowArticles(3);
     setIsSubmitted(true);
     setTimer(5);
 

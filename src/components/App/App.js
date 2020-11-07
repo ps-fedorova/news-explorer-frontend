@@ -93,6 +93,7 @@ function App() {
             pathname={pathname}
             loggedIn={loggedIn}
             rowArticles={rowArticles}
+            setRowArticles={setRowArticles}
             handleShowMoreArticles={handleShowMoreArticles}
             searchResultArray={searchResultArray}
             setSearchResultArray={setSearchResultArray}
