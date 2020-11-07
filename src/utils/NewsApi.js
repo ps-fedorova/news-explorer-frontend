@@ -44,6 +44,6 @@ export const getArticles = (searchRequest) => {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Ну вот, все пропало. Ошибка: ${res.status}`);
+      return Promise.reject(new Error(`Ну вот, все пропало (Ошибка: ${res.status})`));
     });
 };
