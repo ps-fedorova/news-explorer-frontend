@@ -6,27 +6,37 @@ import Preloader from '../Preloader/Preloader';
 import NotFound from '../NotFound/NotFound';
 
 function Main(props) {
-  function showResult() {
-    // Нужно удалить все статьи, чтобы увидеть блок
-    if (props.articles.length) {
-      return (
-        <NewsCardList
-          pathname={props.pathname}
-          loggedIn={props.loggedIn}
-          articles={props.articles}
-        />
-      );
-    }
-    return <NotFound/>;
-  }
+  const [loading, setLoading] = React.useState(false);
+  const [notFound, setNotFound] = React.useState(false);
+  const [valueSearchInput, setValueSearchInput] = React.useState(''); // значение инпута
+  const [valueSearchInputError, setValueSearchInputError] = React.useState(false);
 
   return (
     <main className="main">
-      <SearchForm/>
-      {
-        props.isLoading
-          ? <Preloader/>
-          : <>{showResult()}</>
+      <SearchForm
+        setSearchResultArray={props.setSearchResultArray}
+        setLoading={setLoading}
+        notFound={notFound}
+        setNotFound={setNotFound}
+        valueSearchInput={valueSearchInput}
+        setValueSearchInput={setValueSearchInput}
+        setValueSearchInputError={setValueSearchInputError}
+        getArticles={props.getArticles}
+      />
+      {loading && <Preloader/>}
+      {notFound && <NotFound/>}
+      {props.searchResultArray !== ''
+      && <NewsCardList
+        pathname={props.pathname}
+        loggedIn={props.loggedIn}
+        articles={props.articles}
+        searchResultArray={props.searchResultArray}
+        setNotFound={setNotFound}
+        valueSearchInput={valueSearchInput}
+        valueSearchInputError={valueSearchInputError}
+        rowArticles={props.rowArticles}
+        handleShowMoreArticles={props.handleShowMoreArticles}
+      />
       }
       <About/>
 

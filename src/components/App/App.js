@@ -13,6 +13,7 @@ import Login from '../Popups/Login/Login';
 import Register from '../Popups/Register/Register';
 import InfoTooltip from '../Popups/InfoTooltip/InfoTooltip';
 import articles from '../../utils/articles';
+import { getArticles } from '../../utils/NewsApi';
 
 import '../../vendor/normalize.css';
 import '../../vendor/fonts.css';
@@ -21,13 +22,17 @@ import './App.css';
 function App() {
   const { pathname } = useLocation();
 
-  const isLoading = false;
-  const loggedIn = true;
+  const loggedIn = false;
 
   const [isLoginOpen, setLoginOpen] = React.useState(false);
   const [isRegisterOpen, setRegisterOpen] = React.useState(false);
   const [isInfoTooltipOpen, setInfoTooltipOpen] = React.useState(false);
+  const [searchResultArray, setSearchResultArray] = React.useState('');
+  const [rowArticles, setRowArticles] = React.useState(3);
 
+  function handleShowMoreArticles() {
+    setRowArticles(rowArticles + 3);
+  }
   function handleLoginOpen() {
     setLoginOpen(true);
     setRegisterOpen(false);
@@ -84,9 +89,13 @@ function App() {
         <Route exact path="/">{/* Главная */}
           <Main
             articles={articles}
+            getArticles={getArticles}
             pathname={pathname}
             loggedIn={loggedIn}
-            isLoading={isLoading}
+            rowArticles={rowArticles}
+            handleShowMoreArticles={handleShowMoreArticles}
+            searchResultArray={searchResultArray}
+            setSearchResultArray={setSearchResultArray}
           />
         </Route>
 

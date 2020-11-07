@@ -13,11 +13,19 @@ const PAGE_SIZE = 100;
 
 export const getArticles = (searchRequest) => {
   const date = new Date();
-  const currentDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')
-  }-${date.getDate().toString().padStart(2, '0')}`;
+
+  const currentDate = `${date.getFullYear()}-${(date.getMonth() + 1)
+    .toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+
   date.setDate(date.getDate() - 7);
-  const oneWeekAgoFromTheCurrentDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')
-  }-${date.getDate().toString().padStart(2, '0')}`;
+
+  const oneWeekAgoFromTheCurrentDate = `${date.getFullYear()}-${(date.getMonth() + 1)
+    .toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+
+  // console.log(currentDate);
+  // console.log(oneWeekAgoFromTheCurrentDate);
+  // 2020-11-07
+  // 2020-10-31
 
   const URL = `${BASE_URL}`
     + `q=${searchRequest}&`
