@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Button from '../Button/Button';
 import ButtonBurgerMenu from '../ButtonBurgerMenu/ButtonBurgerMenu';
 import MenuMobile from '../MenuMobile/MenuMobile';
@@ -11,10 +11,16 @@ import logoutMain from '../../images/logout_main.svg';
 import logoutSavedNews from '../../images/logout_saved_news.svg';
 
 function Header(props) {
+  const currentUser = React.useContext(CurrentUserContext);
   const [isMenuMobile, setMenuMobile] = React.useState(false);
   const [classBurgerMenu, setClassBurgerMenu] = React.useState('');
   const [isShowMenu, setIsShowMenu] = React.useState('');
   const [isShowOverlay, setIsShowOverlay] = React.useState('');
+  const main = (props.pathname === '/' || isMenuMobile);
+  const classNameLogo = `header__logo ${main ? '' : 'header__logo_saved-news'}`;
+  const classNameTextBtn = `header__text header__text_button ${main ? '' : 'header__text_saved-news'}`;
+  const logout = main ? logoutMain : logoutSavedNews;
+  const classBackground = `header__background-img ${main ? '' : 'header__background-img_saved-news'}`;
 
   function handleMenuMobile() {
     setMenuMobile(!isMenuMobile);
@@ -57,12 +63,6 @@ function Header(props) {
     }
   }
 
-  const main = (props.pathname === '/' || isMenuMobile);
-  const classNameLogo = `header__logo ${main ? '' : 'header__logo_saved-news'}`;
-  const classNameTextBtn = `header__text header__text_button ${main ? '' : 'header__text_saved-news'}`;
-  const logout = main ? logoutMain : logoutSavedNews;
-  const classBackground = `header__background-img ${main ? '' : 'header__background-img_saved-news'}`;
-
   return (
     <>
       <header className="header">
@@ -86,22 +86,25 @@ function Header(props) {
 
               {props.loggedIn
                 ? <Button
+                  title="Выход"
+                  value={currentUser}
                   pathname={props.pathname}
                   image={true}
                   header={true}
                   classNameImgBtn="header__button-img"
                   classNameTextBtn={classNameTextBtn}
-                  value="Грета"
                   src={logout}
                   alt="Выход"
+                  onClick={props.onClick}
                 />
 
                 : < Button
+                  title="Авторизоваться"
+                  value="Авторизоваться"
                   pathname={props.pathname}
                   header={true}
                   classNameImgBtn="header__button-img"
                   classNameTextBtn={classNameTextBtn}
-                  value="Авторизоваться"
                   onClick={props.onClick}
                 />
               }

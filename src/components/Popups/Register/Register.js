@@ -14,6 +14,7 @@ export default function Register(props) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    props.handleRegister(values.email, values.password, values.name);
   }
 
   return (
@@ -27,6 +28,7 @@ export default function Register(props) {
       onSubmit={handleSubmit}
       submitButtonText='Зарегистрироваться'
       isDisabled={!isValid}
+      authError={props.authError}
     >
       <PopupInput
         label='Email'

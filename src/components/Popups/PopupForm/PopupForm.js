@@ -3,10 +3,6 @@ import Button from '../../Button/Button';
 import './PopupForm.css';
 
 function FormPopup(props) {
-  function handleSubmit(evt) {
-    evt.preventDefault();
-  }
-
   return (
     <div className={`popup ${props.isOpen && 'popup_opened'}`}>
       <form
@@ -23,11 +19,13 @@ function FormPopup(props) {
         <fieldset className='popup__input-container'>
           {props.children}
         </fieldset>
-        {props.register && <span className='popup__warning'>Такой пользователь уже есть</span>}
+        {!props.infoTooltip && <span className='popup__warning'>
+            {props.authError}
+        </span>}
         {!props.infoTooltip
 
         && <Button
-          onClick={handleSubmit}
+          onClick={props.handleSubmit}
           popup={true}
           disabled={props.isDisabled}
           value={props.submitButtonText}
