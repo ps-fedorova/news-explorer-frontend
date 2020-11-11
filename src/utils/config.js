@@ -5,3 +5,6 @@ export const NEWS_BASE_URL = 'https://nomoreparties.co';
 export const NEWS_API_KEY = '5a8dfbd5887c4367be2a938a68940ebf';
 
 export const MAIN_BASE_URL = 'http://localhost:8080';
+
+// количество статей в одной выдаче
+export const seriesOfArticlesInASingleSearchResult = 3;

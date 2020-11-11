@@ -32,10 +32,12 @@ function App() {
   const [isRegisterOpen, setRegisterOpen] = React.useState(false);
   const [isInfoTooltipOpen, setInfoTooltipOpen] = React.useState(false);
 
-  // регистрация
+  // ошибка регистрации
   const [authError, setAuthError] = React.useState('');
-  const [searchResultArray, setSearchResultArray] = React.useState('');
-  const [rowArticles, setRowArticles] = React.useState(3);
+
+  // статьи
+  const [searchResultArray, setSearchResultArray] = React.useState(''); // начальное состояние выдачи
+  const [rowArticles, setRowArticles] = React.useState(1); // штук в ряд
 
   // открытие попапов
   function handleLoginOpen() {
@@ -153,7 +155,7 @@ function App() {
 
   // статьи
   function handleShowMoreArticles() {
-    setRowArticles(rowArticles + 3);
+    setRowArticles(rowArticles + 1);
   }
 
   return (
