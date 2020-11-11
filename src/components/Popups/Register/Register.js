@@ -8,14 +8,14 @@ export default function Register(props) {
     values, handleChange, errors, isValid, resetForm,
   } = useFormWithValidation();
 
-  React.useEffect(() => {
-    resetForm();
-  }, [props.isOpen, resetForm]);
-
   function handleSubmit(evt) {
     evt.preventDefault();
     props.handleRegister(values.email, values.password, values.name);
   }
+
+  React.useEffect(() => {
+    resetForm();
+  }, [props.isOpen, resetForm]);
 
   return (
     <PopupForm

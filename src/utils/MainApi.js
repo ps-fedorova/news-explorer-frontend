@@ -1,11 +1,8 @@
 import BadRequestError from '../errors/400_BadRequestError';
 import UnauthorizedError from '../errors/401_UnauthorizedError';
+import { MAIN_BASE_URL, SERVER_ERROR_MESSAGE } from './config';
 
-// const BASE_URL = 'https://www.api.newnews.students.nomoreparties.xyz';
-// const BASE_URL = 'https://www.api.newnews.students.nomoreparties.xyz';
-const BASE_URL = 'http://localhost:8080';
-export const SERVER_ERROR_MESSAGE = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
-export const register = (email, password, name) => fetch(`${BASE_URL}/signup`, {
+export const register = (email, password, name) => fetch(`${MAIN_BASE_URL}/signup`, {
   method: 'POST',
   headers: {
     Accept: 'application/json',
@@ -24,7 +21,7 @@ export const register = (email, password, name) => fetch(`${BASE_URL}/signup`, {
     message: SERVER_ERROR_MESSAGE,
   }));
 
-export const authorize = (email, password) => fetch(`${BASE_URL}/signin`, {
+export const authorize = (email, password) => fetch(`${MAIN_BASE_URL}/signin`, {
   method: 'POST',
   headers: {
     Accept: 'application/json',
@@ -56,7 +53,7 @@ export const authorize = (email, password) => fetch(`${BASE_URL}/signin`, {
   //   message: SERVER_ERROR_MESSAGE,
   // }));
 
-export const getUserInfo = (token) => fetch(`${BASE_URL}/users/me`, {
+export const getUserInfo = (token) => fetch(`${MAIN_BASE_URL}/users/me`, {
   method: 'GET',
   credentials: 'include',
   headers: {

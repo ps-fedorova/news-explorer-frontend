@@ -19,7 +19,7 @@ import * as mainApi from '../../utils/MainApi';
 import '../../vendor/normalize.css';
 import '../../vendor/fonts.css';
 import './App.css';
-import PopupForm from '../Popups/PopupForm/PopupForm';
+import useFormWithValidation from '../../utils/useFormWithValidation';
 
 function App() {
   const { pathname } = useLocation();
@@ -27,6 +27,7 @@ function App() {
   const SERVER_ERROR_MESSAGE = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState('');
+  const { setIsValid, isValid, resetForm } = useFormWithValidation();
   // попапы
   const [isLoginOpen, setLoginOpen] = React.useState(false);
   const [isRegisterOpen, setRegisterOpen] = React.useState(false);
@@ -116,16 +117,15 @@ function App() {
     setAuthError('');
     mainApi.register(emailUser, passwordUser, nameUser)
       .then((res) => {
-        if (res.data) {
+        if (res.name) {
           setRegisterOpen(false);
           setInfoTooltipOpen(true);
-          setAuthError(res.message);
+          console.log(res);
         } else {
           setAuthError(res.message);
-        }
-      })
-      .catch((err) => {
-        setAuthError(err.message);
+          // setIsValid(false);
+          console.log(isValid);
+        } // catch в MainApi.js
       });
   }
 

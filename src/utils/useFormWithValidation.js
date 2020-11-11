@@ -1,4 +1,5 @@
 import React from 'react';
+import * as mainApi from './MainApi';
 
 function useFormWithValidation() {
   const [values, setValues] = React.useState({});
@@ -11,7 +12,7 @@ function useFormWithValidation() {
     const { name } = target;
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: target.validationMessage });
-    setIsValid(target.closest('form').checkValidity());
+    setIsValid(target.closest('form').checkValidity()); console.log(isValid);
   };
 
   const resetForm = React.useCallback(
@@ -24,7 +25,12 @@ function useFormWithValidation() {
   );
 
   return {
-    values, handleChange, errors, isValid, setIsValid, resetForm,
+    values,
+    handleChange,
+    errors,
+    isValid,
+    setIsValid,
+    resetForm,
   };
 }
 

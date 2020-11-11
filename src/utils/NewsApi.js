@@ -1,7 +1,9 @@
 // GET https://newsapi.org/v2/top-headlines?country=us&apiKey=5a8dfbd5887c4367be2a938a68940ebf
 // https://nomoreparties.co/news/v2/top-headlines?country=us&apiKey=5a8dfbd5887c4367be2a938a68940ebf
-const BASE_URL = 'https://nomoreparties.co/news//v2/everything?';
-const API_KEY = '5a8dfbd5887c4367be2a938a68940ebf';
+
+import { NEWS_BASE_URL, NEWS_API_KEY } from './config';
+// const BASE_URL = 'https://nomoreparties.co';
+// const API_KEY = '5a8dfbd5887c4367be2a938a68940ebf';
 const PAGE_SIZE = 100;
 
 // запрос — то, что ввёл пользователь в поиск;
@@ -27,9 +29,9 @@ export const getArticles = (searchRequest) => {
   // 2020-11-07
   // 2020-10-31
 
-  const URL = `${BASE_URL}`
+  const URL = `${NEWS_BASE_URL}/news//v2/everything?`
     + `q=${searchRequest}&`
-    + `apiKey=${API_KEY}&`
+    + `apiKey=${NEWS_API_KEY}&`
     + `from=${oneWeekAgoFromTheCurrentDate}&`
     + `to=${currentDate}&`
     + `pageSize=${PAGE_SIZE}`;
