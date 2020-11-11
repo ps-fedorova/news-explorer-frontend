@@ -2,6 +2,8 @@ import React from 'react';
 import './SearchForm.css';
 import Button from '../Button/Button';
 
+import { TIME_IN_SEC_DISPLAY_EMPTY_SEARCH } from '../../utils/config';
+
 function SearchForm(props) {
   const [isSubmitted, setIsSubmitted] = React.useState(false); // нажата кнопка?
   // введенные данные валидны?
@@ -48,7 +50,7 @@ function SearchForm(props) {
     evt.preventDefault();
     props.setRowArticles(1);
     setIsSubmitted(true);
-    setTimer(5);
+    setTimer(timer + TIME_IN_SEC_DISPLAY_EMPTY_SEARCH);
 
     if (!isSearchInputValid && props.valueSearchInput === '') {
       setClassError('search-form__error_open');

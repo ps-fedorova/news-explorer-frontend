@@ -23,6 +23,9 @@ export const CURRENT_DATE = new Intl.DateTimeFormat(locales, options)
 export const ONE_WEEK_AGO_FROM_THE_CURRENT_DATE = new Intl.DateTimeFormat(locales, options)
   .format(Date.now() - week);
 
+// Время до исчезания надписи "Нужно ввести ключевое слово"
+export const TIME_IN_SEC_DISPLAY_EMPTY_SEARCH = 5;
+
 // const locales = [
 //   'cs',
 //   'cs-CZ',
