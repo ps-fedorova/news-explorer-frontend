@@ -4,12 +4,11 @@ import './NewsCard.css';
 function NewsCard(props) {
   const keyword = 'Ключевое слово123456789';
 
-  const options = {
-    month: 'long',
-    day: 'numeric',
-  };
   const date = new Date(props.publishedAt);
-  const fullDate = `${date.toLocaleString('ru', options)}, ${date.getFullYear()}`;
+  const fullDate = `${date.toLocaleString('ru', {
+    day: 'numeric',
+    month: 'long',
+  })}, ${date.getFullYear()}`;
 
   function displayMark() {
     if (props.loggedIn && (props.pathname === '/')) {

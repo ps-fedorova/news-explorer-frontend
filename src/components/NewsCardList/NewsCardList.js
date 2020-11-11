@@ -3,14 +3,14 @@ import React from 'react';
 import NewsCard from '../NewsCard/NewsCard';
 import Button from '../Button/Button';
 
-import { seriesOfArticlesInASingleSearchResult } from '../../utils/config';
+import { SERIES_OF_ARTICLES_IN_A_SINGLE_SEARCH_RESULT } from '../../utils/config';
 
 import './NewsCardList.css';
 
 function NewsCardList(props) {
   const main = (props.pathname === '/');
 
-  const arrayOfArticles = props.rowArticles * seriesOfArticlesInASingleSearchResult;
+  const arrayOfArticles = props.rowArticles * SERIES_OF_ARTICLES_IN_A_SINGLE_SEARCH_RESULT;
 
   return (
     <section className="news-card-list">
