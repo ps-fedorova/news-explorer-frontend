@@ -6,35 +6,29 @@ import Preloader from '../Preloader/Preloader';
 import NotFound from '../NotFound/NotFound';
 
 function Main(props) {
-  const [loading, setLoading] = React.useState(false);
-  const [notFound, setNotFound] = React.useState(false);
-  const [valueSearchInput, setValueSearchInput] = React.useState(''); // значение инпута
-  const [valueSearchInputError, setValueSearchInputError] = React.useState(false);
-
   return (
     <main className="main">
       <SearchForm
         setSearchResultArray={props.setSearchResultArray}
-        setLoading={setLoading}
-        notFound={notFound}
-        setNotFound={setNotFound}
-        valueSearchInput={valueSearchInput}
-        setValueSearchInput={setValueSearchInput}
-        setValueSearchInputError={setValueSearchInputError}
-        getArticles={props.getArticles}
-        setRowArticles={props.setRowArticles}
+        setLoading={props.setLoading}
+        notFound={props.notFound}
+        setNotFound={props.setNotFound}
+        handleNewsSearch={props.handleNewsSearch}
+        valueSearchInput={props.valueSearchInput}
+        setValueSearchInput={props.setValueSearchInput}
+        setValueSearchInputError={props.setValueSearchInputError}
       />
-      {loading && <Preloader/>}
-      {notFound && <NotFound/>}
+      {props.loading && <Preloader/>}
+      {props.notFound && <NotFound/>}
       {props.searchResultArray !== ''
       && <NewsCardList
         pathname={props.pathname}
         loggedIn={props.loggedIn}
-        articles={props.articles}
+        articlesDefault={props.articlesDefault}
         searchResultArray={props.searchResultArray}
-        setNotFound={setNotFound}
-        valueSearchInput={valueSearchInput}
-        valueSearchInputError={valueSearchInputError}
+        setNotFound={props.setNotFound}
+        valueSearchInput={props.valueSearchInput}
+        valueSearchInputError={props.valueSearchInputError}
         rowArticles={props.rowArticles}
         handleShowMoreArticles={props.handleShowMoreArticles}
       />

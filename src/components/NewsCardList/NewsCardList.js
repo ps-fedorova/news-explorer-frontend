@@ -49,7 +49,7 @@ function NewsCardList(props) {
           </>
 
           : <ul className="news-card-list__list">
-            {props.articles.map((card) => (
+            {props.articlesDefault.map((card) => (
               <NewsCard
                 key={card.source.id}
                 url={card.url}

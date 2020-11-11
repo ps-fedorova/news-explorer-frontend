@@ -48,36 +48,15 @@ function SearchForm(props) {
   // кнопка
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.setRowArticles(1);
+
     setIsSubmitted(true);
     setTimer(timer + TIME_IN_SEC_DISPLAY_EMPTY_SEARCH);
 
     if (!isSearchInputValid && props.valueSearchInput === '') {
       setClassError('search-form__error_open');
     } else {
-      setClassError({
-        classError: '',
-      });
-      props.setSearchResultArray('');
-      props.setNotFound(false);
-      props.setValueSearchInputError(false);
-      props.setLoading(true);
-
-      props.getArticles(props.valueSearchInput)
-        .then((data) => {
-          if (data.articles.length !== 0) {
-            props.setSearchResultArray(data.articles);
-          } else {
-            props.setNotFound(true);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-          props.setValueSearchInputError(true);
-        })
-        .finally(() => {
-          props.setLoading(false);
-        });
+      setClassError('');
+      props.handleNewsSearch();
     }
   }
 
@@ -86,11 +65,11 @@ function SearchForm(props) {
       <div className="search-form__container">
         <h1 className="search-form__title">Что творится в мире?</h1>
         <p className="search-form__subtitle">
-          Находите самые свежие статьи на любую тему и сохраняйте в своём личном
-          кабинете.
+          Находите самые свежие статьи на&nbsp;любую тему и&nbsp;сохраняйте
+          в&nbsp;своём личном кабинете.
         </p>
 
-        <div className="search-form__input-container">
+        <form className="search-form__input-container">
           <input
             title="Введите запрос"
             type="text"
@@ -107,7 +86,7 @@ function SearchForm(props) {
             type="submit"
             onClick={handleSubmit}
           />
-        </div>
+        </form>
         <span
           className={`search-form__error ${classError}`}>
           Нужно ввести ключевое слово

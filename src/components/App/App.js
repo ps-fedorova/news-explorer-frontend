@@ -12,7 +12,7 @@ import Footer from '../Footer/Footer';
 import Login from '../Popups/Login/Login';
 import Register from '../Popups/Register/Register';
 import InfoTooltip from '../Popups/InfoTooltip/InfoTooltip';
-import articles from '../../utils/articles';
+import articlesDefault from '../../utils/articles';
 import { getArticles } from '../../utils/NewsApi';
 import * as mainApi from '../../utils/MainApi';
 
@@ -38,6 +38,10 @@ function App() {
   // статьи
   const [searchResultArray, setSearchResultArray] = React.useState(''); // начальное состояние выдачи
   const [rowArticles, setRowArticles] = React.useState(1); // штук в ряд
+  const [loading, setLoading] = React.useState(false);
+  const [notFound, setNotFound] = React.useState(false);
+  const [valueSearchInput, setValueSearchInput] = React.useState(''); // значение инпута
+  const [valueSearchInputError, setValueSearchInputError] = React.useState(false);
 
   // открытие попапов
   function handleLoginOpen() {
@@ -104,7 +108,6 @@ function App() {
         if (res.name) {
           setRegisterOpen(false);
           setInfoTooltipOpen(true);
-          console.log(res);
         } else {
           setAuthError(res.message);
         } // catch в MainApi.js
@@ -154,6 +157,30 @@ function App() {
   }
 
   // статьи
+  function handleNewsSearch() {
+    setSearchResultArray('');
+    setNotFound(false);
+    setValueSearchInputError(false);
+    setLoading(true);
+    setRowArticles(1);
+    getArticles(valueSearchInput)
+      .then((data) => {
+        if (data.articles.length !== 0) {
+          setSearchResultArray(data.articles);
+        } else {
+          setNotFound(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setValueSearchInputError(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }
+
+  // Показать еще статьи
   function handleShowMoreArticles() {
     setRowArticles(rowArticles + 1);
   }
@@ -169,21 +196,28 @@ function App() {
 
         <Route exact path="/">{/* Главная */}
           <Main
-            articles={articles}
-            getArticles={getArticles}
+            articlesDefault={articlesDefault}
+            loading={loading}
+            setLoading={setLoading}
+            notFound={notFound}
+            setNotFound={setNotFound}
             pathname={pathname}
             loggedIn={loggedIn}
             rowArticles={rowArticles}
-            setRowArticles={setRowArticles}
             handleShowMoreArticles={handleShowMoreArticles}
+            handleNewsSearch={handleNewsSearch}
             searchResultArray={searchResultArray}
             setSearchResultArray={setSearchResultArray}
+            valueSearchInput={valueSearchInput}
+            valueSearchInputError={valueSearchInputError}
+            setValueSearchInput={setValueSearchInput}
+            setValueSearchInputError={setValueSearchInputError}
           />
         </Route>
 
         <Route path="/saved-news"> {/* Сохраненные новости */}
           <SavedNews
-            articles={articles} // чтобы считать количество новостей
+            articlesDefault={articlesDefault} // чтобы считать количество новостей
             pathname={pathname}
             loggedIn={loggedIn}
           />

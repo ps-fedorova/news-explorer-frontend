@@ -9,7 +9,7 @@ function SavedNews(props) {
       <SavedNewsHeader/>
       <NewsCardList
         pathname={props.pathname}
-        articles={props.articles}
+        articlesDefault={props.articlesDefault}
       />
     </main>
   );
