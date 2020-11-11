@@ -31,27 +31,15 @@ export const authorize = (email, password) => fetch(`${MAIN_BASE_URL}/signin`, {
   credentials: 'include',
   body: JSON.stringify({ email, password }),
 })
-  // Коды ошибок из задания: 400 - не передано одно из полей,  401 - пользователь с email не найден
-  // не соответствуют реальности. Хотя это может быть мой косяк
   .then((res) => {
-    if (res.status === 400) {
-      throw new BadRequestError('Данные переданы не полностью или с ошибкой');
-    }
-    if (res.status === 401) {
-      throw new UnauthorizedError('Данные переданы не полностью или с ошибкой');
+    if (!res.ok) {
+      return res.json();
     }
     return res.json();
   })
-  // eslint-disable-next-line consistent-return
-  .then((data) => {
-    if (data.token) {
-      localStorage.setItem('jwt', data.token);
-      return data.token;
-    }
-  });
-  // .catch(() => ({
-  //   message: SERVER_ERROR_MESSAGE,
-  // }));
+  .catch(() => ({
+    message: SERVER_ERROR_MESSAGE,
+  }));
 
 export const getUserInfo = (token) => fetch(`${MAIN_BASE_URL}/users/me`, {
   method: 'GET',
@@ -63,14 +51,10 @@ export const getUserInfo = (token) => fetch(`${MAIN_BASE_URL}/users/me`, {
 })
   .then((res) => {
     if (!res.ok) {
-      return res.json()
-        .then((err) => {
-          throw new UnauthorizedError(err.message);
-        });
+      return res.json();
     }
     return res.json();
   })
-  .then((data) => data);
-  // .catch(() => ({
-  //   message: SERVER_ERROR_MESSAGE,
-  // }));
+  .catch(() => ({
+    message: SERVER_ERROR_MESSAGE,
+  }));

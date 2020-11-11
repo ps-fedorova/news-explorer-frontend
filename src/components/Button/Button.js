@@ -17,7 +17,7 @@ function Button(props) {
     ${props.searchForm ? 'search-form__button' : ''}
     ${props.cardList ? 'news-card-list__button' : ''}
     ${props.popup ? 'popup__button' : ''}
-    ${props.disabled ? 'popup__button_disabled' : ''}
+    ${props.popup && props.disabled ? 'popup__button_disabled' : ''}
     `}
     >
       {props.image

@@ -19,15 +19,14 @@ import * as mainApi from '../../utils/MainApi';
 import '../../vendor/normalize.css';
 import '../../vendor/fonts.css';
 import './App.css';
-import useFormWithValidation from '../../utils/useFormWithValidation';
 
 function App() {
   const { pathname } = useLocation();
   const history = useHistory();
-  const SERVER_ERROR_MESSAGE = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
+
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState('');
-  const { setIsValid, isValid, resetForm } = useFormWithValidation();
+
   // попапы
   const [isLoginOpen, setLoginOpen] = React.useState(false);
   const [isRegisterOpen, setRegisterOpen] = React.useState(false);
@@ -35,7 +34,6 @@ function App() {
 
   // регистрация
   const [authError, setAuthError] = React.useState('');
-
   const [searchResultArray, setSearchResultArray] = React.useState('');
   const [rowArticles, setRowArticles] = React.useState(3);
 
@@ -80,39 +78,23 @@ function App() {
     };
   });
 
+  /// ///////////////////////////////////////////////////////////////////
   // Регистрация / авторизация / выход
+
   // Взять куку, если есть
   React.useEffect(() => {
     const jwt = localStorage.getItem('jwt');
-    console.log(jwt);
     if (jwt) {
       mainApi.getUserInfo(jwt)
         .then((res) => {
           setLoggedIn(true);
           setCurrentUser(res.name);
-          console.log(res.name);
-          console.log(res.name);
         })
         .catch((err) => console.log(err));
     }
   }, []);
 
   // Регистрация;
-  // function handleRegister(emailUser, passwordUser, nameUser) {
-  //   setAuthError('');
-  //   mainApi.register(emailUser, passwordUser, nameUser)
-  //     .then((res) => {
-  //       console.log(res);
-  //       setRegisterOpen(false);
-  //       setInfoTooltipOpen(true);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.message);
-  //       console.log(';jgf');
-  //       setAuthError(err.message);
-  //     });
-  // }
-
   function handleRegister(emailUser, passwordUser, nameUser) {
     setAuthError('');
     mainApi.register(emailUser, passwordUser, nameUser)
@@ -123,36 +105,34 @@ function App() {
           console.log(res);
         } else {
           setAuthError(res.message);
-          // setIsValid(false);
-          console.log(isValid);
         } // catch в MainApi.js
       });
   }
 
   // Авторизация
-  function handleLogin(emailUser, passwordUser) {
+  function handleLogin(email, password) {
     setAuthError('');
-    mainApi.authorize(emailUser, passwordUser)
+    mainApi.authorize(email, escape(password))
       .then((data) => {
-        mainApi.getUserInfo(data)
-          .then((res) => {
-            setCurrentUser(res.name);
-            setLoggedIn(true);
-            setLoginOpen(false);
-          })
-          .catch((err) => {
-            console.log(err);
-            setAuthError(err.message);
-          });
-        console.log(data);
-        setAuthError(data.message);
-      })
-      .catch((err) => {
-        console.log('err.message');
-        setAuthError('err.message');
+        if (data.token) {
+          localStorage.setItem('jwt', data.token);
+          setLoggedIn(true);
+          setLoginOpen(false);
+          //
+          mainApi.getUserInfo(data)
+            .then((res) => {
+              if (res.name) {
+                setCurrentUser(res.name);
+              } else {
+                setAuthError(res.message);
+              }// catch в MainApi.js
+            });
+          //
+        } else {
+          setAuthError(data.message);
+        } // catch в MainApi.js
       });
   }
-  // Получить информацию о пользователе
 
   // Выход
   function handleSignOut() {
@@ -162,6 +142,7 @@ function App() {
     history.push('/');
   }
 
+  // Переключить кнопку при выходе/входе
   function handleAuthButton() {
     if (loggedIn) {
       handleSignOut();
