@@ -21,16 +21,23 @@ function NewsCard(props) {
     if (!props.loggedIn && (props.pathname === '/')) {
       return (
         <>
-          <button className="news-card__items-in-img news-card__mark news-card__mark_type_save"/>
-          <p className="news-card__items-in-img news-card__notice news-card__notice_main">Войдите, чтобы сохранять
-            статьи</p>
+          <button
+            className="news-card__items-in-img news-card__mark news-card__mark_type_save"
+            onClick={props.addAnArticleToTheSavedList}
+          />
+          <p className="news-card__items-in-img news-card__notice news-card__notice_main">
+            Войдите, чтобы сохранять статьи
+          </p>
         </>
       );
     }
     // if (props.pathname === '/saved-news') {
     return (
       <>
-        <button className="news-card__items-in-img news-card__mark news-card__mark_type_trashcan"/>
+        <button
+          className="news-card__items-in-img news-card__mark news-card__mark_type_trashcan"
+          onClick={props.addAnArticleToTheSavedList}
+        />
         <p className="news-card__items-in-img news-card__notice">Убрать из сохранённых</p>
       </>
     );

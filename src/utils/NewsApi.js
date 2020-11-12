@@ -17,7 +17,7 @@ import {
 // Выберите 100 статей — это ограничение бесплатной версии.
 
 export const getArticles = (searchRequest) => {
-  const URL = `${NEWS_BASE_URL}/news//v2/everything?`
+  const URL = `${NEWS_BASE_URL}?`
     + `q=${searchRequest}&`
     + `apiKey=${NEWS_API_KEY}&`
     + `from=${ONE_WEEK_AGO_FROM_THE_CURRENT_DATE}&`

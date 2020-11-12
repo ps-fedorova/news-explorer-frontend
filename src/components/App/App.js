@@ -32,6 +32,12 @@ function App() {
   const [isRegisterOpen, setRegisterOpen] = React.useState(false);
   const [isInfoTooltipOpen, setInfoTooltipOpen] = React.useState(false);
 
+  // мобильное меню
+  const [classBurgerMenu, setClassBurgerMenu] = React.useState('');
+  const [isShowMenu, setIsShowMenu] = React.useState('');
+  const [isShowOverlay, setIsShowOverlay] = React.useState('');
+  const [isMenuMobile, setMenuMobile] = React.useState(false);
+
   // ошибка регистрации
   const [authError, setAuthError] = React.useState('');
 
@@ -40,6 +46,7 @@ function App() {
   const [rowArticles, setRowArticles] = React.useState(1); // штук в ряд
   const [loading, setLoading] = React.useState(false);
   const [notFound, setNotFound] = React.useState(false);
+  const [isSearchError, setSearchError] = React.useState(false); // сервер со статьями отвалился
   const [valueSearchInput, setValueSearchInput] = React.useState(''); // значение инпута
   const [valueSearchInputError, setValueSearchInputError] = React.useState(false);
 
@@ -83,6 +90,28 @@ function App() {
       window.removeEventListener('keydown', handleEsc);
     };
   });
+
+  // Мобильное меню
+  function handleMenuMobile() {
+    setMenuMobile(!isMenuMobile);
+  }
+
+  function showMenu() {
+    if (classBurgerMenu === 'button-burger-menu_open') {
+      setClassBurgerMenu('');
+      setIsShowOverlay('');
+      handleMenuMobile();
+    } else {
+      setClassBurgerMenu('button-burger-menu_open');
+      setIsShowOverlay('header__overlay_open');
+      handleMenuMobile();
+    }
+    if (isShowMenu === '') {
+      setIsShowMenu('menu-mobile_open');
+    } else {
+      setIsShowMenu('');
+    }
+  }
 
   /// ///////////////////////////////////////////////////////////////////
   // Регистрация / авторизация / выход
@@ -149,6 +178,7 @@ function App() {
 
   // Переключить кнопку при выходе/входе
   function handleAuthButton() {
+    showMenu();
     if (loggedIn) {
       handleSignOut();
     } else {
@@ -157,6 +187,8 @@ function App() {
   }
 
   // статьи
+
+  // Найти статьи
   function handleNewsSearch() {
     setSearchResultArray('');
     setNotFound(false);
@@ -173,7 +205,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-        setValueSearchInputError(true);
+        setSearchError(true);
       })
       .finally(() => {
         setLoading(false);
@@ -185,12 +217,31 @@ function App() {
     setRowArticles(rowArticles + 1);
   }
 
+  // Добавить статью в сохраненки
+  function addAnArticleToTheSavedList() {
+    if (!loggedIn) {
+      handleRegisterOpen();
+    }
+  }
+
+  // Убрать статью из сохраненок
+
+  function removeAnArticleFromTheSavedList() {
+
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Header
         pathname={pathname}
         loggedIn={loggedIn}
         onClick={handleAuthButton}
+        showMenu={showMenu}
+        isShowMenu={isShowMenu}
+        isShowOverlay={isShowOverlay}
+        isMenuMobile={isMenuMobile}
+        handleMenuMobile={handleMenuMobile}
+        classBurgerMenu={classBurgerMenu}
       />
       <Switch>
 
@@ -201,13 +252,14 @@ function App() {
             setLoading={setLoading}
             notFound={notFound}
             setNotFound={setNotFound}
+            isSearchError={isSearchError} //
             pathname={pathname}
             loggedIn={loggedIn}
             rowArticles={rowArticles}
             handleShowMoreArticles={handleShowMoreArticles}
             handleNewsSearch={handleNewsSearch}
+            addAnArticleToTheSavedList={addAnArticleToTheSavedList}
             searchResultArray={searchResultArray}
-            setSearchResultArray={setSearchResultArray}
             valueSearchInput={valueSearchInput}
             valueSearchInputError={valueSearchInputError}
             setValueSearchInput={setValueSearchInput}

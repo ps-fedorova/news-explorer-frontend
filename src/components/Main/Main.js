@@ -9,7 +9,6 @@ function Main(props) {
   return (
     <main className="main">
       <SearchForm
-        setSearchResultArray={props.setSearchResultArray}
         setLoading={props.setLoading}
         notFound={props.notFound}
         setNotFound={props.setNotFound}
@@ -19,7 +18,10 @@ function Main(props) {
         setValueSearchInputError={props.setValueSearchInputError}
       />
       {props.loading && <Preloader/>}
-      {props.notFound && <NotFound/>}
+      {(props.notFound || props.isSearchError)
+      && <NotFound
+        notFound={props.notFound}
+      />}
       {props.searchResultArray !== ''
       && <NewsCardList
         pathname={props.pathname}
@@ -31,6 +33,7 @@ function Main(props) {
         valueSearchInputError={props.valueSearchInputError}
         rowArticles={props.rowArticles}
         handleShowMoreArticles={props.handleShowMoreArticles}
+        addAnArticleToTheSavedList={props.addAnArticleToTheSavedList}
       />
       }
       <About/>

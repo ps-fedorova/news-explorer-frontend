@@ -33,6 +33,7 @@ function NewsCardList(props) {
                   source={card.source.name}
                   pathname={props.pathname}
                   loggedIn={props.loggedIn}
+                  addAnArticleToTheSavedList={props.addAnArticleToTheSavedList}
                 />
                 ))}
             </ul>

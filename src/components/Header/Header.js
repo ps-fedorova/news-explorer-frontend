@@ -12,40 +12,16 @@ import logoutSavedNews from '../../images/logout_saved_news.svg';
 
 function Header(props) {
   const currentUser = React.useContext(CurrentUserContext);
-  const [isMenuMobile, setMenuMobile] = React.useState(false);
-  const [classBurgerMenu, setClassBurgerMenu] = React.useState('');
-  const [isShowMenu, setIsShowMenu] = React.useState('');
-  const [isShowOverlay, setIsShowOverlay] = React.useState('');
-  const main = (props.pathname === '/' || isMenuMobile);
+
+  const main = (props.pathname === '/' || props.isMenuMobile);
   const classNameLogo = `header__logo ${main ? '' : 'header__logo_saved-news'}`;
   const classNameTextBtn = `header__text header__text_button ${main ? '' : 'header__text_saved-news'}`;
   const logout = main ? logoutMain : logoutSavedNews;
   const classBackground = `header__background-img ${main ? '' : 'header__background-img_saved-news'}`;
 
-  function handleMenuMobile() {
-    setMenuMobile(!isMenuMobile);
-  }
-
-  function showMenu() {
-    if (classBurgerMenu === 'button-burger-menu_open') {
-      setClassBurgerMenu('');
-      setIsShowOverlay('');
-      handleMenuMobile();
-    } else {
-      setClassBurgerMenu('button-burger-menu_open');
-      setIsShowOverlay('header__overlay_open');
-      handleMenuMobile();
-    }
-    if (isShowMenu === '') {
-      setIsShowMenu('menu-mobile_open');
-    } else {
-      setIsShowMenu('');
-    }
-  }
-
   function handleEsc(evt) {
-    if (evt.key === 'Escape' && isMenuMobile) {
-      showMenu();
+    if (evt.key === 'Escape' && props.isMenuMobile) {
+      props.showMenu();
     }
   }
 
@@ -58,8 +34,8 @@ function Header(props) {
   });
 
   function handleOverlayClose() {
-    if (isMenuMobile) {
-      showMenu();
+    if (props.isMenuMobile) {
+      props.showMenu();
     }
   }
 
@@ -112,18 +88,18 @@ function Header(props) {
             </div>
           </div>
           <ButtonBurgerMenu
-            handleMenuMobile={handleMenuMobile} pathname={props.pathname}
-            showMenu={showMenu} classBurgerMenu={classBurgerMenu} isMenuMobile={isMenuMobile}
+            handleMenuMobile={props.handleMenuMobile} pathname={props.pathname}
+            showMenu={props.showMenu} classBurgerMenu={props.classBurgerMenu} isMenuMobile={props.isMenuMobile}
           />
         </div>
         <MenuMobile
-          isShowMenu={isShowMenu}
+          isShowMenu={props.isShowMenu}
           loggedIn={props.loggedIn}
           logout={logout}
           onClick={props.onClick}
         />
         {/* включить */}
-        <div onClick={handleOverlayClose} className={`header__overlay ${isShowOverlay}`}/>
+        <div onClick={handleOverlayClose} className={`header__overlay ${props.isShowOverlay}`}/>
       </header>
     </>
   );
