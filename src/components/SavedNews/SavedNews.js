@@ -6,11 +6,17 @@ import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 function SavedNews(props) {
   return (
     <main className="saved-news">
-      <SavedNewsHeader/>
-      <NewsCardList
-        pathname={props.pathname}
-        articlesDefault={props.articlesDefault}
+      <SavedNewsHeader
+        savedArticlesArray={props.savedArticlesArray}
       />
+      {props.savedArticlesArray.length !== 0
+      && <NewsCardList
+        pathname={props.pathname}
+        savedArticlesArray={props.savedArticlesArray}
+        valueSearchInput={props.valueSearchInput}
+        deleteAnArticleFromTheSavedList={props.deleteAnArticleFromTheSavedList}
+      />
+      }
     </main>
   );
 }

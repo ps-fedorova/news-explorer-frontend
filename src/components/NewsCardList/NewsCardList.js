@@ -16,6 +16,7 @@ function NewsCardList(props) {
     <section className="news-card-list">
       <div className="news-card-list__container">
 
+        {/* Главная */}
         {main
           ? <>
             <h3 className="news-card-list__title">Результаты поиска</h3>
@@ -24,16 +25,22 @@ function NewsCardList(props) {
                 .slice(0, arrayOfArticles)
                 .map((card, key) => (
                 <NewsCard
+                  main={props.main}
                   key={key}
-                  url={card.url}
-                  urlToImage={card.urlToImage}
-                  publishedAt={card.publishedAt}
-                  title={card.title}
-                  content={card.content}
-                  source={card.source.name}
+                  card={card}
+
+                  // url={card.url}
+                  // urlToImage={card.urlToImage}
+                  // publishedAt={card.publishedAt}
+                  // title={card.title}
+                  // description={card.description}
+                  // source={card.source.name}
+
                   pathname={props.pathname}
                   loggedIn={props.loggedIn}
                   addAnArticleToTheSavedList={props.addAnArticleToTheSavedList}
+
+                  valueSearchInput={props.valueSearchInput} // инпут - ключевое слово
                 />
                 ))}
             </ul>
@@ -49,20 +56,26 @@ function NewsCardList(props) {
             </div>
           </>
 
+        // Сохраненки
           : <ul className="news-card-list__list">
-            {props.articlesDefault.map((card) => (
+            {Array.from(props.savedArticlesArray).reverse()
+              .map((cardSaved, key) => (
               <NewsCard
-                key={card.source.id}
-                url={card.url}
-                urlToImage={card.urlToImage}
-                publishedAt={card.publishedAt}
-                title={card.title}
-                content={card.content}
-                source={card.source.name}
+                key={key}
+                cardSaved={cardSaved}
+
+                // url={cardSaved.url}
+                // urlToImage={cardSaved.urlToImage}
+                // publishedAt={cardSaved.publishedAt}
+                // title={cardSaved.title}
+                // description={cardSaved.description}
+                // source={cardSaved.source.name}
+
                 pathname={props.pathname}
                 loggedIn={props.loggedIn}
+                deleteAnArticleFromTheSavedList={props.deleteAnArticleFromTheSavedList}
               />
-            ))}
+              ))}
           </ul>}
       </div>
     </section>

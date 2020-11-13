@@ -57,12 +57,20 @@ export const getUserInfo = (token) => fetch(`${MAIN_BASE_URL}/users/me`, {
     message: SERVER_ERROR_MESSAGE,
   }));
 
+export const getSavedArticles = () => fetch(`${MAIN_BASE_URL}/articles`, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+  },
+  credentials: 'include',
+});
+
 export const postArticle = (keyword, title, text, date, source, link, image) => fetch(`${MAIN_BASE_URL}/articles`, {
   method: 'POST',
   headers: {
-    Accept: 'application/json',
-    // 'Access-Control-Allow-Credentials': true,
     'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
   credentials: 'include',
   body: JSON.stringify({
@@ -82,18 +90,8 @@ export const postArticle = (keyword, title, text, date, source, link, image) => 
 export const deleteArticle = (id) => fetch(`${MAIN_BASE_URL}/articles/${id}`, {
   method: 'DELETE',
   headers: {
-    Accept: 'application/json',
-    // 'Access-Control-Allow-Credentials': true,
     'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
   credentials: 'include',
-})
-  .then((res) => {
-    if (!res.ok) {
-      return res.json();
-    }
-    return res.json();
-  })
-  .catch(() => ({
-    message: SERVER_ERROR_MESSAGE,
-  }));
+});

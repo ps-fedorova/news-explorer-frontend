@@ -2,19 +2,43 @@ import React from 'react';
 import './NewsCard.css';
 
 function NewsCard(props) {
-  const keyword = 'Ключевое слово123456789';
-
-  const date = new Date(props.publishedAt);
+  const date = new Date(props.main ? props.card.publishedAt : props.cardSaved.date);
   const fullDate = `${date.toLocaleString('ru', {
     day: 'numeric',
     month: 'long',
   })}, ${date.getFullYear()}`;
 
+  function handleCardSavedClick() {
+    props.addAnArticleToTheSavedList({
+      keyword: props.valueSearchInput,
+      title: props.card.title,
+      text: props.card.description,
+      date: props.card.publishedAt,
+      source: props.card.source.name,
+      link: props.card.url,
+      image: props.card.urlToImage,
+    });
+  }
+
+  function deleteAnArticleFromTheSavedList() {
+    props.deleteAnArticleFromTheSavedList(props.cardSaved);
+  }
+
+  // const isSavedNews = props.card.find((i) => i.title === props.card.title);
+
   function displayMark() {
     if (props.loggedIn && (props.pathname === '/')) {
       return (
         <>
-          <button className="news-card__items-in-img news-card__mark news-card__mark_type_save"/>
+          <button
+            className={
+              `news-card__items-in-img news-card__mark
+            ${(props.pathname === '/')
+                ? 'news-card__mark_type_save'
+                : 'news-card__mark_type_saved'}`
+            }
+            onClick={handleCardSavedClick}
+          />
         </>
       );
     }
@@ -36,7 +60,7 @@ function NewsCard(props) {
       <>
         <button
           className="news-card__items-in-img news-card__mark news-card__mark_type_trashcan"
-          onClick={props.addAnArticleToTheSavedList}
+          onClick={deleteAnArticleFromTheSavedList}
         />
         <p className="news-card__items-in-img news-card__notice">Убрать из сохранённых</p>
       </>
@@ -44,13 +68,14 @@ function NewsCard(props) {
     // }
   }
 
+  /// ////////////////
   return (
     <li className="news-card">
-      <a title="Открыть статью в новой вкладке" href={props.url} className="link news-card__link-img" target="_blank"
+      <a title="Открыть статью в новой вкладке" href={props.main ? props.card.url : props.cardSaved.link} className="link news-card__link-img" target="_blank"
          rel='noopener noreferrer'>
         <img className="news-card__image"
-             src={props.urlToImage}
-             alt={props.title}
+             src={props.main ? props.card.urlToImage : props.cardSaved.image}
+             alt={props.main ? props.card.title : props.cardSaved.title}
         />
       </a>
 
@@ -58,7 +83,7 @@ function NewsCard(props) {
         (props.pathname === '/')
           ? <></>
           : < div className="news-card__items-in-img news-card__keyword-container">
-            <p title={keyword} className="news-card__keyword">{keyword}</p>
+            <p title={props.cardSaved.keyword} className="news-card__keyword">{props.cardSaved.keyword}</p>
           </div>
       }
 
@@ -68,12 +93,16 @@ function NewsCard(props) {
 
       <div className="news-card__text-container">
         <span className="news-card__date">{fullDate}</span>
-        <a title="Открыть статью в новой вкладке" className="news-card__link" href={props.url} target="_blank"
-           rel='noopener noreferrer'>
-          <h3 className="news-card__title">{props.title}</h3>
+        <a
+          title="Открыть статью в новой вкладке"
+          className="news-card__link"
+          href={props.main ? props.card.url : props.cardSaved.link}
+          target="_blank"
+          rel='noopener noreferrer'>
+          <h3 className="news-card__title">{props.main ? props.card.title : props.cardSaved.title}</h3>
         </a>
-        <p className="news-card__content">{props.content}</p>
-        <span className="news-card__source">{props.source}</span>
+        <p className="news-card__content">{props.main ? props.card.description : props.cardSaved.text}</p>
+        <span className="news-card__source">{props.main ? props.card.source.name : props.cardSaved.source}</span>
       </div>
     </li>
   );

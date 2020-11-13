@@ -12,7 +12,7 @@ import Footer from '../Footer/Footer';
 import Login from '../Popups/Login/Login';
 import Register from '../Popups/Register/Register';
 import InfoTooltip from '../Popups/InfoTooltip/InfoTooltip';
-import articlesDefault from '../../utils/articles';
+// import articlesDefault from '../../utils/articles';
 import { getArticles } from '../../utils/NewsApi';
 import * as mainApi from '../../utils/MainApi';
 
@@ -42,7 +42,8 @@ function App() {
   const [authError, setAuthError] = React.useState('');
 
   // статьи
-  const [searchResultArray, setSearchResultArray] = React.useState(''); // начальное состояние выдачи
+  const [searchResultArray, setSearchResultArray] = React.useState([]); // статьи из поиска
+  const [savedArticlesArray, setSavedArticlesArray] = React.useState([]); // сохраненные статьи
   const [rowArticles, setRowArticles] = React.useState(1); // штук в ряд
   const [loading, setLoading] = React.useState(false);
   const [notFound, setNotFound] = React.useState(false);
@@ -116,6 +117,16 @@ function App() {
   /// ///////////////////////////////////////////////////////////////////
   // Регистрация / авторизация / выход
 
+  // Загрузить сохраненные статьи
+  function getSavedArticles() {
+    mainApi.getSavedArticles()
+      .then((res) => res.json())
+      .then((news) => {
+        setSavedArticlesArray(news.data);
+      })
+      .catch((err) => console.log(err));
+  }
+
   // Взять куку, если есть
   React.useEffect(() => {
     const jwt = localStorage.getItem('jwt');
@@ -124,6 +135,7 @@ function App() {
         .then((res) => {
           setLoggedIn(true);
           setCurrentUser(res.name);
+          getSavedArticles();
         })
         .catch((err) => console.log(err));
     }
@@ -189,12 +201,7 @@ function App() {
   // статьи
 
   // Найти статьи
-  function handleNewsSearch() {
-    setSearchResultArray('');
-    setNotFound(false);
-    setValueSearchInputError(false);
-    setLoading(true);
-    setRowArticles(1);
+  function getArticlesFromAPI() {
     getArticles(valueSearchInput)
       .then((data) => {
         if (data.articles.length !== 0) {
@@ -212,22 +219,66 @@ function App() {
       });
   }
 
+  function handleNewsSearch() {
+    setSearchResultArray([]);
+    setNotFound(false);
+    setValueSearchInputError(false);
+    setLoading(true);
+    setRowArticles(1);
+    getArticlesFromAPI();
+  }
+
   // Показать еще статьи
   function handleShowMoreArticles() {
     setRowArticles(rowArticles + 1);
   }
 
-  // Добавить статью в сохраненки
-  function addAnArticleToTheSavedList() {
-    if (!loggedIn) {
-      handleRegisterOpen();
-    }
+  // Убрать статью из сохраненок
+  function deleteAnArticleFromTheSavedList(data) {
+    mainApi.deleteArticle(data._id)
+      .then((res) => {
+        if (!res.ok) {
+          return res.json();
+        }
+        return res.json();
+      })
+      .then((newCard) => setSavedArticlesArray(savedArticlesArray
+        .filter((item) => (item._id === data._id ? !newCard : item))))
+      .catch((err) => console.log(`Ошибка при удалении карточки: ${err}`));
   }
 
-  // Убрать статью из сохраненок
-
-  function removeAnArticleFromTheSavedList() {
-
+  // Добавить статью в сохраненки (Функция для главной страницы)
+  function addAnArticleToTheSavedList(article) {
+    if (!loggedIn) {
+      handleRegisterOpen();
+    } else {
+      const saved = savedArticlesArray
+        .find((i) => i.title === article.title
+          && i.date === article.date
+          && i.source === article.source);
+      if (!saved) {
+        mainApi.postArticle(
+          valueSearchInput,
+          article.title || ' ',
+          article.text || ' ',
+          article.date || ' ',
+          article.source || ' ',
+          article.link || 'https://www.fed.students.nomoreparties.xyz',
+          article.image || 'https://media.menacatalyst.ps/cached_uploads/resize/400/500/default-image.jpg',
+        )
+          .then((newArticle) => {
+            if (newArticle.data) {
+              setSavedArticlesArray([...savedArticlesArray, newArticle.data]);
+              console.log(newArticle.data);
+            } else {
+              console.log('Статья не сохранилась');
+            }
+          })
+          .catch((err) => console.log(`Статья не сохранилась. Ошибка: ${err}`));
+        return;
+      }
+      deleteAnArticleFromTheSavedList(saved);
+    }
   }
 
   return (
@@ -247,7 +298,7 @@ function App() {
 
         <Route exact path="/">{/* Главная */}
           <Main
-            articlesDefault={articlesDefault}
+            // articlesDefault={articlesDefault}
             loading={loading}
             setLoading={setLoading}
             notFound={notFound}
@@ -269,9 +320,11 @@ function App() {
 
         <Route path="/saved-news"> {/* Сохраненные новости */}
           <SavedNews
-            articlesDefault={articlesDefault} // чтобы считать количество новостей
+            savedArticlesArray={savedArticlesArray}
             pathname={pathname}
             loggedIn={loggedIn}
+            valueSearchInput={valueSearchInput}
+            deleteAnArticleFromTheSavedList={deleteAnArticleFromTheSavedList}
           />
         </Route>
       </Switch>

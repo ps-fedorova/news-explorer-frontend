@@ -31,13 +31,14 @@
   padding: 62px 0;
   display: grid;
   margin: 0 auto;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(224px, 1fr));
   row-gap: 16px;
   grid-column-gap: 16px;
   -webkit-column-gap: 16px;
   column-gap: 16px;
   justify-content: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .news-card-list__title {

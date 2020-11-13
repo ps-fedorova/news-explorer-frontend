@@ -22,11 +22,12 @@ function Main(props) {
       && <NotFound
         notFound={props.notFound}
       />}
-      {props.searchResultArray !== ''
+      {props.searchResultArray.length !== 0
       && <NewsCardList
+        main={true}
         pathname={props.pathname}
         loggedIn={props.loggedIn}
-        articlesDefault={props.articlesDefault}
+        // articlesDefault={props.articlesDefault}
         searchResultArray={props.searchResultArray}
         setNotFound={props.setNotFound}
         valueSearchInput={props.valueSearchInput}

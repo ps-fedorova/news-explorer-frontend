@@ -1,13 +1,16 @@
 import React from 'react';
-
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import './SavedNewsHeader.css';
 
-function SavedNewsHeader() {
+function SavedNewsHeader(props) {
+  const currentUser = React.useContext(CurrentUserContext);
   return (
     <section className="saved-news-header">
       <h1 className="saved-news-header__title">Сохранённые статьи</h1>
       <h2 className="saved-news-header__subtitle">
-        <span className="saved-news-header__subtitle-text"> Грета, у вас <span className="saved-news-header__subtitle-count">5</span></span>
+        <span className="saved-news-header__subtitle-text">{currentUser}, у вас
+          <span className="saved-news-header__subtitle-count"> {props.savedArticlesArray.length}</span>
+        </span>
         <span className="saved-news-header__subtitle-text-br">сохранённых статей</span>
       </h2>
       <p className="saved-news-header__text saved-news-header__text">
