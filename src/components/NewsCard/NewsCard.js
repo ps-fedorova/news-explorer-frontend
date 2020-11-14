@@ -24,8 +24,6 @@ function NewsCard(props) {
     props.deleteAnArticleFromTheSavedList(props.cardSaved);
   }
 
-  // const isSavedNews = props.card.find((i) => i.title === props.card.title);
-
   function displayMark() {
     if (props.loggedIn && (props.pathname === '/')) {
       return (
@@ -33,7 +31,7 @@ function NewsCard(props) {
           <button
             className={
               `news-card__items-in-img news-card__mark
-            ${(props.pathname === '/')
+            ${!(props.savedArticlesArray.some((i) => i.title === props.card.title))
                 ? 'news-card__mark_type_save'
                 : 'news-card__mark_type_saved'}`
             }
@@ -71,7 +69,8 @@ function NewsCard(props) {
   /// ////////////////
   return (
     <li className="news-card">
-      <a title="Открыть статью в новой вкладке" href={props.main ? props.card.url : props.cardSaved.link} className="link news-card__link-img" target="_blank"
+      <a title="Открыть статью в новой вкладке" href={props.main ? props.card.url : props.cardSaved.link}
+         className="link news-card__link-img" target="_blank"
          rel='noopener noreferrer'>
         <img className="news-card__image"
              src={props.main ? props.card.urlToImage : props.cardSaved.image}

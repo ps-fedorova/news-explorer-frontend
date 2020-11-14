@@ -28,18 +28,10 @@ function NewsCardList(props) {
                   main={props.main}
                   key={key}
                   card={card}
-
-                  // url={card.url}
-                  // urlToImage={card.urlToImage}
-                  // publishedAt={card.publishedAt}
-                  // title={card.title}
-                  // description={card.description}
-                  // source={card.source.name}
-
                   pathname={props.pathname}
                   loggedIn={props.loggedIn}
                   addAnArticleToTheSavedList={props.addAnArticleToTheSavedList}
-
+                  savedArticlesArray={props.savedArticlesArray}
                   valueSearchInput={props.valueSearchInput} // инпут - ключевое слово
                 />
                 ))}
@@ -63,14 +55,6 @@ function NewsCardList(props) {
               <NewsCard
                 key={key}
                 cardSaved={cardSaved}
-
-                // url={cardSaved.url}
-                // urlToImage={cardSaved.urlToImage}
-                // publishedAt={cardSaved.publishedAt}
-                // title={cardSaved.title}
-                // description={cardSaved.description}
-                // source={cardSaved.source.name}
-
                 pathname={props.pathname}
                 loggedIn={props.loggedIn}
                 deleteAnArticleFromTheSavedList={props.deleteAnArticleFromTheSavedList}

@@ -315,6 +315,7 @@ function App() {
             valueSearchInputError={valueSearchInputError}
             setValueSearchInput={setValueSearchInput}
             setValueSearchInputError={setValueSearchInputError}
+            savedArticlesArray={savedArticlesArray}
           />
         </Route>
 

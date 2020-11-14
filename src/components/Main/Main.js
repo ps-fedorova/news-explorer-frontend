@@ -35,6 +35,7 @@ function Main(props) {
         rowArticles={props.rowArticles}
         handleShowMoreArticles={props.handleShowMoreArticles}
         addAnArticleToTheSavedList={props.addAnArticleToTheSavedList}
+        savedArticlesArray={props.savedArticlesArray}
       />
       }
       <About/>
