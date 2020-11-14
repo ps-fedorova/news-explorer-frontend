@@ -15,6 +15,7 @@ function SavedNewsHeader(props) {
   }
 
   function displayKeywords() {
+    // if (props.loggedIn)
     let result = '';
 
     const keywords = props.savedArticlesArray.map((art) => art.keyword)
@@ -83,5 +84,4 @@ function SavedNewsHeader(props) {
     </section>
   );
 }
-6;
 export default SavedNewsHeader;

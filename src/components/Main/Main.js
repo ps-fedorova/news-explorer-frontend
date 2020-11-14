@@ -4,6 +4,7 @@ import About from '../About/About';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import Preloader from '../Preloader/Preloader';
 import NotFound from '../NotFound/NotFound';
+import './Main.css';
 
 function Main(props) {
   return (
