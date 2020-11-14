@@ -8,6 +8,7 @@ function SavedNews(props) {
     <main className="saved-news">
       <SavedNewsHeader
         savedArticlesArray={props.savedArticlesArray}
+        loggedIn={props.loggedIn}
       />
       {props.savedArticlesArray.length !== 0
       && <NewsCardList

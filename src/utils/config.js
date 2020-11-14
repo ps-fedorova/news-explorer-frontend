@@ -2,7 +2,8 @@ export const SERVER_ERROR_MESSAGE = 'Во время запроса произо
   + 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
 
 export const NEWS_BASE_URL = 'https://nomoreparties.co/news/v2/everything';
-export const NEWS_API_KEY = '5a8dfbd5887c4367be2a938a68940ebf';
+// export const NEWS_API_KEY = '5a8dfbd5887c4367be2a938a68940ebf';
+export const NEWS_API_KEY = 'd5e318b99f0844949cf6e0a1e5407be1';
 
 export const MAIN_BASE_URL = 'http://localhost:8080';
 

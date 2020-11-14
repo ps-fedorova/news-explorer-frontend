@@ -60,7 +60,7 @@ export default function Register(props) {
         name='name'
         formName='reg'
         minLength='2'
-        maxLength='30'
+        maxLength='10'
         inputLabelClassName='popup__input-label'
         inputFieldClassName='popup__input'
         placeholder='Введите имя'
