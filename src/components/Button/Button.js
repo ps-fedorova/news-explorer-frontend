@@ -11,13 +11,13 @@ function Button(props) {
     <button
       onClick={props.onClick}
       type={props.type}
+      disabled={props.disabled}
       className={`button
     ${props.header ? `${page} header__button` : ''}
     ${props.menuMobile ? 'menu-mobile__button' : ''}
     ${props.searchForm ? 'search-form__button' : ''}
     ${props.cardList ? 'news-card-list__button' : ''}
     ${props.popup ? 'popup__button' : ''}
-    ${props.popup && props.disabled ? 'popup__button_disabled' : ''}
     `}
     >
       {props.image

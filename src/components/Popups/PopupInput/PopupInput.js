@@ -13,6 +13,7 @@ function PopupInput(props) {
         maxLength={props.maxLength}
         onChange={props.onChange}
         placeholder={props.placeholder}
+        disabled={props.disabled}
         className='input__field'
         required
       />

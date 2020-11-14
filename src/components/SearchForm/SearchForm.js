@@ -78,6 +78,7 @@ function SearchForm(props) {
             value={props.valueSearchInput}
             onChange={handleValueInputSearchChange}
             required
+            disabled={props.disabled}
           />
           <Button
             searchForm={true}
@@ -85,6 +86,7 @@ function SearchForm(props) {
             className="search-form__button"
             type="submit"
             onClick={handleSubmit}
+            disabled={props.disabled}
           />
         </form>
         <span

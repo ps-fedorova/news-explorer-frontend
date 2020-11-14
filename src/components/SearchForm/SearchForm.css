@@ -59,6 +59,10 @@
   color: #B6BCBF;
 }
 
+.search-form__input:disabled {
+  background-color: transparent;
+}
+
 .search-form__button {
   height: 64px;
   background-color: #2F71E5;
@@ -73,6 +77,12 @@
 
 .search-form__button:focus {
   background-color: #2A65CC;
+}
+
+.search-form__button:disabled {
+  color: #b6bcbf;
+  background-color: #E6E8EB;
+  pointer-events: none;
 }
 
 .search-form__error {

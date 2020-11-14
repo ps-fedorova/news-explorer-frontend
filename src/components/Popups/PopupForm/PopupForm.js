@@ -27,7 +27,8 @@ function FormPopup(props) {
         && <Button
           onClick={props.handleSubmit}
           popup={true}
-          disabled={props.isDisabled}
+          disabled={props.isDisabled || props.disabled}
+          // disabled={props.disabled}
           value={props.submitButtonText}
         >
         </Button>

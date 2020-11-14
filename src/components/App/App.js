@@ -19,6 +19,7 @@ import * as mainApi from '../../utils/MainApi';
 import '../../vendor/normalize.css';
 import '../../vendor/fonts.css';
 import './App.css';
+import { SERVER_ERROR_MESSAGE } from '../../utils/config';
 
 function App() {
   const { pathname } = useLocation();
@@ -26,6 +27,7 @@ function App() {
 
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState('');
+  const [disabled, setDisabled] = React.useState(false);
 
   // попапы
   const [isLoginOpen, setLoginOpen] = React.useState(false);
@@ -143,22 +145,40 @@ function App() {
 
   // Регистрация;
   function handleRegister(emailUser, passwordUser, nameUser) {
+    setDisabled(true);
     setAuthError('');
     mainApi.register(emailUser, passwordUser, nameUser)
+      .then((res) => {
+        if (!res.ok) {
+          return res.json();
+        }
+        return res.json();
+      })
       .then((res) => {
         if (res.name) {
           setRegisterOpen(false);
           setInfoTooltipOpen(true);
         } else {
-          setAuthError(res.message);
-        } // catch в MainApi.js
-      });
+          setAuthError(res.message).finally(() => setDisabled(false));
+        }
+      })
+      .catch(() => ({
+        message: SERVER_ERROR_MESSAGE,
+      }))
+      .finally(() => setDisabled(false));
   }
 
   // Авторизация
   function handleLogin(email, password) {
+    setDisabled(true);
     setAuthError('');
     mainApi.authorize(email, escape(password))
+      .then((res) => {
+        if (!res.ok) {
+          return res.json();
+        }
+        return res.json();
+      })
       .then((data) => {
         if (data.token) {
           localStorage.setItem('jwt', data.token);
@@ -171,13 +191,17 @@ function App() {
                 setCurrentUser(res.name);
               } else {
                 setAuthError(res.message);
-              }// catch в MainApi.js
+              } // catch в MainApi.js
             });
           //
         } else {
           setAuthError(data.message);
         } // catch в MainApi.js
-      });
+      })
+      .catch(() => ({
+        message: SERVER_ERROR_MESSAGE,
+      }))
+      .finally(() => setDisabled(false));
   }
 
   // Выход
@@ -202,6 +226,7 @@ function App() {
 
   // Найти статьи
   function getArticlesFromAPI() {
+    setDisabled(true);
     getArticles(valueSearchInput)
       .then((data) => {
         if (data.articles.length !== 0) {
@@ -216,6 +241,7 @@ function App() {
       })
       .finally(() => {
         setLoading(false);
+        setDisabled(false);
       });
   }
 
@@ -298,7 +324,7 @@ function App() {
 
         <Route exact path="/">{/* Главная */}
           <Main
-            // articlesDefault={articlesDefault}
+            disabled={disabled}
             loading={loading}
             setLoading={setLoading}
             notFound={notFound}
@@ -336,6 +362,7 @@ function App() {
         onChangeForm={handleRegisterOpen}
         handleLogin={handleLogin}
         authError={authError}
+        disabled={disabled}
       />
       <Register
         isOpen={isRegisterOpen}
@@ -344,6 +371,7 @@ function App() {
         onInfoTooltipOpen={handleInfoTooltipOpen}
         handleRegister={handleRegister}
         authError={authError}
+        disabled={disabled}
       />
       <InfoTooltip
         isOpen={isInfoTooltipOpen}

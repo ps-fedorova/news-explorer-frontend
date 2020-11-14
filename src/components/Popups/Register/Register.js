@@ -29,6 +29,7 @@ export default function Register(props) {
       submitButtonText='Зарегистрироваться'
       isDisabled={!isValid}
       authError={props.authError}
+      disabled={props.disabled}
     >
       <PopupInput
         label='Email'
@@ -40,6 +41,7 @@ export default function Register(props) {
         onChange={handleChange}
         errors={errors.email}
         value={values.email || ''}
+        disabled={props.disabled}
       />
       <PopupInput
         label='Пароль'
@@ -53,6 +55,7 @@ export default function Register(props) {
         onChange={handleChange}
         errors={errors.password}
         value={values.password || ''}
+        disabled={props.disabled}
       />
       <PopupInput
         label='Имя'
@@ -67,6 +70,7 @@ export default function Register(props) {
         onChange={handleChange}
         errors={errors.name}
         value={values.name || ''}
+        disabled={props.disabled}
       />
     </PopupForm>
   );

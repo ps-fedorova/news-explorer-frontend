@@ -10,6 +10,7 @@ function Main(props) {
   return (
     <main className="main">
       <SearchForm
+        disabled={props.disabled}
         setLoading={props.setLoading}
         notFound={props.notFound}
         setNotFound={props.setNotFound}

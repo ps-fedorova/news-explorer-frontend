@@ -8,16 +8,7 @@ export const register = (email, password, name) => fetch(`${MAIN_BASE_URL}/signu
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({ email, password, name }),
-})
-  .then((res) => {
-    if (!res.ok) {
-      return res.json();
-    }
-    return res.json();
-  })
-  .catch(() => ({
-    message: SERVER_ERROR_MESSAGE,
-  }));
+});
 
 export const authorize = (email, password) => fetch(`${MAIN_BASE_URL}/signin`, {
   method: 'POST',
@@ -28,16 +19,7 @@ export const authorize = (email, password) => fetch(`${MAIN_BASE_URL}/signin`, {
   },
   credentials: 'include',
   body: JSON.stringify({ email, password }),
-})
-  .then((res) => {
-    if (!res.ok) {
-      return res.json();
-    }
-    return res.json();
-  })
-  .catch(() => ({
-    message: SERVER_ERROR_MESSAGE,
-  }));
+});
 
 export const getUserInfo = (token) => fetch(`${MAIN_BASE_URL}/users/me`, {
   method: 'GET',

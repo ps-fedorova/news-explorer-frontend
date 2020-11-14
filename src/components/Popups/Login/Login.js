@@ -2,6 +2,7 @@ import React from 'react';
 import PopupInput from '../PopupInput/PopupInput';
 import PopupForm from '../PopupForm/PopupForm';
 import useFormWithValidation from '../../../utils/useFormWithValidation';
+import Register from '../Register/Register';
 
 export default function Login(props) {
   const {
@@ -27,6 +28,7 @@ export default function Login(props) {
       submitButtonText='Войти'
       isDisabled={!isValid}
       authError={props.authError}
+      disabled={props.disabled}
     >
       <PopupInput
         label='Email'
@@ -38,6 +40,7 @@ export default function Login(props) {
         onChange={handleChange}
         errors={errors.email}
         value={values.email || ''}
+        disabled={props.disabled}
       />
       <PopupInput
         label='Пароль'
@@ -51,6 +54,7 @@ export default function Login(props) {
         onChange={handleChange}
         errors={errors.password}
         value={values.password || ''}
+        disabled={props.disabled}
       />
     </PopupForm>
   );

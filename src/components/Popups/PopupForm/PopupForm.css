@@ -126,7 +126,7 @@
   background-color: #2A65CC;
 }
 
-.popup__button_disabled {
+.popup__button:disabled {
   color: #b6bcbf;
   background-color: #E6E8EB;
   pointer-events: none;
