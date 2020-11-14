@@ -4,9 +4,9 @@ import {
 } from 'react-router-dom';
 
 import CurrentUserContext from '../../contexts/CurrentUserContext';
-
 import Header from '../Header/Header';
 import Main from '../Main/Main';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import SavedNews from '../SavedNews/SavedNews';
 import Footer from '../Footer/Footer';
 import Login from '../Popups/Login/Login';
@@ -322,14 +322,14 @@ function App() {
       />
       <Switch>
 
-        <Route exact path="/">{/* Главная */}
+        <Route exact path="/">
           <Main
             disabled={disabled}
             loading={loading}
             setLoading={setLoading}
             notFound={notFound}
             setNotFound={setNotFound}
-            isSearchError={isSearchError} //
+            isSearchError={isSearchError}
             pathname={pathname}
             loggedIn={loggedIn}
             rowArticles={rowArticles}
@@ -345,15 +345,15 @@ function App() {
           />
         </Route>
 
-        <Route path="/saved-news"> {/* Сохраненные новости */}
-          <SavedNews
+        <ProtectedRoute
+            path="/saved-news"
+            component={SavedNews}
             savedArticlesArray={savedArticlesArray}
             pathname={pathname}
             loggedIn={loggedIn}
             valueSearchInput={valueSearchInput}
             deleteAnArticleFromTheSavedList={deleteAnArticleFromTheSavedList}
-          />
-        </Route>
+        />
       </Switch>
       <Footer/>
       <Login
