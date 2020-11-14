@@ -1,21 +1,12 @@
 import React from 'react';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+import { declOfNum } from '../../utils/declOfNum';
 import './SavedNewsHeader.css';
 
 function SavedNewsHeader(props) {
   const currentUser = React.useContext(CurrentUserContext);
 
-  function declOfNum(number, titles) {
-    const cases = [2, 0, 1, 1, 1, 2];
-    return titles[(number % 100 > 4 && number % 100 < 20)
-      ? 2
-      : cases[(number % 10 < 5)
-        ? number % 10
-        : 5]];
-  }
-
   function displayKeywords() {
-    // if (props.loggedIn)
     let result = '';
 
     const keywords = props.savedArticlesArray.map((art) => art.keyword)
