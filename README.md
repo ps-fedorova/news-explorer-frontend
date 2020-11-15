@@ -1,9 +1,6 @@
 # News Explorer
 
-Посмотреть работу можно по ссылкам:  
-* https://ps-fedorova.github.io/news-explorer-frontend/
-* https://www.fed.students.nomoreparties.xyz
-
+Посмотреть работу можно по ссылке:  https://www.fed.students.nomoreparties.xyz
 
 
  Дипломная работа представляет собой сервис, в котором можно найти новости по запросу и сохранить в личном кабинете.

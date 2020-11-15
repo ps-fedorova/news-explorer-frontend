@@ -18,7 +18,6 @@ import * as mainApi from '../../utils/mainApi';
 import '../../vendor/normalize.css';
 import '../../vendor/fonts.css';
 import './App.css';
-import { SERVER_ERROR_MESSAGE } from '../../utils/config';
 
 function App() {
   const { pathname } = useLocation();
@@ -147,12 +146,6 @@ function App() {
     setAuthError('');
     mainApi.register(emailUser, passwordUser, nameUser)
       .then((res) => {
-        if (!res.ok) {
-          return res.json();
-        }
-        return res.json();
-      })
-      .then((res) => {
         if (res.name) {
           setRegisterOpen(false);
           setInfoTooltipOpen(true);
@@ -160,9 +153,6 @@ function App() {
           setAuthError(res.message).finally(() => setDisabled(false));
         }
       })
-      .catch(() => ({
-        message: SERVER_ERROR_MESSAGE,
-      }))
       .finally(() => setDisabled(false));
   }
 
@@ -171,12 +161,6 @@ function App() {
     setDisabled(true);
     setAuthError('');
     mainApi.authorize(email, escape(password))
-      .then((res) => {
-        if (!res.ok) {
-          return res.json();
-        }
-        return res.json();
-      })
       .then((data) => {
         if (data.token) {
           localStorage.setItem('jwt', data.token);
@@ -196,9 +180,6 @@ function App() {
           setAuthError(data.message);
         } // catch в mainApi.js
       })
-      .catch(() => ({
-        message: SERVER_ERROR_MESSAGE,
-      }))
       .finally(() => setDisabled(false));
   }
 

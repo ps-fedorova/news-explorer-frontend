@@ -4,26 +4,45 @@ export const register = (email, password, name) => fetch(`${MAIN_BASE_URL}/signu
   method: 'POST',
   headers: {
     Accept: 'application/json',
+    'Access-Control-Allow-Credentials': true,
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({ email, password, name }),
-});
+})
+  .then((res) => {
+    if (!res.ok) {
+      return res.json();
+    }
+    return res.json();
+  })
+  .catch(() => ({
+    message: SERVER_ERROR_MESSAGE,
+  }));
 
 export const authorize = (email, password) => fetch(`${MAIN_BASE_URL}/signin`, {
   method: 'POST',
   headers: {
     Accept: 'application/json',
+    'Access-Control-Allow-Credentials': true,
     'Content-Type': 'application/json',
   },
   credentials: 'include',
   body: JSON.stringify({ email, password }),
-});
+}).then((res) => {
+  if (!res.ok) {
+    return res.json();
+  }
+  return res.json();
+}).catch(() => ({
+  message: SERVER_ERROR_MESSAGE,
+}));
 
 export const getUserInfo = (token) => fetch(`${MAIN_BASE_URL}/users/me`, {
   method: 'GET',
   credentials: 'include',
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Credentials': true,
     Authorization: `Bearer ${token}`,
   },
 })
@@ -41,6 +60,7 @@ export const getSavedArticles = () => fetch(`${MAIN_BASE_URL}/articles`, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Credentials': true,
     Authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
   credentials: 'include',
@@ -50,6 +70,7 @@ export const postArticle = (keyword, title, text, date, source, link, image) => 
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Credentials': true,
     Authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
   credentials: 'include',
@@ -71,6 +92,7 @@ export const deleteArticle = (id) => fetch(`${MAIN_BASE_URL}/articles/${id}`, {
   method: 'DELETE',
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Credentials': true,
     Authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
   credentials: 'include',
