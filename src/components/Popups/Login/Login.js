@@ -2,7 +2,6 @@ import React from 'react';
 import PopupInput from '../PopupInput/PopupInput';
 import PopupForm from '../PopupForm/PopupForm';
 import useFormWithValidation from '../../../utils/useFormWithValidation';
-import Register from '../Register/Register';
 
 export default function Login(props) {
   const {

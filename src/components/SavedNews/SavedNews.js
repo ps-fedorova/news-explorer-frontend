@@ -13,7 +13,6 @@ function SavedNews(props) {
       {props.savedArticlesArray.length !== 0
       && <NewsCardList
         pathname={props.pathname}
-        loggedIn={props.loggedIn}
         savedArticlesArray={props.savedArticlesArray}
         valueSearchInput={props.valueSearchInput}
         deleteAnArticleFromTheSavedList={props.deleteAnArticleFromTheSavedList}

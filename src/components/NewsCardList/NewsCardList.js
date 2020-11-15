@@ -56,7 +56,6 @@ function NewsCardList(props) {
                 key={key}
                 cardSaved={cardSaved}
                 pathname={props.pathname}
-                loggedIn={props.loggedIn}
                 deleteAnArticleFromTheSavedList={props.deleteAnArticleFromTheSavedList}
               />
               ))}

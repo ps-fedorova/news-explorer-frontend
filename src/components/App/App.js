@@ -12,9 +12,8 @@ import Footer from '../Footer/Footer';
 import Login from '../Popups/Login/Login';
 import Register from '../Popups/Register/Register';
 import InfoTooltip from '../Popups/InfoTooltip/InfoTooltip';
-// import articlesDefault from '../../utils/articles';
-import { getArticles } from '../../utils/NewsApi';
-import * as mainApi from '../../utils/MainApi';
+import { getArticles } from '../../utils/newsApi';
+import * as mainApi from '../../utils/mainApi';
 
 import '../../vendor/normalize.css';
 import '../../vendor/fonts.css';
@@ -116,7 +115,6 @@ function App() {
     }
   }
 
-  /// ///////////////////////////////////////////////////////////////////
   // Регистрация / авторизация / выход
 
   // Загрузить сохраненные статьи
@@ -191,18 +189,26 @@ function App() {
                 setCurrentUser(res.name);
               } else {
                 setAuthError(res.message);
-              } // catch в MainApi.js
+              } // catch в mainApi.js
             });
           //
         } else {
           setAuthError(data.message);
-        } // catch в MainApi.js
+        } // catch в mainApi.js
       })
       .catch(() => ({
         message: SERVER_ERROR_MESSAGE,
       }))
       .finally(() => setDisabled(false));
   }
+
+  // Открывать попап с Авторизацией,
+  // если незалогиненный пользователь пришёл по роуту с сохранёнками
+  React.useEffect(() => {
+    if (!loggedIn && pathname === '/saved-news') {
+      setLoginOpen(true);
+    }
+  }, [loggedIn, pathname]);
 
   // Выход
   function handleSignOut() {
@@ -254,7 +260,7 @@ function App() {
     getArticlesFromAPI();
   }
 
-  // Показать еще статьи
+  // Показать еще статьиuseEffect
   function handleShowMoreArticles() {
     setRowArticles(rowArticles + 1);
   }
@@ -295,7 +301,6 @@ function App() {
           .then((newArticle) => {
             if (newArticle.data) {
               setSavedArticlesArray([...savedArticlesArray, newArticle.data]);
-              console.log(newArticle.data);
             } else {
               console.log('Статья не сохранилась');
             }

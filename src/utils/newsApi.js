@@ -1,6 +1,3 @@
-// GET https://newsapi.org/v2/top-headlines?country=us&apiKey=5a8dfbd5887c4367be2a938a68940ebf
-// https://nomoreparties.co/news/v2/top-headlines?country=us&apiKey=5a8dfbd5887c4367be2a938a68940ebf
-
 import {
   NEWS_BASE_URL,
   NEWS_API_KEY,
@@ -34,6 +31,6 @@ export const getArticles = (searchRequest) => {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(new Error(`Ну вот, все пропало (Ошибка: ${res.status})`));
+      return Promise.reject(new Error(`Ну вот, новости недоступны (Ошибка: ${res.status})`));
     });
 };

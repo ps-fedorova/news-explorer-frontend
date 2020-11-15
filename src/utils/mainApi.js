@@ -4,7 +4,6 @@ export const register = (email, password, name) => fetch(`${MAIN_BASE_URL}/signu
   method: 'POST',
   headers: {
     Accept: 'application/json',
-    // 'Access-Control-Allow-Credentials': true,
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({ email, password, name }),
@@ -14,7 +13,6 @@ export const authorize = (email, password) => fetch(`${MAIN_BASE_URL}/signin`, {
   method: 'POST',
   headers: {
     Accept: 'application/json',
-    // 'Access-Control-Allow-Credentials': true,
     'Content-Type': 'application/json',
   },
   credentials: 'include',

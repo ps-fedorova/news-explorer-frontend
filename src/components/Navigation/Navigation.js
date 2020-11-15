@@ -2,6 +2,9 @@ import React from 'react';
 import Link from '../Link/Link';
 import './Navigation.css';
 
+// Навигация входит в MenuMobile, контекст там.
+// Не могу перетащить сюда кнопку,
+// потому что они в хедере и мобильном меню разные
 function Navigation(props) {
   const main = (props.pathname === '/' || props.isMenuMobile);
   const classNameTextMain = `nav__text ${main ? 'nav__text_selected' : 'nav__text_saved-news'}`;

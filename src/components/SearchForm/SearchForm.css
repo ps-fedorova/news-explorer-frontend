@@ -60,7 +60,7 @@
 }
 
 .search-form__input:disabled {
-  background-color: transparent;
+  background-color: white;
 }
 
 .search-form__button {
@@ -69,6 +69,7 @@
   border: none;
   width: 230px;
   align-self: flex-start;
+  transition: background 0.5s ease;
 }
 
 .search-form__button:hover {
