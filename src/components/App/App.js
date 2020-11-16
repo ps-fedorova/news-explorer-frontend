@@ -92,25 +92,20 @@ function App() {
     };
   });
 
-  // Мобильное меню
-  function handleMenuMobile() {
-    setMenuMobile(!isMenuMobile);
-  }
-
   function showMenu() {
     if (classBurgerMenu === 'button-burger-menu_open') {
       setClassBurgerMenu('');
       setIsShowOverlay('');
-      handleMenuMobile();
     } else {
       setClassBurgerMenu('button-burger-menu_open');
       setIsShowOverlay('header__overlay_open');
-      handleMenuMobile();
     }
     if (isShowMenu === '') {
       setIsShowMenu('menu-mobile_open');
+      setMenuMobile(true);
     } else {
       setIsShowMenu('');
+      setMenuMobile(false);
     }
   }
 
@@ -164,13 +159,14 @@ function App() {
       .then((data) => {
         if (data.token) {
           localStorage.setItem('jwt', data.token);
-          setLoggedIn(true);
-          setLoginOpen(false);
           //
           mainApi.getUserInfo(data)
             .then((res) => {
               if (res.name) {
+                setLoggedIn(true);
                 setCurrentUser(res.name);
+                setLoginOpen(false);
+                getSavedArticles();
               } else {
                 setAuthError(res.message);
               } // catch в mainApi.js
@@ -193,7 +189,9 @@ function App() {
 
   // Переключить кнопку при выходе/входе
   function handleAuthButton() {
-    showMenu();
+    if (classBurgerMenu === 'button-burger-menu_open') {
+      showMenu();
+    }
     if (loggedIn) {
       handleSignOut();
     } else {
@@ -233,12 +231,12 @@ function App() {
     getArticlesFromAPI();
   }
 
-  // Показать еще статьиuseEffect
+  // Показать еще статьи
   function handleShowMoreArticles() {
     setRowArticles(rowArticles + 1);
   }
 
-  // Убрать статью из сохраненок
+  // Убрать статью из сохранёнок
   function deleteAnArticleFromTheSavedList(data) {
     mainApi.deleteArticle(data._id)
       .then((res) => {
@@ -295,7 +293,6 @@ function App() {
         isShowMenu={isShowMenu}
         isShowOverlay={isShowOverlay}
         isMenuMobile={isMenuMobile}
-        handleMenuMobile={handleMenuMobile}
         classBurgerMenu={classBurgerMenu}
       />
       <Switch>

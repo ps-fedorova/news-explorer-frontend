@@ -88,7 +88,6 @@ function Header(props) {
             </div>
           </div>
           <ButtonBurgerMenu
-            handleMenuMobile={props.handleMenuMobile}
             pathname={props.pathname}
             showMenu={props.showMenu}
             classBurgerMenu={props.classBurgerMenu}
