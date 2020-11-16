@@ -1,12 +1,19 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const ProtectedRoute = ({ component: Component, ...props }) => (
-  <Route>
-    {
-      () => (props.loggedIn ? <Component {...props} /> : <Redirect from='/saved-news' to='/' />)
+const ProtectedRoute = ({ component: Component, ...props }) => {
+  React.useEffect(() => {
+    if (!props.loggedIn && !localStorage.getItem('jwt')) {
+      props.setLoginOpen(true);
     }
-  </Route>
-);
+  });
 
+  return (
+    <Route>
+      {
+        props.loggedIn || localStorage.getItem('jwt') ? <Component {...props} /> : <Redirect to='./'/>
+      }
+    </Route>
+  );
+};
 export default ProtectedRoute;

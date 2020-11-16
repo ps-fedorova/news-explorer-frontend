@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Route, Switch, useLocation, useHistory,
+  Route, Switch, useLocation, useHistory, Redirect,
 } from 'react-router-dom';
 
 import CurrentUserContext from '../../contexts/CurrentUserContext';
@@ -150,7 +150,7 @@ function App() {
           setRegisterOpen(false);
           setInfoTooltipOpen(true);
         } else {
-          setAuthError(res.message).finally(() => setDisabled(false));
+          setAuthError(res.message);
         }
       })
       .finally(() => setDisabled(false));
@@ -182,14 +182,6 @@ function App() {
       })
       .finally(() => setDisabled(false));
   }
-
-  // Открывать попап с Авторизацией,
-  // если незалогиненный пользователь пришёл по роуту с сохранёнками
-  React.useEffect(() => {
-    if (!loggedIn && pathname === '/saved-news') {
-      setLoginOpen(true);
-    }
-  }, [loggedIn, pathname]);
 
   // Выход
   function handleSignOut() {
@@ -334,12 +326,16 @@ function App() {
         <ProtectedRoute
             path="/saved-news"
             component={SavedNews}
+            setLoginOpen={setLoginOpen}
             savedArticlesArray={savedArticlesArray}
             pathname={pathname}
             loggedIn={loggedIn}
             valueSearchInput={valueSearchInput}
             deleteAnArticleFromTheSavedList={deleteAnArticleFromTheSavedList}
         />
+        <Route>
+          <Redirect to="/" />
+        </Route>
       </Switch>
       <Footer/>
       <Login
