@@ -1,5 +1,6 @@
 .news-card {
   background-color: white;
+  /*background-color: seagreen;*/
   display: flex;
   flex-direction: column;
   position: relative;
@@ -120,8 +121,7 @@
   flex-direction: column;
   width: 100%;
   flex-grow: 1;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 0 24px 24px 24px;
   box-sizing: border-box;
 }
 
@@ -181,9 +181,10 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
-  overflow: hidden;
   height: 86px;
   margin: 20px 0 21px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
