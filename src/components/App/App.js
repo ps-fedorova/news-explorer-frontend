@@ -118,7 +118,10 @@ function App() {
       .then((news) => {
         setSavedArticlesArray(news.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        localStorage.removeItem('jwt');
+      });
   }
 
   // Взять куку, если есть
@@ -131,7 +134,10 @@ function App() {
           setCurrentUser(res.name);
           getSavedArticles();
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          localStorage.removeItem('jwt');
+        });
     }
   }, []);
 
