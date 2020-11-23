@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Button from '../Button/Button';
 import ButtonBurgerMenu from '../ButtonBurgerMenu/ButtonBurgerMenu';
 import MenuMobile from '../MenuMobile/MenuMobile';
@@ -11,35 +11,17 @@ import logoutMain from '../../images/logout_main.svg';
 import logoutSavedNews from '../../images/logout_saved_news.svg';
 
 function Header(props) {
-  const [isMenuMobile, setMenuMobile] = React.useState(false);
-  const [classBurgerMenu, setClassBurgerMenu] = React.useState('');
-  const [isShowMenu, setIsShowMenu] = React.useState('');
-  const [isShowOverlay, setIsShowOverlay] = React.useState('');
+  const currentUser = React.useContext(CurrentUserContext);
 
-  function handleMenuMobile() {
-    setMenuMobile(!isMenuMobile);
-  }
-
-  function showMenu() {
-    if (classBurgerMenu === 'button-burger-menu_open') {
-      setClassBurgerMenu('');
-      setIsShowOverlay('');
-      handleMenuMobile();
-    } else {
-      setClassBurgerMenu('button-burger-menu_open');
-      setIsShowOverlay('header__overlay_open');
-      handleMenuMobile();
-    }
-    if (isShowMenu === '') {
-      setIsShowMenu('menu-mobile_open');
-    } else {
-      setIsShowMenu('');
-    }
-  }
+  const main = (props.pathname === '/' || props.isMenuMobile);
+  const classNameLogo = `header__logo ${main ? '' : 'header__logo_saved-news'}`;
+  const classNameTextBtn = `header__text header__text_button ${main ? '' : 'header__text_saved-news'}`;
+  const logout = main ? logoutMain : logoutSavedNews;
+  const classBackground = `header__background-img ${main ? '' : 'header__background-img_saved-news'}`;
 
   function handleEsc(evt) {
-    if (evt.key === 'Escape' && isMenuMobile) {
-      showMenu();
+    if (evt.key === 'Escape' && props.isMenuMobile) {
+      props.showMenu();
     }
   }
 
@@ -52,16 +34,10 @@ function Header(props) {
   });
 
   function handleOverlayClose() {
-    if (isMenuMobile) {
-      showMenu();
+    if (props.isMenuMobile) {
+      props.showMenu();
     }
   }
-
-  const main = (props.pathname === '/' || isMenuMobile);
-  const classNameLogo = `header__logo ${main ? '' : 'header__logo_saved-news'}`;
-  const classNameTextBtn = `header__text header__text_button ${main ? '' : 'header__text_saved-news'}`;
-  const logout = main ? logoutMain : logoutSavedNews;
-  const classBackground = `header__background-img ${main ? '' : 'header__background-img_saved-news'}`;
 
   return (
     <>
@@ -86,22 +62,25 @@ function Header(props) {
 
               {props.loggedIn
                 ? <Button
+                  title="Выход"
+                  value={currentUser}
                   pathname={props.pathname}
                   image={true}
                   header={true}
                   classNameImgBtn="header__button-img"
                   classNameTextBtn={classNameTextBtn}
-                  value="Грета"
                   src={logout}
                   alt="Выход"
+                  onClick={props.onClick}
                 />
 
                 : < Button
+                  title="Авторизоваться"
+                  value="Авторизоваться"
                   pathname={props.pathname}
                   header={true}
                   classNameImgBtn="header__button-img"
                   classNameTextBtn={classNameTextBtn}
-                  value="Авторизоваться"
                   onClick={props.onClick}
                 />
               }
@@ -109,18 +88,20 @@ function Header(props) {
             </div>
           </div>
           <ButtonBurgerMenu
-            handleMenuMobile={handleMenuMobile} pathname={props.pathname}
-            showMenu={showMenu} classBurgerMenu={classBurgerMenu} isMenuMobile={isMenuMobile}
+            pathname={props.pathname}
+            showMenu={props.showMenu}
+            classBurgerMenu={props.classBurgerMenu}
+            isMenuMobile={props.isMenuMobile}
           />
         </div>
         <MenuMobile
-          isShowMenu={isShowMenu}
+          isShowMenu={props.isShowMenu}
           loggedIn={props.loggedIn}
           logout={logout}
           onClick={props.onClick}
         />
         {/* включить */}
-        <div onClick={handleOverlayClose} className={`header__overlay ${isShowOverlay}`}/>
+        <div onClick={handleOverlayClose} className={`header__overlay ${props.isShowOverlay}`}/>
       </header>
     </>
   );

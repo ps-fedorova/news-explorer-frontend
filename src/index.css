@@ -1,5 +1,5 @@
 /** {*/
-/*  outline: black 1px solid;*/
+/*  outline: lightgreen 1px solid;*/
 /*}*/
 
 /** {*/
@@ -47,4 +47,10 @@ code {
   .page {
     margin: 0 16px;
   }
+}
+
+.page__container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

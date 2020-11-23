@@ -14,6 +14,7 @@ export default function Login(props) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    props.handleLogin(values.email, values.password);
   }
   return (
     <PopupForm
@@ -22,9 +23,11 @@ export default function Login(props) {
       isOpen={props.isOpen}
       onClose={props.onClose}
       onChangeForm={props.onChangeForm}
-      onSubmit={handleSubmit}
+      handleSubmit={handleSubmit}
       submitButtonText='Войти'
       isDisabled={!isValid}
+      authError={props.authError}
+      disabled={props.disabled}
     >
       <PopupInput
         label='Email'
@@ -36,6 +39,7 @@ export default function Login(props) {
         onChange={handleChange}
         errors={errors.email}
         value={values.email || ''}
+        disabled={props.disabled}
       />
       <PopupInput
         label='Пароль'
@@ -49,6 +53,7 @@ export default function Login(props) {
         onChange={handleChange}
         errors={errors.password}
         value={values.password || ''}
+        disabled={props.disabled}
       />
     </PopupForm>
   );

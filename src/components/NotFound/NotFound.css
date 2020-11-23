@@ -13,6 +13,19 @@
   background-color: #F5F6F7;
 }
 
+.not-found__title {
+  font-family: Roboto Slab, Georgia, 'Times New Roman', Times, monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+  text-align: center;
+  color: #1A1B22;
+  max-width: 342px;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
 .not-found__text {
   font-family: 'Roboto', 'Inter', 'Arial', sans-serif;
   font-weight: 400;
@@ -20,8 +33,8 @@
   line-height: 24px;
   text-align: center;
   color: #B6BCBF;
-  margin: 0;
   max-width: 342px;
+  margin: 0 16px;
 }
 
 @media screen and (max-width: 960px) {
@@ -33,5 +46,12 @@
 @media screen and (max-width: 500px) {
   .not-found {
     margin: 0 -16px;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .not-found__text {
+    font-size: 16px;
+    max-width: 300px;
   }
 }

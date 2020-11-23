@@ -8,13 +8,14 @@ export default function Register(props) {
     values, handleChange, errors, isValid, resetForm,
   } = useFormWithValidation();
 
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    props.handleRegister(values.email, values.password, values.name);
+  }
+
   React.useEffect(() => {
     resetForm();
   }, [props.isOpen, resetForm]);
-
-  function handleSubmit(evt) {
-    evt.preventDefault();
-  }
 
   return (
     <PopupForm
@@ -27,6 +28,8 @@ export default function Register(props) {
       onSubmit={handleSubmit}
       submitButtonText='Зарегистрироваться'
       isDisabled={!isValid}
+      authError={props.authError}
+      disabled={props.disabled}
     >
       <PopupInput
         label='Email'
@@ -38,6 +41,7 @@ export default function Register(props) {
         onChange={handleChange}
         errors={errors.email}
         value={values.email || ''}
+        disabled={props.disabled}
       />
       <PopupInput
         label='Пароль'
@@ -51,6 +55,7 @@ export default function Register(props) {
         onChange={handleChange}
         errors={errors.password}
         value={values.password || ''}
+        disabled={props.disabled}
       />
       <PopupInput
         label='Имя'
@@ -58,13 +63,14 @@ export default function Register(props) {
         name='name'
         formName='reg'
         minLength='2'
-        maxLength='30'
+        maxLength='10'
         inputLabelClassName='popup__input-label'
         inputFieldClassName='popup__input'
         placeholder='Введите имя'
         onChange={handleChange}
         errors={errors.name}
         value={values.name || ''}
+        disabled={props.disabled}
       />
     </PopupForm>
   );

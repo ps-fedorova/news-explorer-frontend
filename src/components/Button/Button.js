@@ -24,7 +24,7 @@ function Button(props) {
 
         // если кнопка содержит картинку (как в хедере)
         ? <span className="button__container button__container_position">
-          <span className={`button__text ${props.classNameTextBtn}`} title={props.value}>
+          <span className={`button__text ${props.classNameTextBtn}`} title={props.title}>
             {props.value}
           </span>
           <img className={props.classNameImgBtn} src={props.src} alt={props.alt}/>
@@ -32,7 +32,7 @@ function Button(props) {
 
         // если в кнопке только текст
         : <span className="button__container">
-          <span className={`button__text ${props.classNameTextBtn}`} title={props.value}>
+          <span className={`button__text ${props.classNameTextBtn}`} title={props.title}>
             {props.value}
           </span>
         </span>

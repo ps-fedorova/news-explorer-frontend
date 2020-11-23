@@ -115,7 +115,8 @@
   width: 360px;
   background-color: #2F71E5;
   border: none;
-  margin: 42px 0 15px;
+  margin: 0 0 15px;
+  transition: background 0.5s ease;
 }
 
 .popup__button:hover {
@@ -137,12 +138,13 @@
 }
 
 .popup__warning {
-  display: block;
-  position: absolute;
-  font-size: 12px;
+  min-height: 42px;
+  font-size: 13px;
   color: red;
-  margin-bottom: -2px;
-  margin-top: calc(100% - 153px);
+  display: flex;
+  align-items: flex-end;
+  margin: 5px auto 8px;
+  text-align: center;
 }
 
 @media screen and (max-width: 532px) {
@@ -180,6 +182,6 @@
     width: 288px;
   }
   .popup__warning {
-    margin-top: calc(100% - 44px);
+    font-size: 10px;
   }
 }
