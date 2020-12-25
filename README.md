@@ -15,8 +15,6 @@ _! На данный момент приложение доступно толь
 
 #### Проект выполнен на **React**
 
-Макет: https://www.figma.com/file/Dhl21eRzzbFMBe0DU9SglF/Diploma-WEB-v2.0-(for-students)?node-id=6%3A116  
-
 Backend: https://github.com/ps-fedorova/news-explorer-api  
 Стороннее API: https://newsapi.org
 
